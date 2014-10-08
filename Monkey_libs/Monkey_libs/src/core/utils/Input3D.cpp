@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 neil. All rights reserved.
 //
 
-#include "Input3D.h"
+#include "core/utils/Input3D.h"
 
 NS_MONKEY_BEGIN
 
@@ -94,7 +94,7 @@ void Input3D::doubleClick(float *xs, float *ys, int num) {
     _mouseDoubleClick = _currFrame + 1;
 }
 
-void Input3D::keyDown(int keycode) {
+void Input3D::keyDown(KeyboardEvent::KeyCode keycode) {
     if (!_downs[keycode]) {
         _hits[keycode] = _currFrame + 1;
     }
@@ -102,7 +102,7 @@ void Input3D::keyDown(int keycode) {
     _keyCode = keycode;
 }
 
-void Input3D::keyUp(int keycode) {
+void Input3D::keyUp(KeyboardEvent::KeyCode  keycode) {
     _downs[keycode] = 0;
     _hits[keycode]  = 0;
     _ups[keycode]   = _currFrame + 1;
@@ -113,7 +113,7 @@ int Input3D::getKeycode() {
     return _keyCode;
 }
 
-bool Input3D::isKeydown(int keycode) {
+bool Input3D::isKeydown(KeyboardEvent::KeyCode keycode) {
     return _downs[keycode] > 0;
 }
 

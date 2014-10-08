@@ -34,7 +34,7 @@ void Scene2D::render(Camera3D* camera, bool clearDepth) {
     bool doRender = false;
     if (!_paused) {
         doRender = true;
-        _renderEvent->reset();
+        _renderEvent.reset();
         dispatchEvent(_renderEvent);
     }
     

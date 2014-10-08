@@ -60,7 +60,7 @@ void Quad::setAnchor(float x, float y) {
 
 
 void Quad::draw(bool includeChildren, Material3D* shader) {
-    _enterDrawEvent->reset();
+    _enterDrawEvent.reset();
     dispatchEvent(_enterDrawEvent);
     
     if (inView() && _visible) {
@@ -85,7 +85,7 @@ void Quad::draw(bool includeChildren, Material3D* shader) {
         }
     }
     
-    _exitDrawEvent->reset();
+    _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);
 }
 

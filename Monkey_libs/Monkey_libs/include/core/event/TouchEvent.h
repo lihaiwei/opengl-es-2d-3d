@@ -19,39 +19,35 @@ class TouchEvent : public Event {
     
 public:
     
-    /**
-     *  TouchBegan OR Mouse_Down
-     */
+    // 左键
     static const std::string TOUCH_BEGAN;
-    /**
-     *  TouchMove OR Mouse_Move
-     */
-    static const std::string TOUCH_MOVE;
-    /**
-     *  TouchEnd OR Mouse_Up
-     */
     static const std::string TOUCH_END;
-    /**
-     *  TouchIn OR MouseIN
-     */
-    static const std::string TOUCH_IN;
-    /**
-     *  TouchOut OR MouseOut
-     */
-    static const std::string TOUCH_OUT;
+    static const std::string TOUCH_HIT;
+    // 右键
     static const std::string RIGHT_MOUSE_DOWN;
     static const std::string RIGHT_MOUSE_UP;
     static const std::string RIGHT_MOUSE_CLICK;
+    // 中键
     static const std::string MIDDLE_MOUSE_DOWN;
     static const std::string MIDDLE_MOUSE_UP;
     static const std::string MIDDLE_MOUSE_CLICK;
+    // mouse
+    static const std::string TOUCH_MOVE;
+    static const std::string TOUCH_IN;
+    static const std::string TOUCH_OUT;
+    static const std::string MOUSE_WHEEL;
     
-    TouchEvent(std::string type, bool bubbles, const Point2D *mpoints, const int ssize);
+    TouchEvent(std::string type, bool bubbles, const Point2D *mpoints = nullptr, const int ssize = 0);
     virtual ~TouchEvent();
     
     const Point2D *points;
     const int size;
-    
+    // mouse wheel
+    float deltaX;
+    float deltaY;
+    // mouse (x,y)
+    float mouseX;
+    float mouseY;
 };
 
 typedef TouchEvent MouseEvent;

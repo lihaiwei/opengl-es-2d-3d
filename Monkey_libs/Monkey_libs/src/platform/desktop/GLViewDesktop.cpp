@@ -13,6 +13,8 @@
 #include "core/event/KeyboardEvent.h"
 #include "core/utils/Input3D.h"
 #include "core/event/TouchEvent.h"
+#include "core/event/KeyboardEvent.h"
+
 #include "App.h"
 
 #include <float.h>
@@ -360,6 +362,15 @@ void GLViewDesktop::onGLFWError(int errorID, const char *errorDesc) {
     LOGE("GLFWError #%d Happen, %s\n", errorID, errorDesc);
 }
 
+/**
+ *  glfw鼠标回调
+ *  TODO:...
+ *
+ *  @param window window
+ *  @param button button
+ *  @param action action
+ *  @param modify modify
+ */
 void GLViewDesktop::onGLFWMouseCallBack(GLFWwindow *window, int button, int action, int modify) {
     
     Point2D *point = new Point2D(_mouseX, _mouseY);
@@ -367,65 +378,80 @@ void GLViewDesktop::onGLFWMouseCallBack(GLFWwindow *window, int button, int acti
     switch (button) {
         case GLFW_MOUSE_BUTTON_LEFT:
             if (GLFW_PRESS == action) {
+                MouseEvent event(MouseEvent::TOUCH_BEGAN, true, point, 1);
+                App::getInstance()->handleTouchesBegan(event);
+                
                 Input3D::mouseDown(&_mouseX, &_mouseY, 1);
-                App::getInstance()->handleTouchesBegan(point, 1, MouseEvent::TOUCH_BEGAN);
             } else if (GLFW_RELEASE == action) {
+                MouseEvent event(MouseEvent::TOUCH_END, true, point, 1);
+                App::getInstance()->handleTouchesEnd(event);
+                
                 Input3D::mouseUP(&_mouseX, &_mouseY, 1);
-                App::getInstance()->handleTouchesEnd(point, 1, MouseEvent::TOUCH_END);
             }
             break;
         case GLFW_MOUSE_BUTTON_RIGHT:
             if (GLFW_PRESS == action) {
+                MouseEvent event(MouseEvent::RIGHT_MOUSE_DOWN, true, point, 1);
+                App::getInstance()->handleTouchesBegan(event);
+                
                 Input3D::rightMouseDown(&_mouseX, &_mouseY, 1);
-                App::getInstance()->handleTouchesBegan(point, 1, MouseEvent::RIGHT_MOUSE_DOWN);
             } else if (GLFW_RELEASE == action) {
+                MouseEvent event(MouseEvent::RIGHT_MOUSE_UP, true, point, 1);
+                App::getInstance()->handleTouchesEnd(event);
+                
                 Input3D::rightMouseUp(&_mouseX, &_mouseY, 1);
-                App::getInstance()->handleTouchesEnd(point, 1, MouseEvent::RIGHT_MOUSE_UP);
             }
             break;
         case GLFW_MOUSE_BUTTON_MIDDLE:
             if (GLFW_PRESS == action) {
+                MouseEvent event(MouseEvent::MIDDLE_MOUSE_DOWN, true, point, 1);
+                App::getInstance()->handleTouchesBegan(event);
+                
                 Input3D::middleMouseDown(&_mouseX, &_mouseY, 1);
-                App::getInstance()->handleTouchesBegan(point, 1, MouseEvent::MIDDLE_MOUSE_DOWN);
             } else if (GLFW_RELEASE == action) {
+                MouseEvent event(MouseEvent::MIDDLE_MOUSE_UP, true, point, 1);
+                App::getInstance()->handleTouchesEnd(event);
+                
                 Input3D::middleMouseUp(&_mouseX, &_mouseY, 1);
-                App::getInstance()->handleTouchesEnd(point, 1, MouseEvent::MIDDLE_MOUSE_UP);
             }
             break;
         default:
             break;
     }
     
-    delete point;
+    free(point);
 }
 
 void GLViewDesktop::onGLFWMouseMoveCallBack(GLFWwindow *window, double x, double y) {
-    
-    _mouseX = (float)x;
-    _mouseY = (float)y;
-    
-    _mouseX *= this->getContentScaleFactor();
-    _mouseY *= this->getContentScaleFactor();
+    _mouseX = (float)x * getContentScaleFactor();
+    _mouseY = (float)y * getContentScaleFactor();
     
     Point2D *point = new Point2D(_mouseX, _mouseY);
-    
+    MouseEvent event(MouseEvent::TOUCH_MOVE, false, point, 1);
+    App::getInstance()->handleTouchesMove(event);
     Input3D::mouseMove(&_mouseX, &_mouseY, 1);
-    App::getInstance()->handleTouchesMove(point, 1, MouseEvent::TOUCH_MOVE);
     
-    delete point;
+    free(point);
 }
 
 void GLViewDesktop::onGLFWMouseScrollCallback(GLFWwindow *window, double x, double y) {
     Input3D::mouseWheel((float)x, (float)y);
-    App::getInstance()->handleMouseWheel(x, y);
+    MouseEvent event(MouseEvent::MOUSE_WHEEL, true);
+    event.deltaX = x;
+    event.deltaY = y;
+    App::getInstance()->handleMouseWheelEvent(event);
 }
 
 void GLViewDesktop::onGLFWKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
     if (GLFW_REPEAT != action) {
         if (GLFW_PRESS == action) {
-            Input3D::keyDown(key);
+            Input3D::keyDown(g_keyCodeMap[key]);
+            KeyboardEvent e(KeyboardEvent::KEY_DOWN, g_keyCodeMap[key]);
+            App::getInstance()->handleKeyDownEvent(e);
         } else if (GLFW_RELEASE == action) {
-            Input3D::keyUp(key);
+            KeyboardEvent e(KeyboardEvent::KEY_UP, g_keyCodeMap[key]);
+            Input3D::keyUp(g_keyCodeMap[key]);
+            App::getInstance()->handleKeyUpEvent(e);
         }
     }
 }

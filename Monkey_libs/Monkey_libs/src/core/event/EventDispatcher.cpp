@@ -49,25 +49,25 @@ void EventDispatcher::addEventListener(std::string type, Object *monitor, const 
     }
 }
 
-void EventDispatcher::dispatchEvent(Event *event) {
+void EventDispatcher::dispatchEvent(Event &event) {
     
-    if (event->getEventPhase() == Event::EventPhase::AT_TARGET) {
-        event->setTarget(this);
+    if (event.getEventPhase() == Event::EventPhase::AT_TARGET) {
+        event.setTarget(this);
     }
-    if (event->isBubbles()) {
-        event->setEventPhase(Event::EventPhase::BUBBLING_PHASE);
+    if (event.isBubbles()) {
+        event.setEventPhase(Event::EventPhase::BUBBLING_PHASE);
     } else {
-        event->setTarget(this);
-        event->setEventPhase(Event::EventPhase::AT_TARGET);
+        event.setTarget(this);
+        event.setEventPhase(Event::EventPhase::AT_TARGET);
     }
     
-    event->setCurrentTarget(this);
+    event.setCurrentTarget(this);
     
-    if (event->isImmediatePropagation()) {
+    if (event.isImmediatePropagation()) {
         return;
     }
     
-    auto it = _listenersDict.find(event->type);
+    auto it = _listenersDict.find(event.type);
     if (it == _listenersDict.end()) {
         return;
     }
@@ -75,7 +75,7 @@ void EventDispatcher::dispatchEvent(Event *event) {
     int idx = 0;
     for (auto listener = (it->second).begin(); listener != (it->second).end(); ++listener) {
         EventFunction func = *listener;
-        Object *_sender = (_monitorDict.find(event->type)->second).at(idx);
+        Object *_sender = (_monitorDict.find(event.type)->second).at(idx);
         (_sender->*func)(event);
         idx++;
     }

@@ -7,9 +7,13 @@
 //
 
 #include "platform/PlatformConfig.h"
+
 #include "core/scene/Scene.h"
 #include "core/camera/Camera3D.h"
 #include "core/camera/lens/OrthographicLens.h"
+#include "core/event/TouchEvent.h"
+#include "core/event/KeyboardEvent.h"
+
 #include "App.h"
 
 #include <algorithm>
@@ -22,11 +26,11 @@ const std::string Scene::POSTRENDER_EVENT   = "POSTRENDER_EVENT";
 const std::string Scene::PRERENDER_EVENT    = "PRERENDER_EVENT";
 const std::string Scene::SOFT_MODE_EVENT    = "SOFT_MODE_EVENT";
 
-Event* Scene::_postRenderEvent = new Event(POSTRENDER_EVENT,  false);
-Event* Scene::_preRenderEvent  = new Event(PRERENDER_EVENT,   false);
-Event* Scene::_pausedEvent     = new Event(PAUSED_EVENT,      false);
-Event* Scene::_renderEvent     = new Event(RENDER_EVENT,      false);
-Event* Scene::_softEvent       = new Event(SOFT_MODE_EVENT,   false);
+Event Scene::_postRenderEvent = Event(POSTRENDER_EVENT,  false);
+Event Scene::_preRenderEvent  = Event(PRERENDER_EVENT,   false);
+Event Scene::_pausedEvent     = Event(PAUSED_EVENT,      false);
+Event Scene::_renderEvent     = Event(RENDER_EVENT,      false);
+Event Scene::_softEvent       = Event(SOFT_MODE_EVENT,   false);
 
 Scene::Scene() :
 Pivot3D(),
@@ -96,14 +100,14 @@ void Scene::setFrameRate(float value) {
 
 void Scene::enterScene(float advancedTime) {
     
-    _enterFrameEvent->reset();
+    _enterFrameEvent.reset();
     dispatchEvent(_enterFrameEvent);
     
     if (!_paused) {
         update(advancedTime, true);
         _updated = true;
     } else {
-        _pausedEvent->reset();
+        _pausedEvent.reset();
         dispatchEvent(_pausedEvent);
     }
     
@@ -114,19 +118,19 @@ void Scene::enterScene(float advancedTime) {
         if (!_paused) {
             skipRender = false;
             // prerender
-            _preRenderEvent->reset();
+            _preRenderEvent.reset();
             dispatchEvent(_preRenderEvent);
             // render
             if (!skipRender) {
                 render(_camera, false);
             }
             // posrender
-            _postRenderEvent->reset();
+            _postRenderEvent.reset();
             dispatchEvent(_postRenderEvent);
         }
     }
     
-    _exitFrameEvent->reset();
+    _exitFrameEvent.reset();
     dispatchEvent(_exitFrameEvent);
     
 }
@@ -147,7 +151,7 @@ void Scene::draw(bool includeChildren, Material3D* shader) {
 }
 
 void Scene::update(float advancedTime, bool includeChildren) {
-    _updateEvent->reset();
+    _updateEvent.reset();
     dispatchEvent(_updateEvent);
     
     _updateLength = (int)_updateList.size();
@@ -168,7 +172,7 @@ void Scene::render(Camera3D* camera, bool clearDepth) {
     bool doRender = false;
     if (!_paused) {
         doRender = true;
-        _renderEvent->reset();
+        _renderEvent.reset();
         dispatchEvent(_renderEvent);
     }
     
@@ -279,6 +283,30 @@ void Scene::addToScene(Pivot3D *pivot, bool update, bool render) {
         }
         _renderList.insert(_renderList.begin() + middle, pivot);
     }
+}
+
+void Scene::handleTouchesBegan(monkey::TouchEvent &event) {
+    
+}
+
+void Scene::handleTouchesEnd(monkey::TouchEvent &event) {
+    
+}
+
+void Scene::handleTouchMove(monkey::TouchEvent &event) {
+    
+}
+
+void Scene::handleMouseWheel(monkey::TouchEvent &event) {
+    
+}
+
+void Scene::handleKeyDown(monkey::KeyboardEvent &event) {
+    
+}
+
+void Scene::handleKeyUp(monkey::KeyboardEvent &event) {
+    
 }
 
 void Scene::setLayerSortMode(int layer, SortMode mode) {

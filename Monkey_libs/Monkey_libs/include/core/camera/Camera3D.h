@@ -21,7 +21,7 @@ public:
     
     const static std::string LENS_CHANGE_EVENT;
     
-    static Event* _lensChangeEvent;
+    static Event _lensChangeEvent;
     
     Camera3D(LensBase *lens = nullptr);
     virtual ~Camera3D();

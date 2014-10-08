@@ -22,10 +22,10 @@ class Event;
 
 /**
  *  定义回调函数
- *  @param Event* 事件
+ *  @param Event 事件
  *  @return
  */
-typedef void (Object::*EventFunction)(Event *e);
+typedef void (Object::*EventFunction)(Event &e);
 #define EVENT_CALLBACK(_FUNC) (EventFunction)(&_FUNC)
 
 class EventDispatcher : public Object {
@@ -45,7 +45,7 @@ public:
      *  派发事件
      *  @param event 事件
      */
-    virtual void dispatchEvent(Event *event);
+    virtual void dispatchEvent(Event &event);
     /**
      *  是否存在监听器
      *  @param type  事件类型

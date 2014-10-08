@@ -13,7 +13,7 @@ NS_MONKEY_BEGIN
 
 const std::string LensBase::PROJECTION_UPDATE_EVNET = "PROJECTION_UPDATE_EVNET";
 
-Event* LensBase::_projectionUpdateEvent = new Event(PROJECTION_UPDATE_EVNET, false);
+Event LensBase::_projectionUpdateEvent(PROJECTION_UPDATE_EVNET, false);
 
 LensBase::LensBase() : EventDispatcher(), _dirty(true) {
     _projection.identity();
@@ -34,7 +34,7 @@ Matrix3D& LensBase::getProjection() {
 void LensBase::updateProjectionMatrix() {
     _dirty = false;
     if (hasEventListener(PROJECTION_UPDATE_EVNET)) {
-        _projectionUpdateEvent->reset();
+        _projectionUpdateEvent.reset();
         dispatchEvent(_projectionUpdateEvent);
     }
 }

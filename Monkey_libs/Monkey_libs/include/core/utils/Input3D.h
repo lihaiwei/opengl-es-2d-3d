@@ -11,6 +11,7 @@
 
 #include "platform/PlatformMacros.h"
 #include "core/base/Object.h"
+#include "core/event/KeyboardEvent.h"
 
 #include <vector>
 
@@ -18,113 +19,12 @@ NS_MONKEY_BEGIN
 
 class Input3D : public Object {
     
-public:
-    
-    static const unsigned int A = 65;
-    static const unsigned int B = 66;
-    static const unsigned int C = 67;
-    static const unsigned int D = 68;
-    static const unsigned int E = 69;
-    static const unsigned int F = 70;
-    static const unsigned int G = 71;
-    static const unsigned int H = 72;
-    static const unsigned int I = 73;
-    static const unsigned int J = 74;
-    static const unsigned int K = 75;
-    static const unsigned int L = 76;
-    static const unsigned int M = 77;
-    static const unsigned int N = 78;
-    static const unsigned int O = 79;
-    static const unsigned int P = 80;
-    static const unsigned int Q = 81;
-    static const unsigned int R = 82;
-    static const unsigned int S = 83;
-    static const unsigned int T = 84;
-    static const unsigned int U = 85;
-    static const unsigned int V = 86;
-    static const unsigned int W = 87;
-    static const unsigned int X = 88;
-    static const unsigned int Y = 89;
-    static const unsigned int Z = 90;
-    static const unsigned int ALTERNATE = 18;
-    static const unsigned int BACKQUOTE = 192;
-    static const unsigned int BACKSLASH = 220;
-    static const unsigned int BACKSPACE = 8;
-    static const unsigned int CAPS_LOCK = 20;
-    static const unsigned int COMMA = 188;
-    static const unsigned int COMMAND = 19;
-    static const unsigned int CONTROL = 17;
-    static const unsigned int DELETE = 46;
-    static const unsigned int DOWN = 40;
-    static const unsigned int END = 35;
-    static const unsigned int ENTER = 13;
-    static const unsigned int EQUAL = 187;
-    static const unsigned int ESCAPE = 27;
-    static const unsigned int F1 = 112;
-    static const unsigned int F10 = 121;
-    static const unsigned int F11 = 122;
-    static const unsigned int F12 = 123;
-    static const unsigned int F13 = 124;
-    static const unsigned int F14 = 125;
-    static const unsigned int F15 = 126;
-    static const unsigned int F2 = 113;
-    static const unsigned int F3 = 114;
-    static const unsigned int F4 = 115;
-    static const unsigned int F5 = 116;
-    static const unsigned int F6 = 117;
-    static const unsigned int F7 = 118;
-    static const unsigned int F8 = 119;
-    static const unsigned int F9 = 120;
-    static const unsigned int HOME = 36;
-    static const unsigned int INSERT = 45;
-    static const unsigned int LEFT = 37;
-    static const unsigned int LEFTBRACKET = 219;
-    static const unsigned int MINUS = 189;
-    static const unsigned int NUMBER_0 = 48;
-    static const unsigned int NUMBER_1 = 49;
-    static const unsigned int NUMBER_2 = 50;
-    static const unsigned int NUMBER_3 = 51;
-    static const unsigned int NUMBER_4 = 52;
-    static const unsigned int NUMBER_5 = 53;
-    static const unsigned int NUMBER_6 = 54;
-    static const unsigned int NUMBER_7 = 55;
-    static const unsigned int NUMBER_8 = 56;
-    static const unsigned int NUMBER_9 = 57;
-    static const unsigned int NUMPAD = 21;
-    static const unsigned int NUMPAD_0 = 96;
-    static const unsigned int NUMPAD_1 = 97;
-    static const unsigned int NUMPAD_2 = 98;
-    static const unsigned int NUMPAD_3 = 99;
-    static const unsigned int NUMPAD_4 = 100;
-    static const unsigned int NUMPAD_5 = 101;
-    static const unsigned int NUMPAD_6 = 102;
-    static const unsigned int NUMPAD_7 = 103;
-    static const unsigned int NUMPAD_8 = 104;
-    static const unsigned int NUMPAD_9 = 105;
-    static const unsigned int NUMPAD_ADD = 107;
-    static const unsigned int NUMPAD_DECIMAL = 110;
-    static const unsigned int NUMPAD_DIVIDE = 111;
-    static const unsigned int NUMPAD_ENTER = 108;
-    static const unsigned int NUMPAD_MULTIPLY = 106;
-    static const unsigned int NUMPAD_SUBTRACT = 109;
-    static const unsigned int PAGE_DOWN = 34;
-    static const unsigned int PAGE_UP = 33;
-    static const unsigned int PERIOD = 190;
-    static const unsigned int QUOTE = 222;
-    static const unsigned int RIGHT = 39;
-    static const unsigned int RIGHTBRACKET = 221;
-    static const unsigned int SEMICOLON = 186;
-    static const unsigned int SHIFT = 16;
-    static const unsigned int SLASH = 191;
-    static const unsigned int SPACE = 32;
-    static const unsigned int TAB = 9;
-    static const unsigned int UP = 38;
-    
 private:
     
     static std::vector<unsigned int> _ups;
     static std::vector<unsigned int> _downs;
     static std::vector<unsigned int> _hits;
+    
     static int _keyCode;
     static float _deltaX;
     static float _deltaY;
@@ -223,12 +123,12 @@ public:
      *  key down
      *  @param keycode 键code
      */
-    static void keyDown(int keycode);
+    static void keyDown(KeyboardEvent::KeyCode keycode);
     /**
      *  key up
      *  @param keycode
      */
-    static void keyUp(int keycode);
+    static void keyUp(KeyboardEvent::KeyCode keycode);
     /**
      *  get key code
      *  @return
@@ -239,7 +139,7 @@ public:
      *  @param keycode
      *  @return
      */
-    static bool isKeydown(int keycode);
+    static bool isKeydown(KeyboardEvent::KeyCode keycode);
     /**
      *  检测键是否被松开
      *  @param keycode

@@ -341,7 +341,7 @@ USING_NS_MONKEY
         length++;
     }
     // handle events
-    App::getInstance()->handleTouchesBegan(points, length, "");
+//    App::getInstance()->handleTouchesBegan(points, length, "");
     // delete
     delete [] points;
 }
@@ -365,7 +365,7 @@ USING_NS_MONKEY
         size++;
     }
     
-    App::getInstance()->handleTouchesMove(points, size, "");
+//    App::getInstance()->handleTouchesMove(points, size, "");
     
     delete [] points;
 }
@@ -388,7 +388,7 @@ USING_NS_MONKEY
         size++;
     }
     
-    App::getInstance()->handleTouchesEnd(points, size, "");
+//    App::getInstance()->handleTouchesEnd(points, size, "");
     
     delete [] points;
  }

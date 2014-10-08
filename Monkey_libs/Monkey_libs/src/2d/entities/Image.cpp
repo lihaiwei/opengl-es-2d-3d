@@ -174,7 +174,7 @@ void Image::initWithFrameTexture(FrameTexture *frameTexture, float width, float 
 
 void Image::draw(bool includeChildren, Material3D* shader) {
     
-    _enterDrawEvent->reset();
+    _enterDrawEvent.reset();
     dispatchEvent(_enterDrawEvent);
     
     if (inView() && _visible && _texture && _geometry) {
@@ -196,7 +196,7 @@ void Image::draw(bool includeChildren, Material3D* shader) {
         }
     }
     
-    _exitDrawEvent->reset();
+    _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);
 }
 

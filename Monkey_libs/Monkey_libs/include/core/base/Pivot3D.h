@@ -86,19 +86,19 @@ public:
     
 protected:
     
-    static Event* _addedEvent;
-    static Event* _removedEvent;
-    static Event* _addedToSceneEvent;
-    static Event* _removedFromSceneEvent;
-    static Event* _animationCompleteEvent;
-    static Event* _enterFrameEvent;
-    static Event* _exitFrameEvent;
-    static Event* _enterDrawEvent;
-    static Event* _exitDrawEvent;
-    static Event* _updateTransformEvent;
-    static Event* _uploadEvent;
-    static Event* _downLoadEvent;
-    static Event* _updateEvent;
+    static Event _addedEvent;
+    static Event _removedEvent;
+    static Event _addedToSceneEvent;
+    static Event _removedFromSceneEvent;
+    static Event _animationCompleteEvent;
+    static Event _enterFrameEvent;
+    static Event _exitFrameEvent;
+    static Event _enterDrawEvent;
+    static Event _exitDrawEvent;
+    static Event _updateTransformEvent;
+    static Event _uploadEvent;
+    static Event _downLoadEvent;
+    static Event _updateEvent;
     
     // 临时变量
     static Vector3D _tempVec30;

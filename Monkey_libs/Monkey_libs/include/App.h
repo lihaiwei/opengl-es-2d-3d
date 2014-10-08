@@ -24,6 +24,10 @@ NS_MONKEY_BEGIN
 class Value;
 class Scene;
 class Scene2D;
+class LabelFNT;
+class Event;
+class TouchEvent;
+class KeyboardEvent;
 class GLView;
 
 class App : public EventDispatcher {
@@ -227,45 +231,35 @@ public:
      */
     float getRunningTime();
     /**
-     *  handl touches began事件
-     *
-     *  @param points       触摸点集合
-     *  @param size         长度
-     *  @param mouseType    鼠标类型
+     *  handle touch began event
+     *  @param event
      */
-    void handleTouchesBegan(Point2D *points, int length, const std::string &mouseType);
+    void handleTouchesBegan(TouchEvent &event);
     /**
-     *  handle touches move事件
-     *
-     *  @param points       触摸点集合
-     *  @param lenght       长度
-     *  @param mosueType    鼠标类型
+     *  handle touch move event
+     *  @param event
      */
-    void handleTouchesMove(Point2D *points, int lenght, const std::string &mouseType);
+    void handleTouchesMove(TouchEvent &event);
     /**
-     *  handle touches end事件
-     *
-     *  @param points       触摸点集合
-     *  @param length       长度
-     *  @param mouseType    鼠标类型
+     *  handle touch end event
+     *  @param event
      */
-    void handleTouchesEnd(Point2D *points, int length, const std::string &mouseType);
+    void handleTouchesEnd(TouchEvent &event);
     /**
-     *  handle mouse wheel事件
-     *  @param x deltaX
-     *  @param y deltaY
+     *  handle mousewheel event
+     *  @param event
      */
-    void handleMouseWheel(float x, float y);
+    void handleMouseWheelEvent(TouchEvent &event);
     /**
-     *  handle keydown
-     *  @param keycode
+     *  handle key down event
+     *  @param event
      */
-    void handleKeyDown(int keycode);
+    void handleKeyDownEvent(KeyboardEvent &event);
     /**
-     *  handle keyup
-     *  @param keycode
+     *  handle key up event
+     *  @param event
      */
-    void handleKeyUp(int keycode);
+    void handleKeyUpEvent(KeyboardEvent &event);
     
 private:
     
@@ -288,6 +282,7 @@ private:
     std::vector<Scene*>   _scene3DList;
     
     struct timeval  start_time;
+    LabelFNT*       _status;
     float           _preTime;
     float           _fps;
     bool            _showStats;

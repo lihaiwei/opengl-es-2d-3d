@@ -12,7 +12,7 @@
 NS_MONKEY_BEGIN
 
 const std::string Camera3D::LENS_CHANGE_EVENT = "LENS_CHANGE_EVENT";
-Event* Camera3D::_lensChangeEvent = new Event(LENS_CHANGE_EVENT, false);
+Event Camera3D::_lensChangeEvent = Event(LENS_CHANGE_EVENT, false);
 
 Camera3D::Camera3D(LensBase *lens) : Pivot3D(), _lens(lens) {
     _viewProjection.identity();

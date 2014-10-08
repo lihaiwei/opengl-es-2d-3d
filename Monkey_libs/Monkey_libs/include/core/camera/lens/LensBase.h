@@ -70,7 +70,7 @@ public:
     
 protected:
     
-    static Event* _projectionUpdateEvent;
+    static Event _projectionUpdateEvent;
     
     bool  _dirty;
     

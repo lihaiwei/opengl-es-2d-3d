@@ -98,6 +98,12 @@
 		2839EA5919DBF4C900647183 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2839EA5819DBF4C900647183 /* App.cpp */; };
 		2839EA5A19DBF4C900647183 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2839EA5819DBF4C900647183 /* App.cpp */; };
 		2839EA6D19DBF97C00647183 /* EAGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2839E9F119DBDCD600647183 /* EAGLView.h */; };
+		285F0BC819E50BAD00D4C2B2 /* LabelFNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 285F0BC719E50BAD00D4C2B2 /* LabelFNT.h */; };
+		285F0BC919E50BAD00D4C2B2 /* LabelFNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 285F0BC719E50BAD00D4C2B2 /* LabelFNT.h */; };
+		285F0BCB19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BCA19E50BB800D4C2B2 /* LabelFNT.cpp */; };
+		285F0BCC19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BCA19E50BB800D4C2B2 /* LabelFNT.cpp */; };
+		285F0BE519E5216100D4C2B2 /* KeyboardEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BE319E5216100D4C2B2 /* KeyboardEvent.cpp */; };
+		285F0BE619E5216100D4C2B2 /* KeyboardEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BE319E5216100D4C2B2 /* KeyboardEvent.cpp */; };
 		287E236219DD2F84009DF95D /* TextureUtilsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 287E236119DD2F84009DF95D /* TextureUtilsMac.h */; };
 		287E236F19DD306E009DF95D /* FileUtilsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 287E236E19DD306E009DF95D /* FileUtilsMac.h */; };
 		287E237319DD3183009DF95D /* Event.h in Headers */ = {isa = PBXBuildFile; fileRef = 287E237219DD3183009DF95D /* Event.h */; };
@@ -516,6 +522,9 @@
 		2839EA6519DBF5DE00647183 /* TextureUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureUtils.cpp; sourceTree = "<group>"; };
 		2839EA7119DBFBA000647183 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2839EA7319DBFBA700647183 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
+		285F0BC719E50BAD00D4C2B2 /* LabelFNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelFNT.h; sourceTree = "<group>"; };
+		285F0BCA19E50BB800D4C2B2 /* LabelFNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelFNT.cpp; sourceTree = "<group>"; };
+		285F0BE319E5216100D4C2B2 /* KeyboardEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardEvent.cpp; sourceTree = "<group>"; };
 		287E236119DD2F84009DF95D /* TextureUtilsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureUtilsMac.h; sourceTree = "<group>"; };
 		287E236319DD2FA1009DF95D /* TextureUtilsMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureUtilsMac.mm; sourceTree = "<group>"; };
 		287E236919DD3057009DF95D /* FileUtilsMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileUtilsMac.mm; sourceTree = "<group>"; };
@@ -1479,6 +1488,7 @@
 			isa = PBXGroup;
 			children = (
 				280444EE19E4362D00243742 /* Label.h */,
+				285F0BC719E50BAD00D4C2B2 /* LabelFNT.h */,
 			);
 			path = label;
 			sourceTree = "<group>";
@@ -1487,6 +1497,7 @@
 			isa = PBXGroup;
 			children = (
 				280444F119E4371700243742 /* Label.cpp */,
+				285F0BCA19E50BB800D4C2B2 /* LabelFNT.cpp */,
 			);
 			path = label;
 			sourceTree = "<group>";
@@ -1681,6 +1692,7 @@
 			children = (
 				287E237519DD319E009DF95D /* Event.cpp */,
 				287E237E19DD36DD009DF95D /* EventDispatcher.cpp */,
+				285F0BE319E5216100D4C2B2 /* KeyboardEvent.cpp */,
 				28AC575A19E019DE00A1B8C0 /* TouchEvent.cpp */,
 			);
 			path = event;
@@ -3551,6 +3563,7 @@
 				28AA198E19DE3F6700073ED3 /* BlendMode.h in Headers */,
 				28A4DA4919E3E59200A093DC /* BatchDisplayObject.h in Headers */,
 				2804032A19E15E360092E82E /* DisplayObject.h in Headers */,
+				285F0BC919E50BAD00D4C2B2 /* LabelFNT.h in Headers */,
 				28A4DA3719E3CCB400A093DC /* OrthographicLens2D.h in Headers */,
 				287E236219DD2F84009DF95D /* TextureUtilsMac.h in Headers */,
 				2839E9A719DBCF3000647183 /* FileUtils.h in Headers */,
@@ -3625,6 +3638,7 @@
 				28A90E4F19E42640007B6C7B /* FontFNT.h in Headers */,
 				287E23D219DD63CD009DF95D /* IComponent.h in Headers */,
 				28AC574219DEF60700A1B8C0 /* OrthographicLens.h in Headers */,
+				285F0BC819E50BAD00D4C2B2 /* LabelFNT.h in Headers */,
 				2839E9D919DBD4AC00647183 /* Matrix3DUtils.h in Headers */,
 				2839EA0419DBDD1B00647183 /* GLView.h in Headers */,
 				28A4DA3619E3CCB400A093DC /* OrthographicLens2D.h in Headers */,
@@ -4001,6 +4015,7 @@
 				287E23B419DD3E92009DF95D /* ByteArray.cpp in Sources */,
 				287E239D19DD3E3F009DF95D /* TextureUtils.cpp in Sources */,
 				287E23BE19DD3EA1009DF95D /* Matrix3D.cpp in Sources */,
+				285F0BCB19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */,
 				28AA19AB19DEAB6800073ED3 /* LensBase.cpp in Sources */,
 				2839E9E519DBD7DA00647183 /* ConvertUTFWrapper.cpp in Sources */,
 				28AC575C19E019DE00A1B8C0 /* TouchEvent.cpp in Sources */,
@@ -4047,6 +4062,7 @@
 				28AC574919DF849400A1B8C0 /* Camera3D.cpp in Sources */,
 				287E23A619DD3E4C009DF95D /* TextureUtilsIOS.mm in Sources */,
 				287E23CA19DD3F39009DF95D /* TextureAtlas.cpp in Sources */,
+				285F0BE519E5216100D4C2B2 /* KeyboardEvent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4091,12 +4107,14 @@
 				287E239B19DD3E3E009DF95D /* GLView.cpp in Sources */,
 				2804034B19E186110092E82E /* TextureMaterial2D.cpp in Sources */,
 				287E23CB19DD3F3B009DF95D /* BitmapData.cpp in Sources */,
+				285F0BE619E5216100D4C2B2 /* KeyboardEvent.cpp in Sources */,
 				287E23C319DD3EA5009DF95D /* Pivot3D.cpp in Sources */,
 				28AA19AC19DEAB6800073ED3 /* LensBase.cpp in Sources */,
 				287E23BC19DD3EA1009DF95D /* Vector2D.cpp in Sources */,
 				28AC574A19DF849400A1B8C0 /* Camera3D.cpp in Sources */,
 				28A4DA4C19E3E59800A093DC /* BatchDisplayObject.cpp in Sources */,
 				2804035319E189490092E82E /* Geometry3D.cpp in Sources */,
+				285F0BCC19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */,
 				2804035519E189490092E82E /* GLSLProgram.cpp in Sources */,
 				282ED5DA19E4EF5600A63D77 /* GLViewDesktop.cpp in Sources */,
 				2804034F19E187F20092E82E /* Material3D.cpp in Sources */,

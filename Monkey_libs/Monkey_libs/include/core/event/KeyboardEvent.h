@@ -1,19 +1,24 @@
 #ifndef __CCKeyboardEvent__
 #define __CCKeyboardEvent__
 
+#include "core/event/Event.h"
 #include "platform/PlatformMacros.h"
 
 NS_MONKEY_BEGIN
 
-class KeyboardEvent
+class KeyboardEvent : public Event
 {
 public:
+    
+    const static std::string KEY_DOWN;
+    const static std::string KEY_UP;
+    
     /**
      * The key (code).
      */
-    enum class KeyCode
+    enum KeyCode
     {
-        KEY_NONE,
+        KEY_NONE = 0,
         KEY_PAUSE,
         KEY_SCROLL_LOCK,
         KEY_PRINT,
@@ -179,11 +184,9 @@ public:
         KEY_PLAY,
     };
     
-    KeyboardEvent(KeyCode keyCode, bool isPressed);
+    KeyboardEvent(const std::string &type, KeyCode keyCode);
     
-private:
-    KeyCode _keyCode;
-    bool _isPressed;
+    KeyCode keyCode;
 };
 
 NS_MONKEY_END

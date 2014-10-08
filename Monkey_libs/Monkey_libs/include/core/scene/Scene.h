@@ -12,6 +12,8 @@
 #include "platform/PlatformMacros.h"
 #include "core/base/Pivot3D.h"
 #include "core/event/Event.h"
+#include "core/event/TouchEvent.h"
+#include "core/event/KeyboardEvent.h"
 #include "core/geom/Rectangle.h"
 #include "core/material/Geometry3D.h"
 #include "core/material/Material3D.h"
@@ -49,11 +51,11 @@ public:
     
 protected:
     
-    static Event* _postRenderEvent;
-    static Event* _preRenderEvent;
-    static Event* _pausedEvent;
-    static Event* _renderEvent;
-    static Event* _softEvent;
+    static Event _postRenderEvent;
+    static Event _preRenderEvent;
+    static Event _pausedEvent;
+    static Event _renderEvent;
+    static Event _softEvent;
     
 public:
     
@@ -223,6 +225,37 @@ public:
      *  @param advancedTime
      */
     virtual void enterScene(float advancedTime);
+    
+    /**
+     *  touches began事件
+     *  @param event
+     */
+    virtual void handleTouchesBegan(TouchEvent &event);
+    /**
+     *  touch end事件
+     *  @param event
+     */
+    virtual void handleTouchesEnd(TouchEvent &event);
+    /**
+     *  touch move事件
+     *  @param event
+     */
+    virtual void handleTouchMove(TouchEvent &event);
+    /**
+     *  mouse wheel事件
+     *  @param event
+     */
+    virtual void handleMouseWheel(TouchEvent &event);
+    /**
+     *  key down事件
+     *  @param event
+     */
+    virtual void handleKeyDown(KeyboardEvent &event);
+    /**
+     *  key up事件
+     *  @param event
+     */
+    virtual void handleKeyUp(KeyboardEvent &event);
     
     bool skipRender;
     

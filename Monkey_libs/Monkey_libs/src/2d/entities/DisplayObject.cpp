@@ -48,6 +48,10 @@ void DisplayObject::setBlendMode(BlendMode mode) {
             _dstFactor = GL_ONE;
             break;
         case BlendMode::ALPHA:
+            _srcFactor = GL_SRC_ALPHA;
+            _dstFactor = GL_ONE_MINUS_SRC_ALPHA;
+            break;
+        case BlendMode::ALPHA_PREMULTIPILED:
             _srcFactor = GL_ONE;
             _dstFactor = GL_ONE_MINUS_SRC_ALPHA;
             break;
@@ -187,7 +191,7 @@ bool DisplayObject::inView() {
     // 获取坐标
     _transform.copyColumnTo(3, _tempVec30);
     float x = _tempVec30.x;
-    float y = _tempVec30.y;
+    float y = -_tempVec30.y;
     
     if (x - dw > screenWidth || x + w - dw < 0 || y - dh > screenHeight || y + w - dh < 0) {
         return false;
@@ -202,13 +206,13 @@ Geometry3D* DisplayObject::getGeometry3d() {
 
 void DisplayObject::addedToScene(monkey::Scene *scene) {
     _scene = scene;
-    _addedToSceneEvent->reset();
+    _addedToSceneEvent.reset();
     dispatchEvent(_addedToSceneEvent);
 }
 
 void DisplayObject::removedFromScene() {
     _scene = nullptr;
-    _removedFromSceneEvent->reset();
+    _removedFromSceneEvent.reset();
     dispatchEvent(_removedFromSceneEvent);
 }
 

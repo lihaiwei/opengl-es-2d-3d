@@ -291,7 +291,7 @@ void BatchDisplayObject::updateVertexData() {
  */
 void BatchDisplayObject::draw(bool includeChildren, Material3D* shader) {
     
-    _enterDrawEvent->reset();
+    _enterDrawEvent.reset();
     dispatchEvent(_enterDrawEvent);
     
     // draw-began
@@ -351,7 +351,7 @@ void BatchDisplayObject::draw(bool includeChildren, Material3D* shader) {
         disableGPUStats();
     }
     // draw-end
-    _exitDrawEvent->reset();
+    _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);
 }
 

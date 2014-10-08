@@ -188,7 +188,7 @@ void Label::draw(bool includeChildren, Material3D* shader) {
         updateContent();
     }
     
-    _enterDrawEvent->reset();
+    _enterDrawEvent.reset();
     dispatchEvent(_enterDrawEvent);
     // draw
     _display->draw(includeChildren, shader);
@@ -197,7 +197,7 @@ void Label::draw(bool includeChildren, Material3D* shader) {
         (*iter)->draw(includeChildren, shader);
     }
     
-    _exitDrawEvent->reset();
+    _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);
 }
 

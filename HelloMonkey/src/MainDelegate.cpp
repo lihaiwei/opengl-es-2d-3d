@@ -17,6 +17,7 @@
 #include <2d/ui/font/FontFNTConfig.h>
 #include <2d/ui/font/TextFormatter.h>
 #include <2d/ui/label/Label.h>
+#include <2d/ui/label/LabelFNT.h>
 
 USING_NS_MONKEY
 
@@ -37,6 +38,10 @@ void MainDelegate::didFinishLaunching() {
     
     Label *label = Label::create("Ni hao A.", "", 24);
     scene->addChild(label);
+    
+    LabelFNT *fnt = LabelFNT::create("bitmapFontChinese.fnt", "亲自成立于HelloWORD!123");
+    fnt->setPosition(200.0f, -300.0f, 0.0f);
+    scene->addChild(fnt);
     
     App::getInstance()->addScene2D(scene);
 }

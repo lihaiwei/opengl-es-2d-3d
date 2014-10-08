@@ -26,19 +26,19 @@ const std::string Pivot3D::UPLOAD_EVENT             = "UPLOAD_EVENT";
 const std::string Pivot3D::DOWN_LOAD_EVENT          = "DOWN_LOAD_EVENT";
 const std::string Pivot3D::UPDATE_EVENT             = "UPDATE_EVENT";
 
-Event* Pivot3D::_addedEvent               = new Event(ADDED_EVENT, false);
-Event* Pivot3D::_removedEvent             = new Event(REMOVED_EVENT, false);
-Event* Pivot3D::_addedToSceneEvent        = new Event(ADDED_TO_SCENE_EVENT, false);
-Event* Pivot3D::_removedFromSceneEvent    = new Event(REMOVED_FROM_SCENE_EVENT, false);
-Event* Pivot3D::_animationCompleteEvent   = new Event(ANIMATION_COMPLETE_EVENT, false);
-Event* Pivot3D::_enterFrameEvent          = new Event(ENTER_FRAME_EVENT, false);
-Event* Pivot3D::_exitFrameEvent           = new Event(EXIT_FRAME_EVENT, false);
-Event* Pivot3D::_enterDrawEvent           = new Event(ENTER_DRAW_EVENT, false);
-Event* Pivot3D::_exitDrawEvent            = new Event(EXIT_DRAW_EVENT, false);
-Event* Pivot3D::_updateTransformEvent     = new Event(UPDATE_TRANSFORM_EVENT, false);
-Event* Pivot3D::_uploadEvent              = new Event(UPLOAD_EVENT, false);
-Event* Pivot3D::_downLoadEvent            = new Event(DOWN_LOAD_EVENT, false);
-Event* Pivot3D::_updateEvent              = new Event(UPDATE_EVENT, false);
+Event Pivot3D::_addedEvent               = Event(ADDED_EVENT, false);
+Event Pivot3D::_removedEvent             = Event(REMOVED_EVENT, false);
+Event Pivot3D::_addedToSceneEvent        = Event(ADDED_TO_SCENE_EVENT, false);
+Event Pivot3D::_removedFromSceneEvent    = Event(REMOVED_FROM_SCENE_EVENT, false);
+Event Pivot3D::_animationCompleteEvent   = Event(ANIMATION_COMPLETE_EVENT, false);
+Event Pivot3D::_enterFrameEvent          = Event(ENTER_FRAME_EVENT, false);
+Event Pivot3D::_exitFrameEvent           = Event(EXIT_FRAME_EVENT, false);
+Event Pivot3D::_enterDrawEvent           = Event(ENTER_DRAW_EVENT, false);
+Event Pivot3D::_exitDrawEvent            = Event(EXIT_DRAW_EVENT, false);
+Event Pivot3D::_updateTransformEvent     = Event(UPDATE_TRANSFORM_EVENT, false);
+Event Pivot3D::_uploadEvent              = Event(UPLOAD_EVENT, false);
+Event Pivot3D::_downLoadEvent            = Event(DOWN_LOAD_EVENT, false);
+Event Pivot3D::_updateEvent              = Event(UPDATE_EVENT, false);
 
 Vector3D Pivot3D::_tempVec30 = Vector3D(0.0f, 0.0f, 0.0f, 1.0f);
 Vector3D Pivot3D::_tempVec31 = Vector3D(0.0f, 0.0f, 0.0f, 1.0f);
@@ -506,7 +506,7 @@ Matrix3D& Pivot3D::getInvWorld() {
 }
 
 void Pivot3D::updateTransforms(bool includeChilren) {
-    _updateTransformEvent->reset();
+    _updateTransformEvent.reset();
     dispatchEvent(_updateTransformEvent);
     
     if (includeChilren) {
@@ -534,7 +534,7 @@ void Pivot3D::setParent(Pivot3D *parent) {
         auto iter = std::find(_parent->getChildren().begin(), _parent->getChildren().end(), this);
         if (iter != _parent->getChildren().end()) {
             _parent->getChildren().erase(iter);
-            _removedEvent->reset();
+            _removedEvent.reset();
             dispatchEvent(_removedEvent);
         }
     }
@@ -542,7 +542,7 @@ void Pivot3D::setParent(Pivot3D *parent) {
     if (_parent) {
         _parent->getChildren().push_back(this);
         updateTransforms(true);
-        _addedEvent->reset();
+        _addedEvent.reset();
         dispatchEvent(_addedEvent);
     }
     
@@ -573,7 +573,7 @@ void Pivot3D::addedToScene(Scene *scene) {
     _scene = scene;
     _scene->addToScene(this, _updatable, _drable);
     _inScene = true;
-    _addedToSceneEvent->reset();
+    _addedToSceneEvent.reset();
     dispatchEvent(_addedToSceneEvent);
     for (auto iter = _children.begin(); iter != _children.end(); iter++) {
         (*iter)->addedToScene(_scene);
@@ -585,7 +585,7 @@ void Pivot3D::removedFromScene() {
     _scene = nullptr;
     _inScene = false;
     
-    _removedFromSceneEvent->reset();
+    _removedFromSceneEvent.reset();
     dispatchEvent(_removedFromSceneEvent);
     
     for (auto iter = _children.begin(); iter != _children.end(); iter++) {
@@ -682,12 +682,12 @@ void Pivot3D::update(float advancedTime, bool includeChildren) {
             (*iter)->update(advancedTime, includeChildren);
         }
     }
-    _enterFrameEvent->reset();
+    _enterFrameEvent.reset();
     dispatchEvent(_enterFrameEvent);
     if (_isPlaying) {
         nextFrame(advancedTime);
     }
-    _exitFrameEvent->reset();
+    _exitFrameEvent.reset();
     dispatchEvent(_exitFrameEvent);
 }
 
@@ -704,7 +704,7 @@ void Pivot3D::hide() {
 }
 
 void Pivot3D::draw(bool includeChildren, Material3D* shader) {
-    _enterFrameEvent->reset();
+    _enterFrameEvent.reset();
     dispatchEvent(_enterDrawEvent);
     
     if (includeChildren) {
@@ -713,7 +713,7 @@ void Pivot3D::draw(bool includeChildren, Material3D* shader) {
         }
     }
     
-    _exitDrawEvent->reset();
+    _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);
 }
 

@@ -20,6 +20,7 @@ enum BlendMode {
     NORMAL,
     ADD,
     ALPHA,
+    ALPHA_PREMULTIPILED,
     MULTIPLE,
     SCREEN
 };

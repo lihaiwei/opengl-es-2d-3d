@@ -11,27 +11,23 @@
 #include "App.h"
 
 #include "core/utils/Log.h"
-#include "platform/GLView.h"
 #include "core/geom/Matrix3D.h"
 #include "core/texture/Texture2D.h"
-#include "core/scene/Scene.h"
-#include "platform/FileUtils.h"
 #include "core/texture/TextureAtlas.h"
-//#include "TouchEvent.h"
-//#include "LabelFNT.h"
+#include "core/scene/Scene.h"
 
+#include "platform/GLView.h"
+#include "platform/FileUtils.h"
 #include "platform/PlatformMacros.h"
+
+#include "core/event/TouchEvent.h"
+
 #include "core/event/TouchEvent.h"
 #include "core/utils/Input3D.h"
 
-
-// =============================
 #include "2d/scene/Scene2D.h"
-#include "2d/entities/Quad.h"
 #include "2d/entities/DisplayObject.h"
-
-// =============================
-
+#include "2d/ui/label/LabelFNT.h"
 
 NS_MONKEY_BEGIN
 
@@ -48,12 +44,9 @@ static App *_instance = nullptr;
 App::App() : EventDispatcher() {}
 
 App::~App() {
-//    if (_status) {
-//        delete _status;
-//    }
-    
-    
-    
+    if (_status) {
+        delete _status;
+    }
 }
 
 App* App::getInstance() {
@@ -75,7 +68,7 @@ bool App::init() {
     
     _fps        = 60;
     _showStats  = true;
-//    _status     = nullptr;
+    _status     = nullptr;
     _glview     = nullptr;
     _paused     = false;
     _width      = -1;
@@ -315,24 +308,22 @@ void App::update() {
             _fps = _fpsFrame;
             _fpsFrame = 0;
             _fpsTime  = 0;
-            printf("FPS=%f\n", _fps);
-//            if (_showStats) {
-//                char buf[1024];
-//                sprintf(buf, "FPS:%.2f\nTRI:%d\nDRA:%d\n", _fps, triangles, drawcalls);
-//                std::string statusText(buf);
-//                _status->setText(statusText);
-//                _status->setPosition(0, _height - _status->getHeight());
-//            }
+            if (_showStats) {
+                char buf[1024];
+                sprintf(buf, "FPS:%.2f\nTRI:%d\nDRA:%d\n", _fps, triangles, drawcalls);
+                std::string statusText(buf);
+                _status->setText(statusText);
+                _status->setPosition(0, _height - _status->getHeight());
+            }
         }
         
-//        if (_showStats) {
-//            if (_status == nullptr) {
-//                _status = LabelFNT::create("FPS.fnt", "0");
-//                _status->setScale(2, 2);
-//                _status->setPosition(0, _height - _status->getHeight());
-//            }
-//            _status->draw();
-//        }
+        if (_showStats) {
+            if (_status == nullptr) {
+                _status = LabelFNT::create("FPS.fnt", "0");
+            }
+            _status->setPosition(0, -(_height-_status->getHeight()), 0.0f);
+            _status->draw();
+        }
         
         _glview->swapBuffers();
     }
@@ -341,7 +332,6 @@ void App::update() {
 bool App::dispose() {
     pause();
     
-    // TODO:add detail
     FileUtils::getInstance()->dispose();
     TextureAtlas::getInstance()->dispose();
     
@@ -357,43 +347,58 @@ float App::getScaleFactor() {
     return _scaleFactor;
 }
 
-void App::handleTouchesBegan(Point2D *points, int length, const std::string &type) {
-    // 派发stage事件
-//    if (hasEventListener(Event::TOUCH_BEGAN)) {
-//        TouchEvent *e = new TouchEvent(Event::TOUCH_BEGAN, true, points, length);
-//        dispatchEvent(e);
-//        delete e;
-//    }
+void App::handleTouchesBegan(monkey::TouchEvent &event) {
+    for (auto iter = _scene2DList.begin(); iter != _scene2DList.end(); iter++) {
+        (*iter)->handleTouchesBegan(event);
+    }
+    for (auto iter = _scene3DList.begin(); iter != _scene3DList.end(); iter++) {
+        (*iter)->handleTouchesBegan(event);
+    }
 }
 
-void App::handleTouchesMove(Point2D *points, int lenght, const std::string &type) {
-    // 派发stage事件
-//    if (hasEventListener(Event::TOUCH_MOVE)) {
-//        TouchEvent *e = new TouchEvent(Event::TOUCH_MOVE, true, points, lenght);
-//        dispatchEvent(e);
-//        delete e;
-//    }
+void App::handleTouchesEnd(monkey::TouchEvent &event) {
+    for (auto iter = _scene2DList.begin(); iter != _scene2DList.end(); iter++) {
+        (*iter)->handleTouchesEnd(event);
+    }
+    for (auto iter = _scene3DList.begin(); iter != _scene3DList.end(); iter++) {
+        (*iter)->handleTouchesEnd(event);
+    }
 }
 
-void App::handleTouchesEnd(Point2D *points, int length, const std::string &type) {
-    // 派发stage事件
-//    if (hasEventListener(Event::TOUCH_END)) {
-//        TouchEvent *e = new TouchEvent(Event::TOUCH_END, true, points, length);
-//        dispatchEvent(e);
-//        delete e;
-//    }
+void App::handleTouchesMove(monkey::TouchEvent &event) {
+    for (auto iter = _scene2DList.begin(); iter != _scene2DList.end(); iter++) {
+        (*iter)->handleTouchMove(event);
+    }
+    for (auto iter = _scene3DList.begin(); iter != _scene3DList.end(); iter++) {
+        (*iter)->handleTouchMove(event);
+    }
 }
 
-void App::handleMouseWheel(float x, float y) {
-    
+void App::handleMouseWheelEvent(TouchEvent &event) {
+    for (auto iter = _scene2DList.begin(); iter != _scene2DList.end(); iter++) {
+        (*iter)->handleMouseWheel(event);
+    }
+    for (auto iter = _scene3DList.begin(); iter != _scene3DList.end(); iter++) {
+        (*iter)->handleMouseWheel(event);
+    }
 }
 
-void App::handleKeyDown(int keycode) {
-    
+void App::handleKeyDownEvent(monkey::KeyboardEvent &event) {
+    for (auto iter = _scene2DList.begin(); iter != _scene2DList.end(); iter++) {
+        (*iter)->handleKeyDown(event);
+    }
+    for (auto iter = _scene3DList.begin(); iter != _scene3DList.end(); iter++) {
+        (*iter)->handleKeyDown(event);
+    }
 }
 
-void App::handleKeyUp(int keycode) {
-    
+void App::handleKeyUpEvent(monkey::KeyboardEvent &event) {
+    for (auto iter = _scene2DList.begin(); iter != _scene2DList.end(); iter++) {
+        (*iter)->handleKeyUp(event);
+    }
+    for (auto iter = _scene3DList.begin(); iter != _scene3DList.end(); iter++) {
+        (*iter)->handleKeyUp(event);
+    }
 }
 
 NS_MONKEY_END
