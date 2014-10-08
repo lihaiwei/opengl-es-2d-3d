@@ -276,12 +276,6 @@ void GLViewDesktop::enableRetina(bool value) {
         return;
     }
     _isRetinaEnabled = value;
-    if (_isRetinaEnabled) {
-        _contentScaleFactor = 1;
-    } else {
-        _contentScaleFactor = 2;
-    }
-    setContentScaleFactor(_contentScaleFactor);
 }
 
 bool GLViewDesktop::isRetina() {
@@ -305,6 +299,8 @@ bool GLViewDesktop::initWithRect(const std::string &viewName, int x, int y, int 
     glfwGetFramebufferSize(_mainWindow, &_frameWidth, &_frameHeight);
     // 获取window size
     glfwGetWindowSize(_mainWindow, &_screenWidth, &_screenHeight);
+    // 获取窗口位置
+    glfwGetWindowPos(_mainWindow, &_posX, &_posY);
     // 设置window content
     glfwMakeContextCurrent(_mainWindow);
     // call backs
@@ -322,6 +318,7 @@ bool GLViewDesktop::initWithRect(const std::string &viewName, int x, int y, int 
     } else {
         _isRetina = false;
     }
+    setContentScaleFactor(_frameWidth / _screenWidth);
     // 启用retina
     enableRetina(true);
     adaptViewport();
@@ -349,6 +346,13 @@ void GLViewDesktop::adaptViewport() {
     }
 }
 
+bool GLViewDesktop::isMouseInWindow() {
+    if (_mouseX < 0 || _mouseY < 0 || _mouseX > _screenWidth || _mouseY > _screenHeight) {
+        return false;
+    }
+    return true;
+}
+
 bool GLViewDesktop::initWithFullScreen(const std::string &viewName) {
     _monitor = glfwGetPrimaryMonitor();
     if (_monitor == nullptr) {
@@ -372,6 +376,10 @@ void GLViewDesktop::onGLFWError(int errorID, const char *errorDesc) {
  *  @param modify modify
  */
 void GLViewDesktop::onGLFWMouseCallBack(GLFWwindow *window, int button, int action, int modify) {
+    
+    if (!isMouseInWindow()) {
+        return;
+    }
     
     Point2D *point = new Point2D(_mouseX, _mouseY);
     
@@ -423,8 +431,16 @@ void GLViewDesktop::onGLFWMouseCallBack(GLFWwindow *window, int button, int acti
 }
 
 void GLViewDesktop::onGLFWMouseMoveCallBack(GLFWwindow *window, double x, double y) {
-    _mouseX = (float)x * getContentScaleFactor();
-    _mouseY = (float)y * getContentScaleFactor();
+    
+    _mouseX = (float)x;
+    _mouseY = (float)y;
+    
+    if (!isMouseInWindow()) {
+        return;
+    }
+    
+    _mouseY *= getContentScaleFactor();
+    _mouseX *= getContentScaleFactor();
     
     Point2D *point = new Point2D(_mouseX, _mouseY);
     MouseEvent event(MouseEvent::TOUCH_MOVE, false, point, 1);
@@ -435,11 +451,21 @@ void GLViewDesktop::onGLFWMouseMoveCallBack(GLFWwindow *window, double x, double
 }
 
 void GLViewDesktop::onGLFWMouseScrollCallback(GLFWwindow *window, double x, double y) {
+    
+    if (!isMouseInWindow()) {
+        return;
+    }
+    
     Input3D::mouseWheel((float)x, (float)y);
-    MouseEvent event(MouseEvent::MOUSE_WHEEL, true);
+    
+    Point2D *point = new Point2D(_mouseX, _mouseY);
+    MouseEvent event(MouseEvent::TOUCH_MOVE, false, point, 1);
+    
     event.deltaX = x;
     event.deltaY = y;
     App::getInstance()->handleMouseWheelEvent(event);
+    
+    free(point);
 }
 
 void GLViewDesktop::onGLFWKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
@@ -461,7 +487,8 @@ void GLViewDesktop::onGLFWCharCallback(GLFWwindow *window, unsigned int characte
 }
 
 void GLViewDesktop::onGLFWWindowPosCallback(GLFWwindow *windows, int x, int y) {
-    
+    _posX = x;
+    _posY = y;
 }
 
 void GLViewDesktop::onGLFWframebuffersize(GLFWwindow* window, int w, int h) {

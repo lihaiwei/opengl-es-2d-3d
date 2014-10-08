@@ -150,14 +150,14 @@ Vector2D DisplayObject::getMax() {
 
 bool DisplayObject::hitTestPoint(float x, float y) {
     
-    _tempVec30.setTo(x, y, 0.0f, 1.0f);
+    _tempVec30.setTo(x, -y, 0.0f, 1.0f);
     Matrix3DUtils::transformVector(getInvWorld(), _tempVec30, _tempVec30);
     
     float dw = _width * _anchorPoint.x;
-    float dh = _height * _anchorPoint.y;
+    float dh = -_height * _anchorPoint.y;
     float l  = -dw;
     float r  = _width - dw;
-    float b  = -_height + dh;
+    float b  = -_height - dh;
     float t  = dh;
     
     if (_tempVec30.x < l || _tempVec30.x > r || _tempVec30.y > t || _tempVec30.y < b) {

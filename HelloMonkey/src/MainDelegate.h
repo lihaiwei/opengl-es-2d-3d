@@ -11,7 +11,10 @@
 
 #include <stdio.h>
 
-class MainDelegate {
+#include <core/base/Object.h>
+#include <core/event/Event.h>
+
+class MainDelegate : public monkey::Object {
     
 public:
     
@@ -21,6 +24,9 @@ public:
     void didFinishLaunching();
     void didEnterForeground();
     void didEnterBackground();
+    
+    // delete
+    void onClick(monkey::Event &event);
 };
 
 #endif /* defined(__HelloMonkey__Application__) */

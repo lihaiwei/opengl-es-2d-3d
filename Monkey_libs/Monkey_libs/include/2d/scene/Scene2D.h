@@ -13,6 +13,8 @@
 
 NS_MONKEY_BEGIN
 
+class DisplayObject;
+
 /**
  *  Scene2D,忽略Pivot3D.layer属性。改用容器层级来维护显示顺序。
  */
@@ -49,6 +51,17 @@ public:
      *  @param clearDepth
      */
     virtual void render(Camera3D *camera = nullptr, bool clearDepth = false);
+    
+protected:
+    /**
+     *  事件搜寻器
+     *  @param disp  显示对象
+     *  @param event 触摸事件
+     */
+    virtual bool eventVisitor(Pivot3D *disp, TouchEvent &event);
+    
+    DisplayObject* _interDisp; // 拾取对象
+    
 };
 
 

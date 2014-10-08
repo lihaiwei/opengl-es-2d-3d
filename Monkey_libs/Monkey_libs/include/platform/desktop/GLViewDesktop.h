@@ -161,6 +161,11 @@ protected:
      * 设置viewport.
      */
     void adaptViewport();
+    /**
+     *  检测鼠标是否在window中
+     *  @return
+     */
+    bool isMouseInWindow();
     
     bool _supportTouch;
     bool _isRetinaEnabled;
@@ -173,6 +178,9 @@ protected:
     
     float _mouseX;
     float _mouseY;
+    
+    int _posX;
+    int _posY;
     
     friend class GLFWEventHandler;
 };
