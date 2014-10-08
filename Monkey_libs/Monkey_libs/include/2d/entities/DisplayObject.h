@@ -22,7 +22,7 @@ NS_MONKEY_BEGIN
 #define MIN_B -10000000
 
 /**
- *  显示对象
+ *  2d显示对象，2d显示对象忽略层级(Layer)属性。
  */
 class DisplayObject : public Pivot3D {
     
@@ -43,7 +43,6 @@ public:
      *  @return
      */
     virtual Vector2D getAnchor();
-    
     /**
      *  设置透明度
      *  @param value
@@ -112,14 +111,20 @@ public:
      */
     virtual bool inView() override;
     /**
-     *  添加到场景
+     *  2d显示对象忽略layer属性
      *  @param scene
      */
-    virtual void addedToScene(Scene *scene);
+    virtual void addedToScene(Scene *scene) override;
     /**
+     *  2d显示对象忽略layer属性
      *  从场景中移除
      */
-    virtual void removedFromScene();
+    virtual void removedFromScene() override;
+    /**
+     *  2d显示对象忽略layer属性
+     *  @param value
+     */
+    virtual void setLayer(int layer, bool includeChildren = true) override;
     
 protected:
     

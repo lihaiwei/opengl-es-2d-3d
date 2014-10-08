@@ -25,6 +25,27 @@ Scene2D::~Scene2D() {
     
 }
 
+void Scene2D::handleTouchesBegan(monkey::TouchEvent &event) {
+    dispatchEvent(event);
+}
+
+void Scene2D::handleTouchesEnd(monkey::TouchEvent &event) {
+    dispatchEvent(event);
+}
+
+void Scene2D::handleTouchMove(monkey::TouchEvent &event) {
+    dispatchEvent(event);
+}
+
+void Scene2D::handleMouseWheel(monkey::TouchEvent &event) {
+    dispatchEvent(event);
+}
+
+/**
+ *  2d的渲染不再使用层级属性。根据子父级结构来渲染。
+ *  @param camera
+ *  @param clearDepth
+ */
 void Scene2D::render(Camera3D* camera, bool clearDepth) {
     _renderLength = (int)_children.size();
     if (_renderLength == 0 || !_visible) {

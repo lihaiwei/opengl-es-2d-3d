@@ -22,6 +22,27 @@ public:
     
     Scene2D();
     virtual ~Scene2D();
+    
+    /**
+     *  touches began事件
+     *  @param event
+     */
+    virtual void handleTouchesBegan(TouchEvent &event) override;
+    /**
+     *  touch end事件
+     *  @param event
+     */
+    virtual void handleTouchesEnd(TouchEvent &event) override;
+    /**
+     *  touch move事件
+     *  @param event
+     */
+    virtual void handleTouchMove(TouchEvent &event) override;
+    /**
+     *  mouse wheel事件
+     *  @param event
+     */
+    virtual void handleMouseWheel(TouchEvent &event) override;
     /**
      *  render
      *  @param camera

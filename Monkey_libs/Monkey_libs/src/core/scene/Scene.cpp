@@ -286,27 +286,27 @@ void Scene::addToScene(Pivot3D *pivot, bool update, bool render) {
 }
 
 void Scene::handleTouchesBegan(monkey::TouchEvent &event) {
-    
+    dispatchEvent(event);
 }
 
 void Scene::handleTouchesEnd(monkey::TouchEvent &event) {
-    
+    dispatchEvent(event);
 }
 
 void Scene::handleTouchMove(monkey::TouchEvent &event) {
-    
+    dispatchEvent(event);
 }
 
 void Scene::handleMouseWheel(monkey::TouchEvent &event) {
-    
+    dispatchEvent(event);
 }
 
 void Scene::handleKeyDown(monkey::KeyboardEvent &event) {
-    
+    dispatchEvent(event);
 }
 
 void Scene::handleKeyUp(monkey::KeyboardEvent &event) {
-    
+    dispatchEvent(event);
 }
 
 void Scene::setLayerSortMode(int layer, SortMode mode) {

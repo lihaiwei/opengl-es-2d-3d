@@ -216,4 +216,8 @@ void DisplayObject::removedFromScene() {
     dispatchEvent(_removedFromSceneEvent);
 }
 
+void DisplayObject::setLayer(int layer, bool includeChildren) {
+    
+}
+
 NS_MONKEY_END
