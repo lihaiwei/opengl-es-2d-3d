@@ -104,6 +104,14 @@
 		285F0BCC19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BCA19E50BB800D4C2B2 /* LabelFNT.cpp */; };
 		285F0BE519E5216100D4C2B2 /* KeyboardEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BE319E5216100D4C2B2 /* KeyboardEvent.cpp */; };
 		285F0BE619E5216100D4C2B2 /* KeyboardEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BE319E5216100D4C2B2 /* KeyboardEvent.cpp */; };
+		285F0BF019E56B3E00D4C2B2 /* Button.h in Headers */ = {isa = PBXBuildFile; fileRef = 285F0BEF19E56B3E00D4C2B2 /* Button.h */; };
+		285F0BF119E56B3E00D4C2B2 /* Button.h in Headers */ = {isa = PBXBuildFile; fileRef = 285F0BEF19E56B3E00D4C2B2 /* Button.h */; };
+		285F0BF319E56B5700D4C2B2 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BF219E56B5700D4C2B2 /* Button.cpp */; };
+		285F0BF419E56B5700D4C2B2 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BF219E56B5700D4C2B2 /* Button.cpp */; };
+		285F0BF619E56C1600D4C2B2 /* ButtonImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BF519E56C1600D4C2B2 /* ButtonImage.cpp */; };
+		285F0BF719E56C1600D4C2B2 /* ButtonImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 285F0BF519E56C1600D4C2B2 /* ButtonImage.cpp */; };
+		285F0BF919E56C2000D4C2B2 /* ButtonImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 285F0BF819E56C2000D4C2B2 /* ButtonImage.h */; };
+		285F0BFA19E56C2000D4C2B2 /* ButtonImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 285F0BF819E56C2000D4C2B2 /* ButtonImage.h */; };
 		287E236219DD2F84009DF95D /* TextureUtilsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 287E236119DD2F84009DF95D /* TextureUtilsMac.h */; };
 		287E236F19DD306E009DF95D /* FileUtilsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 287E236E19DD306E009DF95D /* FileUtilsMac.h */; };
 		287E237319DD3183009DF95D /* Event.h in Headers */ = {isa = PBXBuildFile; fileRef = 287E237219DD3183009DF95D /* Event.h */; };
@@ -525,6 +533,10 @@
 		285F0BC719E50BAD00D4C2B2 /* LabelFNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelFNT.h; sourceTree = "<group>"; };
 		285F0BCA19E50BB800D4C2B2 /* LabelFNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelFNT.cpp; sourceTree = "<group>"; };
 		285F0BE319E5216100D4C2B2 /* KeyboardEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardEvent.cpp; sourceTree = "<group>"; };
+		285F0BEF19E56B3E00D4C2B2 /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		285F0BF219E56B5700D4C2B2 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
+		285F0BF519E56C1600D4C2B2 /* ButtonImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonImage.cpp; sourceTree = "<group>"; };
+		285F0BF819E56C2000D4C2B2 /* ButtonImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonImage.h; sourceTree = "<group>"; };
 		287E236119DD2F84009DF95D /* TextureUtilsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureUtilsMac.h; sourceTree = "<group>"; };
 		287E236319DD2FA1009DF95D /* TextureUtilsMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureUtilsMac.mm; sourceTree = "<group>"; };
 		287E236919DD3057009DF95D /* FileUtilsMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileUtilsMac.mm; sourceTree = "<group>"; };
@@ -1685,6 +1697,24 @@
 				287E236919DD3057009DF95D /* FileUtilsMac.mm */,
 			);
 			path = mac;
+			sourceTree = "<group>";
+		};
+		285F0BED19E56B2D00D4C2B2 /* button */ = {
+			isa = PBXGroup;
+			children = (
+				285F0BEF19E56B3E00D4C2B2 /* Button.h */,
+				285F0BF819E56C2000D4C2B2 /* ButtonImage.h */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
+		285F0BEE19E56B3700D4C2B2 /* button */ = {
+			isa = PBXGroup;
+			children = (
+				285F0BF219E56B5700D4C2B2 /* Button.cpp */,
+				285F0BF519E56C1600D4C2B2 /* ButtonImage.cpp */,
+			);
+			path = button;
 			sourceTree = "<group>";
 		};
 		287E237119DD3175009DF95D /* event */ = {
@@ -3411,6 +3441,7 @@
 		28A90E4219E425E0007B6C7B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				285F0BED19E56B2D00D4C2B2 /* button */,
 				280444EC19E4361C00243742 /* label */,
 				28A90E4419E4260E007B6C7B /* font */,
 			);
@@ -3420,6 +3451,7 @@
 		28A90E4319E425E8007B6C7B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				285F0BEE19E56B3700D4C2B2 /* button */,
 				280444ED19E4362300243742 /* label */,
 				280444DF19E4350E00243742 /* font */,
 			);
@@ -3562,6 +3594,7 @@
 				2839E9DC19DBD4AC00647183 /* mmath.h in Headers */,
 				28AA198E19DE3F6700073ED3 /* BlendMode.h in Headers */,
 				28A4DA4919E3E59200A093DC /* BatchDisplayObject.h in Headers */,
+				285F0BF119E56B3E00D4C2B2 /* Button.h in Headers */,
 				2804032A19E15E360092E82E /* DisplayObject.h in Headers */,
 				285F0BC919E50BAD00D4C2B2 /* LabelFNT.h in Headers */,
 				28A4DA3719E3CCB400A093DC /* OrthographicLens2D.h in Headers */,
@@ -3578,6 +3611,7 @@
 				2839E9B419DBD1AC00647183 /* BitmapData.h in Headers */,
 				28A4DA4019E3D59B00A093DC /* Image.h in Headers */,
 				2839E9E319DBD7D200647183 /* StringUtils.h in Headers */,
+				285F0BFA19E56C2000D4C2B2 /* ButtonImage.h in Headers */,
 				28AA199F19DEA67200073ED3 /* Camera3D.h in Headers */,
 				2839E9C519DBD1D100647183 /* FrameTexture.h in Headers */,
 				28A90E4C19E42640007B6C7B /* Font.h in Headers */,
@@ -3628,6 +3662,7 @@
 				2839E9B919DBD1AC00647183 /* Log.h in Headers */,
 				288FF85919DA91C40095DF6A /* Pivot3D.h in Headers */,
 				2804033D19E183F80092E82E /* ColorMaterial2D.h in Headers */,
+				285F0BF019E56B3E00D4C2B2 /* Button.h in Headers */,
 				2839EA0B19DBDDB100647183 /* ESRenderer.h in Headers */,
 				2839E9A819DBCF3000647183 /* TextureUtils.h in Headers */,
 				28B70B9619DD0B7700B1C521 /* GLViewIOS.h in Headers */,
@@ -3643,6 +3678,7 @@
 				2839EA0419DBDD1B00647183 /* GLView.h in Headers */,
 				28A4DA3619E3CCB400A093DC /* OrthographicLens2D.h in Headers */,
 				28AA198619DE3A7A00073ED3 /* Scene.h in Headers */,
+				285F0BF919E56C2000D4C2B2 /* ButtonImage.h in Headers */,
 				2839E9DD19DBD4AC00647183 /* Rectangle.h in Headers */,
 				28A4DA1919E3806800A093DC /* Shaders2D.h in Headers */,
 				28AA199E19DEA67200073ED3 /* Camera3D.h in Headers */,
@@ -4015,6 +4051,7 @@
 				287E23B419DD3E92009DF95D /* ByteArray.cpp in Sources */,
 				287E239D19DD3E3F009DF95D /* TextureUtils.cpp in Sources */,
 				287E23BE19DD3EA1009DF95D /* Matrix3D.cpp in Sources */,
+				285F0BF319E56B5700D4C2B2 /* Button.cpp in Sources */,
 				285F0BCB19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */,
 				28AA19AB19DEAB6800073ED3 /* LensBase.cpp in Sources */,
 				2839E9E519DBD7DA00647183 /* ConvertUTFWrapper.cpp in Sources */,
@@ -4027,6 +4064,7 @@
 				2804032E19E179D00092E82E /* DisplayObject.cpp in Sources */,
 				28A4DA3A19E3CCE100A093DC /* OrthographicLens2D.cpp in Sources */,
 				287E23C019DD3EA1009DF95D /* Rectangle.cpp in Sources */,
+				285F0BF619E56C1600D4C2B2 /* ButtonImage.cpp in Sources */,
 				28AA199819DEA1DF00073ED3 /* Scene.cpp in Sources */,
 				287E23A219DD3E4C009DF95D /* GLViewIOS.mm in Sources */,
 				280444F219E4371700243742 /* Label.cpp in Sources */,
@@ -4088,6 +4126,7 @@
 				287E23C419DD3EA5009DF95D /* Object.cpp in Sources */,
 				28A4DA3B19E3CCE100A093DC /* OrthographicLens2D.cpp in Sources */,
 				287E23B519DD3E96009DF95D /* TextureCache.cpp in Sources */,
+				285F0BF719E56C1600D4C2B2 /* ButtonImage.cpp in Sources */,
 				287E23BA19DD3EA1009DF95D /* Matrix3DUtils.cpp in Sources */,
 				28A4DA1E19E3812100A093DC /* Shaders2D.cpp in Sources */,
 				28AC574619DEF7ED00A1B8C0 /* OrthographicLens.cpp in Sources */,
@@ -4117,6 +4156,7 @@
 				285F0BCC19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */,
 				2804035519E189490092E82E /* GLSLProgram.cpp in Sources */,
 				282ED5DA19E4EF5600A63D77 /* GLViewDesktop.cpp in Sources */,
+				285F0BF419E56B5700D4C2B2 /* Button.cpp in Sources */,
 				2804034F19E187F20092E82E /* Material3D.cpp in Sources */,
 				287E23A019DD3E49009DF95D /* TextureUtilsMac.mm in Sources */,
 				287E23C919DD3EDA009DF95D /* TextureAtlas.cpp in Sources */,

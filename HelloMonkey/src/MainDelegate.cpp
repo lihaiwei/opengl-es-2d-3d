@@ -19,6 +19,8 @@
 #include <2d/ui/label/Label.h>
 #include <2d/ui/label/LabelFNT.h>
 #include <core/utils/Log.h>
+#include "2d/ui/button/Button.h"
+#include "2d/ui/button/ButtonImage.h"
 
 USING_NS_MONKEY
 
@@ -41,14 +43,19 @@ void MainDelegate::didFinishLaunching() {
     Image *img = Image::create("xiaofeiji.jpg");
     img->setPosition(100.0f, -200.0f, 0.0f);
     scene->addChild(img);
-    img->addEventListener(TouchEvent::TOUCH_IN, this, EVENT_CALLBACK(MainDelegate::onClick));
+    img->addEventListener(TouchEvent::TOUCH_OUT, this, EVENT_CALLBACK(MainDelegate::onClick));
     
     Label *label = Label::create("Ni hao A.", "", 24);
-//    scene->addChild(label);
+    scene->addChild(label);
     
     LabelFNT *fnt = LabelFNT::create("bitmapFontChinese.fnt", "亲自成立于HelloWORD!123");
     fnt->setPosition(200.0f, -300.0f, 0.0f);
-//    scene->addChild(fnt);
+    scene->addChild(fnt);
+    
+    ButtonImage *btn = new ButtonImage();
+    btn->initWithImage("animationbuttonnormal.png", "animationbuttonpressed.png", "animationbuttondown.png");
+    scene->addChild(btn);
+    btn->setPosition(200.0f, -400.0f, 0.0f);
     
     App::getInstance()->addScene2D(scene);
 }

@@ -21,6 +21,8 @@ NS_MONKEY_BEGIN
 #define MAX_B  10000000
 #define MIN_B -10000000
 
+class TouchEvent;
+
 /**
  *  2d显示对象，2d显示对象忽略层级(Layer)属性。
  */
@@ -125,6 +127,12 @@ public:
      *  @param value
      */
     virtual void setLayer(int layer, bool includeChildren = true) override;
+    /**
+     *  接收Touch事件，如果接收成功，则派发事件。
+     *  @param event TouchEvent
+     *  @return success
+     */
+    virtual bool acceptTouchEvent(TouchEvent &event);
     
 protected:
     
@@ -143,21 +151,23 @@ protected:
      */
     Geometry3D*  _geometry;
     
-    BlendMode   _blendMode;
+    BlendMode    _blendMode;
     
     float       _alpha;
     float       _width;
     float       _height;
     
-    bool        _boundsDirty;
+    bool        _touchIn;       // 是否touchIn
+    bool        _touchBegan;    // 是否touchBegan
+    bool        _boundsDirty;   
     
     Vector2D    _min;
     Vector2D    _max;
     // 锚点
     Vector2D    _anchorPoint;
     
-    GLenum              _srcFactor;
-    GLenum              _dstFactor;
+    GLenum      _srcFactor;
+    GLenum      _dstFactor;
 };
 
 NS_MONKEY_END

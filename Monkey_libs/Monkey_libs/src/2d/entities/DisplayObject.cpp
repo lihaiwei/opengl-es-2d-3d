@@ -7,6 +7,7 @@
 //
 
 #include "2d/entities/DisplayObject.h"
+#include "core/event/TouchEvent.h"
 #include "core/material/Geometry3D.h"
 #include "App.h"
 
@@ -19,11 +20,13 @@ _blendMode(BlendMode::NORMAL),
 _alpha(1.0f),
 _width(0.0f),
 _height(0.0f),
-_boundsDirty(true)
+_boundsDirty(true),
+_touchIn(false)
 {
     _anchorPoint.setTo(0, 0);
-    _drable     = true;
-    _updatable  = true;
+    _drable       = true;
+    _updatable    = true;
+    _mouseEnabled = true;
 }
 
 DisplayObject::~DisplayObject() {
@@ -153,10 +156,10 @@ bool DisplayObject::hitTestPoint(float x, float y) {
     _tempVec30.setTo(x, -y, 0.0f, 1.0f);
     Matrix3DUtils::transformVector(getInvWorld(), _tempVec30, _tempVec30);
     
-    float dw = _width * _anchorPoint.x;
-    float dh = -_height * _anchorPoint.y;
+    float dw =  getWidth()  * _anchorPoint.x;
+    float dh = -getHeight() * _anchorPoint.y;
     float l  = -dw;
-    float r  = _width - dw;
+    float r  =  _width  - dw;
     float b  = -_height - dh;
     float t  = dh;
     
@@ -218,6 +221,76 @@ void DisplayObject::removedFromScene() {
 
 void DisplayObject::setLayer(int layer, bool includeChildren) {
     
+}
+
+bool DisplayObject::acceptTouchEvent(TouchEvent &event) {
+    
+    if (!_mouseEnabled) {
+        return false;
+    }
+    // 没有该事件并且也没有 TOUCH_OUT TOUCH_HIT RIGHT_MOUSE_CLICK MIDDLE_MOUSE_CLICK
+    if (!hasEventListener(event.type) &&
+        !hasEventListener(TouchEvent::TOUCH_IN) &&
+        !hasEventListener(TouchEvent::TOUCH_OUT) &&
+        !hasEventListener(TouchEvent::TOUCH_HIT) &&
+        !hasEventListener(TouchEvent::RIGHT_MOUSE_CLICK) &&
+        !hasEventListener(TouchEvent::MIDDLE_MOUSE_CLICK)
+        ) {
+        return false;
+    }
+    
+    // 多点触控
+    bool isIn = false;
+    for (int i = 0; i < event.size; i++) {
+        isIn = hitTestPoint(event.points[i].x, event.points[i].y);
+        if (!isIn && event.size > 1) { // 多点触控，如果多点都未在显示对象内部，则视为未选中
+            _touchBegan = false;
+            _touchIn    = false;
+            return false;
+        }
+    }
+    // TOUCH_OUT事件
+    if (_touchIn && !isIn) {
+        if (hasEventListener(TouchEvent::TOUCH_OUT)) {
+            TouchEvent touchOutEvent(TouchEvent::TOUCH_OUT, true, event.points, event.size);
+            dispatchEvent(touchOutEvent);
+            _touchIn    = false;
+            _touchBegan = false;
+            return true;  // TOUCH_OUT事件，事件接受成功。
+        }
+    }
+    // TOUCH_IN事件
+    if (!_touchIn && isIn) {
+        if (hasEventListener(TouchEvent::TOUCH_IN)) {
+            TouchEvent touchInEvent(TouchEvent::TOUCH_IN, true, event.points, event.size);
+            dispatchEvent(touchInEvent);
+        }
+    }
+    // not in, 不派发事件
+    if (!isIn) {
+        _touchIn    = false;
+        _touchBegan = false;
+        return false;
+    }
+    // Touch_Began
+    if (event.type == TouchEvent::TOUCH_BEGAN || event.type == TouchEvent::RIGHT_MOUSE_DOWN || event.type == TouchEvent::MIDDLE_MOUSE_DOWN) {
+        _touchBegan = true;
+    }
+    // in 派发事件
+    dispatchEvent(event);
+    // click事件
+    if (_touchBegan && event.type == TouchEvent::TOUCH_END && hasEventListener(TouchEvent::TOUCH_HIT)) {
+        TouchEvent touchHitEvent(TouchEvent::TOUCH_HIT, true, event.points, event.size);
+        dispatchEvent(touchHitEvent);
+    } else if (_touchBegan && event.type == TouchEvent::RIGHT_MOUSE_UP && hasEventListener(TouchEvent::RIGHT_MOUSE_CLICK)) {
+        TouchEvent rightClickEvnet(TouchEvent::RIGHT_MOUSE_CLICK, true, event.points, event.size);
+        dispatchEvent(rightClickEvnet);
+    } else if (_touchBegan && event.type == TouchEvent::MIDDLE_MOUSE_UP && hasEventListener(TouchEvent::MIDDLE_MOUSE_CLICK)) {
+        TouchEvent middleClickEvent(TouchEvent::MIDDLE_MOUSE_CLICK, true, event.points, event.size);
+        dispatchEvent(middleClickEvent);
+    }
+    _touchIn = true;
+    return true;
 }
 
 NS_MONKEY_END

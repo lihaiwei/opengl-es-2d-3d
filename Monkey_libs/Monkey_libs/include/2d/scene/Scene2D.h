@@ -59,9 +59,6 @@ protected:
      *  @param event 触摸事件
      */
     virtual bool eventVisitor(Pivot3D *disp, TouchEvent &event);
-    
-    DisplayObject* _interDisp; // 拾取对象
-    
 };
 
 

@@ -163,19 +163,15 @@ void BatchDisplayObject::addChildAt(Image *child, int idx) {
     if (!_texture) {
         _texture = child->getTexture();
     }
-    
     _totalQuads++;
-    
     int len = _totalQuads - 1 - idx;
     if (len > 0) {
         memmove(_vertices + QuadVertexSize * (idx + 1), _vertices + QuadVertexSize * idx, len * QuadVertexSize * sizeof(float));
         memmove(_uvs + QuadUVSize * (idx + 1), _uvs + QuadUVSize * idx, len * QuadUVSize * sizeof(float));
     }
-    
     _children.insert(_children.begin() + idx, child);
     _nodesMap.insert(std::make_pair(child, true));
     _contentDirty = true;
-    
     // 添加监听
     child->addEventListener(Pivot3D::UPDATE_TRANSFORM_EVENT, this, EVENT_CALLBACK(BatchDisplayObject::onNodeTransformUpdate));
 }
