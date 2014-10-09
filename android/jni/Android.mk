@@ -6,7 +6,8 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := monkey
 
-JNI_SOURCES := jnihelper.c
+JNI_SOURCES := glview.cpp \
+GLViewAndroid.cpp
 
 LOCAL_SRC_FILES += ${JNI_SOURCES}
 

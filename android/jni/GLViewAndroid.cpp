@@ -1,16 +1,13 @@
 #include "GLViewAndroid.h"
 
-#include <GLES2/gl2.h>
-
-void onSurfaceCreated() {
-	glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+void GLView::onChange() {
+	
 }
 
-void onSurfaceChanged() {
-
+void GLView::onCreate() {
+	glClearColor(1.0f, 0.5f, 0.0f, 0.0f);
 }
 
-void onDrawFrame() {
+void GLView::onDraw() {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
-

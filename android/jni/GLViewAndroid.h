@@ -1,5 +1,13 @@
-void onSurfaceCreated();
+#include <GLES2/gl2.h>
 
-void onSurfaceChanged();
-
-void onDrawFrame();
+class GLView {
+	
+public:
+	
+	static void onDraw();
+	
+	static void onCreate();
+	
+	static void onChange();
+	
+};
