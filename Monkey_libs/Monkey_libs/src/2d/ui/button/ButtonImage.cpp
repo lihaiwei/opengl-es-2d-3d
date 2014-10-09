@@ -13,7 +13,6 @@ NS_MONKEY_BEGIN
 ButtonImage::ButtonImage() :
 Button(),
 _upImage(nullptr),
-_overImage(nullptr),
 _downImage(nullptr)
 {
     initButtonRender();
@@ -22,29 +21,24 @@ _downImage(nullptr)
 
 ButtonImage::~ButtonImage() {
     delete _upImage;
-    delete _overImage;
     delete _downImage;
 }
 
 void ButtonImage::initButtonRender() {
     
     _upImage    = new Image();
-    _overImage  = new Image();
     _downImage  = new Image();
     
     _upImage->enableMouse(false);
-    _overImage->enableMouse(false);
     _downImage->enableMouse(false);
     
     addChild(_upImage);
-    addChild(_overImage);
     addChild(_downImage);
 }
 
-void ButtonImage::initWithImage(const std::string &normal, const std::string &selected, const std::string disable, ButtonImage::Type type) {
-    initUpImage(normal, type);
-    initOverImage(selected, type);
-    initDownImage(disable, type);
+void ButtonImage::initWithImage(const std::string &up, const std::string &down, ButtonImage::Type type) {
+    initUpImage(up, type);
+    initDownImage(down, type);
     setButtonStatus(Button::ButtonStats::UP);
 }
 
@@ -66,23 +60,6 @@ void ButtonImage::initUpImage(const std::string &name, ButtonImage::Type type) {
     _height = _upImage->getHeight();
     _min.setTo(0, 0);
     _max.setTo(_width, _height);
-}
-
-void ButtonImage::initOverImage(const std::string &name, ButtonImage::Type type) {
-    if (name.empty()) {
-        return;
-    }
-    
-    switch (type) {
-        case ButtonImage::Type::TEXTURE:
-            _overImage->initWithTexture(name);
-            break;
-        case ButtonImage::Type::TEXTURE_FRAME:
-            _overImage->initWithFrameTexture(name);
-            break;
-        default:
-            break;
-    }
 }
 
 void ButtonImage::initDownImage(const std::string &name, ButtonImage::Type type) {
@@ -107,17 +84,10 @@ void ButtonImage::setButtonStatus(Button::ButtonStats stats) {
     switch (_buttonStats) {
         case Button::ButtonStats::UP:
             _upImage->setVisiable(true);
-            _overImage->setVisiable(false);
-            _downImage->setVisiable(false);
-            break;
-        case Button::ButtonStats::OVER:
-            _upImage->setVisiable(false);
-            _overImage->setVisiable(true);
             _downImage->setVisiable(false);
             break;
         case Button::ButtonStats::DOWN:
             _upImage->setVisiable(false);
-            _overImage->setVisiable(false);
             _downImage->setVisiable(true);
             break;
         default:

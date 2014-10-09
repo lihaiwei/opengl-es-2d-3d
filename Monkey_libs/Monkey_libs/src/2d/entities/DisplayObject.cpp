@@ -26,7 +26,7 @@ _touchIn(false)
     _anchorPoint.setTo(0, 0);
     _drable       = true;
     _updatable    = true;
-    _mouseEnabled = true;
+    enableMouse(false);
 }
 
 DisplayObject::~DisplayObject() {
@@ -221,6 +221,16 @@ void DisplayObject::removedFromScene() {
 
 void DisplayObject::setLayer(int layer, bool includeChildren) {
     
+}
+
+void DisplayObject::dispatchEvent(monkey::Event &event) {
+    EventDispatcher::dispatchEvent(event);
+    // 对父级进行冒泡
+    DisplayObject *tp = dynamic_cast<DisplayObject*>(getParent());
+    TouchEvent    *te = dynamic_cast<TouchEvent*>(&event);
+    if (tp && te) {
+        tp->acceptTouchEvent(*te);
+    }
 }
 
 bool DisplayObject::acceptTouchEvent(TouchEvent &event) {

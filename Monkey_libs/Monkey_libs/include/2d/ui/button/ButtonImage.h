@@ -34,7 +34,7 @@ public:
      *  @param disable
      *  @param type     type(Texture Or TextureFrame)
      */
-    virtual void initWithImage(const std::string &up, const std::string &over, const std::string down, ButtonImage::Type type = ButtonImage::Type::TEXTURE);
+    virtual void initWithImage(const std::string &up, const std::string &down, ButtonImage::Type type = ButtonImage::Type::TEXTURE);
     
 protected:
     /**
@@ -53,12 +53,6 @@ protected:
      */
     void initUpImage(const std::string &name, ButtonImage::Type type);
     /**
-     *  初始化SelectedImage
-     *  @param name 贴图名称
-     *  @param type  贴图类型
-     */
-    void initOverImage(const std::string &name, ButtonImage::Type type);
-    /**
      *  初始化DisableImage
      *  @param name 贴图名称
      *  @param type  贴图类型
@@ -66,7 +60,6 @@ protected:
     void initDownImage(const std::string &name, ButtonImage::Type type);
     
     Image*  _upImage;
-    Image*  _overImage;
     Image*  _downImage;
 };
 

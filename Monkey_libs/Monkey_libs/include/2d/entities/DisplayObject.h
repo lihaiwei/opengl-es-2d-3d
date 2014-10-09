@@ -133,6 +133,11 @@ public:
      *  @return success
      */
     virtual bool acceptTouchEvent(TouchEvent &event);
+    /**
+     *  重写dispatchEvent，对父级进行事件冒泡。
+     *  @param event 事件
+     */
+    virtual void dispatchEvent(Event &event) override;
     
 protected:
     
