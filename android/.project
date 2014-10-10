@@ -94,4 +94,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Monkey_libs</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Monkey_libs/Monkey_libs</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

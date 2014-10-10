@@ -9,7 +9,7 @@
 #ifndef Monkey_libs_Shaders2D_h
 #define Monkey_libs_Shaders2D_h
 
-#include "GLBase.h"
+#include "core/base/GLBase.h"
 #include "platform/PlatformMacros.h"
 
 NS_MONKEY_BEGIN

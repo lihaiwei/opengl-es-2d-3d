@@ -12,7 +12,7 @@
 
 #include "ioapi.h"
 
-namespace cocos2d {
+namespace monkey {
 
 voidpf call_zopen64 (const zlib_filefunc64_32_def* pfilefunc,const void*filename,int mode)
 {
@@ -117,7 +117,7 @@ static voidpf ZCALLBACK fopen64_file_func (voidpf opaque, const void* filename, 
         file = fopen64((const char*)filename, mode_fopen);    
 #endif
     }
-
+    
     return file;
 }
 

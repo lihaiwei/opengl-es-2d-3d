@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 neil. All rights reserved.
 //
 
-#include "OrthographicLens2D.h"
+#include "core/camera/lens/OrthographicLens2D.h"
 
 NS_MONKEY_BEGIN
 

@@ -7,8 +7,7 @@
 //
 
 #include "core/event/Event.h"
-
-#include "EventDispatcher.h"
+#include "core/event/EventDispatcher.h"
 
 #include "platform/PlatformMacros.h"
 

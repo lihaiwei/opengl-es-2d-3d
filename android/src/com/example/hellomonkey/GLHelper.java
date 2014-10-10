@@ -3,7 +3,7 @@ package com.example.hellomonkey;
 public class GLHelper {
 	
 	public static void loadLibrary() {
-		System.loadLibrary("monkey");
+		System.loadLibrary("monkeyandroid");
 	}
 	
 	public static native void onSurfaceCreated();

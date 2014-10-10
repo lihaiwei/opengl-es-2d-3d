@@ -17,6 +17,7 @@
 #include "core/material/Geometry3D.h"
 #include "core/utils/Log.h"
 
+#include <algorithm>
 #include <stdlib.h>
 
 NS_MONKEY_BEGIN

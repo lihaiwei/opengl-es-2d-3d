@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 neil. All rights reserved.
 //
 
-#include "Camera3D.h"
+#include "core/camera/Camera3D.h"
 #include "platform/PlatformMacros.h"
 
 NS_MONKEY_BEGIN

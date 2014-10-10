@@ -86,7 +86,7 @@
 #   include <errno.h>
 #endif
 
-namespace cocos2d {
+namespace monkey {
 
 #ifndef local
 #  define local static

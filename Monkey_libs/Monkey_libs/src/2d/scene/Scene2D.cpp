@@ -95,7 +95,7 @@ void Scene2D::render(Camera3D* camera, bool clearDepth) {
     }
     
     if (clearDepth) {
-#if CC_TARGET_PLATFORM == CC_TARGET_OS_IPHONE
+#if CC_TARGET_PLATFORM == CC_TARGET_OS_IPHONE || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
         glClearDepthf(1.0);
 #else
         glClearDepth(1.0);

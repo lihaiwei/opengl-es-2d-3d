@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 neil. All rights reserved.
 //
 
-#include "ButtonImage.h"
+#include "2d/ui/button/ButtonImage.h"
 
 NS_MONKEY_BEGIN
 

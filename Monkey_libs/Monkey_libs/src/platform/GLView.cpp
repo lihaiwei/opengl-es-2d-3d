@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 neil. All rights reserved.
 //
 
-#include "GLView.h"
+#include "platform/GLView.h"
 
 #include "platform/PlatformMacros.h"
 

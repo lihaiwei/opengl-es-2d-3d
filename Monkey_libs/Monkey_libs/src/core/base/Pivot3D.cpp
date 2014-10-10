@@ -10,6 +10,8 @@
 #include "core/scene/Scene.h"
 #include "platform/PlatformMacros.h"
 
+#include <algorithm>
+
 NS_MONKEY_BEGIN
 
 const std::string Pivot3D::ADDED_EVENT              = "ADDED_EVENT";

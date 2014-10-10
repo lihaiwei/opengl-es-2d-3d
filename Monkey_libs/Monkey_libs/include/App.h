@@ -15,6 +15,7 @@
 #include "core/geom/Vector2D.h"
 #include "core/event/EventDispatcher.h"
 #include "platform/PlatformMacros.h"
+#include "platform/PlatformConfig.h"
 
 #include <sys/time.h>
 #include <vector>

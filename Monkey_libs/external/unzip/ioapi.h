@@ -21,7 +21,8 @@
 #ifndef _ZLIBIOAPI64_H
 #define _ZLIBIOAPI64_H
 
-#include "base/CCPlatformConfig.h"
+#include "platform/PlatformMacros.h"
+#include "platform/PlatformConfig.h"
 
 #if (!defined(_WIN32)) && (!defined(WIN32))
 
@@ -46,7 +47,7 @@
 #include <stdlib.h>
 #include "zlib.h"
 
-namespace cocos2d {
+namespace monkey {
 
 #ifndef OF
 #define OF _Z_OF

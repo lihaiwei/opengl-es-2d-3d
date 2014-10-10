@@ -9,7 +9,7 @@
 #ifndef Opengl2D_QuadMaterial2D_h
 #define Opengl2D_QuadMaterial2D_h
 
-#include "Material3D.h"
+#include "core/material/Material3D.h"
 
 NS_MONKEY_BEGIN
 

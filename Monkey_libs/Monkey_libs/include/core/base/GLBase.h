@@ -23,5 +23,14 @@
 #include <OpenGLES/ES2/glext.h>
 #endif
 
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#include <GLES2/gl2.h>
+#include <GLES2/gl2ext.h>
+
+#ifndef GL_BGRA
+#define GL_BGRA  0x80E1
+#endif
+
+#endif
 
 #endif

@@ -6,12 +6,11 @@
 //  Copyright (c) 2014 neil. All rights reserved.
 //
 
-#include "EventDispatcher.h"
-#include "Event.h"
+#include "platform/PlatformMacros.h"
+#include "core/event/Event.h"
+#include "core/event/EventDispatcher.h"
 
 #include <algorithm>
-
-#include "platform/PlatformMacros.h"
 
 NS_MONKEY_BEGIN
 

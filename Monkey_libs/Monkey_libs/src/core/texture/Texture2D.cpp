@@ -809,7 +809,7 @@ bool Texture2D::initWidthMipMaps(const unsigned char *data, ssize_t dataSize, in
     
     _pixelWidth     = pixelWidth;
     _pixelHeight    = pixelHeight;
-    pixelFormat     = pixelFormat;
+//    pixelFormat     = pixelFormat;
     _maxS           = 1;
     _maxT           = 1;
     _unitID         = unitID;

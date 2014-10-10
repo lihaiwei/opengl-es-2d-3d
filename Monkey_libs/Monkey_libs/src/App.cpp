@@ -29,6 +29,8 @@
 #include "2d/entities/DisplayObject.h"
 #include "2d/ui/label/LabelFNT.h"
 
+#include <algorithm>
+
 NS_MONKEY_BEGIN
 
 /**
