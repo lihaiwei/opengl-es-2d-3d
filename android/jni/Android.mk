@@ -9,8 +9,7 @@ MODULE_PATHS := $(LOCAL_PATH)/../../Monkey_libs
 # 模块名称
 LOCAL_MODULE := monkeyandroid
 # 源文件
-JNI_SOURCES := glview.cpp \
-GLViewAndroid.cpp
+JNI_SOURCES := GLJNI.cpp \
 # 源文件
 LOCAL_SRC_FILES += $(JNI_SOURCES)
 # lib

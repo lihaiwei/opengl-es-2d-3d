@@ -62,9 +62,9 @@ src/core/utils/Value.cpp \
 src/platform/FileUtils.cpp \
 src/platform/GLView.cpp \
 src/platform/TextureUtils.cpp \
-src/platform/android/GLViewAndroid.cpp \
 src/platform/android/FileUtilsAndroid.cpp \
 src/platform/android/TextureUtilsAndroid.cpp \
+src/platform/android/GLViewAndroid.cpp \
 ../external/ConvertUTF/ConvertUTFWrapper.cpp \
 ../external/ConvertUTF/ConvertUTF.c \
 ../external/tinyxml2/tinyxml2.cpp \

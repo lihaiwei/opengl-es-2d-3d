@@ -7,8 +7,8 @@
 //
 
 #include "platform/GLView.h"
-
 #include "platform/PlatformMacros.h"
+#include "core/utils/Log.h"
 
 NS_MONKEY_BEGIN
 
