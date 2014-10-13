@@ -56,7 +56,6 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jc
 			scene->addChild(quad0);
 		}
 	}
-	
 }
 
 #ifdef __cplusplus
