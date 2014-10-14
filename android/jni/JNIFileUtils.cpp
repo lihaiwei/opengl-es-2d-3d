@@ -33,8 +33,7 @@ JNIEXPORT void JNICALL Java_monkey_helper_JNIFileUtils_setApkPath(JNIEnv *env, j
 JNIEXPORT void JNICALL Java_monkey_helper_JNIFileUtils_setAssetsManager(JNIEnv *env, jclass jc, jobject context, jobject assetManager) {
 	FileUtilsAndroid *fileutils = dynamic_cast<FileUtilsAndroid*>(FileUtils::getInstance());
 	fileutils->setAssetManager(AAssetManager_fromJava(env, assetManager));
-	
-	LOGE("File path:%s", fileutils->getFullPath("build_native.py").c_str());
+	LOGE("%s", fileutils->getStringFromFile("dda/build_native.py").c_str());
 }
 
 #ifdef __cplusplus

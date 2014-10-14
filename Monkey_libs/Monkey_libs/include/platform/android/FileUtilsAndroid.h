@@ -27,11 +27,6 @@ public:
 	FileUtilsAndroid();
 	virtual ~FileUtilsAndroid();
 	
-    /**
-     * 获取文件全路径
-     * @paran filename	文件名称
-     */
-	virtual std::string getFullPath(const std::string &filename);
 	/**
 	 * 设置AssetManager
 	 * @manager 		资源管理器
@@ -41,7 +36,15 @@ public:
 	 * 设置APK路径
 	 */
 	virtual void setAPKPath(const std::string &path);
-    
+	
+	virtual std::string getStringFromFile(const std::string &fileName) override;
+	
+	virtual ByteArray* getFileData(const std::string &fileName, const char* model = nullptr) override;
+	
+	virtual std::string getFullPath(const std::string &filename) override;
+	
+	virtual bool isFileExist(const std::string &filename) override;
+	
 private:
     
     std::string 	_apkPath;

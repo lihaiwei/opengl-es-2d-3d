@@ -19,15 +19,45 @@ void FileUtilsAndroid::setAssetManager(AAssetManager *manager) {
 	assetmanager = manager;
 }
 
-std::string FileUtilsAndroid::getFullPath(const std::string &filename) {
-	
-	AAsset *asset = AAssetManager_open(assetmanager, filename.c_str(), AASSET_MODE_UNKNOWN);
-	if (asset == NULL) {
-		LOGE("资源%s为null", filename.c_str());
-	} else {
-		LOGE("资源大小%d", AAsset_getLength(asset));
+std::string FileUtilsAndroid::getStringFromFile(const std::string &fileName) {
+	if (fileName.empty()) {
+		return nullptr;
 	}
-	return "";
+	
+	AAsset* asset 	= AAssetManager_open(FileUtilsAndroid::assetmanager, fileName.c_str(), AASSET_MODE_UNKNOWN);
+	off_t  fileSize = AAsset_getLength(asset);
+	unsigned char* data = (unsigned char*) malloc(fileSize + 1);
+	AAsset_read(asset, (void*)data, fileSize);
+	AAsset_close(asset);
+	
+	data[fileSize] = '\0';
+	std::string ret((const char*)data);
+	
+	return ret;
+}
+
+ByteArray* FileUtilsAndroid::getFileData(const std::string &fileName, const char*model) {
+	if (fileName.empty()) {
+		return nullptr;
+	}
+	
+	AAsset* asset 	= AAssetManager_open(FileUtilsAndroid::assetmanager, fileName.c_str(), AASSET_MODE_UNKNOWN);
+	off_t  fileSize = AAsset_getLength(asset);
+	unsigned char* data = (unsigned char*) malloc(fileSize);
+	AAsset_read(asset, (void*)data, fileSize);
+	AAsset_close(asset);
+	
+	ByteArray *bytes = new ByteArray(data, fileSize);
+	return bytes;
+}
+
+std::string FileUtilsAndroid::getFullPath(const std::string &filename) {
+	return filename;
+}
+
+bool FileUtilsAndroid::isFileExist(const std::string &fileName) {
+	
+	return true;
 }
 
 FileUtils* FileUtils::getInstance() {
