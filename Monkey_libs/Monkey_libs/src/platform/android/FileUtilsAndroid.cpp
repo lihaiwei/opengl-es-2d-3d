@@ -1,4 +1,5 @@
 #include "platform/android/FileUtilsAndroid.h"
+#include "core/utils/Log.h"
 
 NS_MONKEY_BEGIN
 
@@ -19,6 +20,13 @@ void FileUtilsAndroid::setAssetManager(AAssetManager *manager) {
 }
 
 std::string FileUtilsAndroid::getFullPath(const std::string &filename) {
+	
+	AAsset *asset = AAssetManager_open(assetmanager, filename.c_str(), AASSET_MODE_UNKNOWN);
+	if (asset == NULL) {
+		LOGE("资源%s为null", filename.c_str());
+	} else {
+		LOGE("资源大小%d", AAsset_getLength(asset));
+	}
 	return "";
 }
 
