@@ -56,8 +56,24 @@ std::string FileUtilsAndroid::getFullPath(const std::string &filename) {
 }
 
 bool FileUtilsAndroid::isFileExist(const std::string &fileName) {
-	
-	return true;
+	if (fileName.empty()) {
+		return false;
+	}
+	bool result = false;
+	if (fileName[0] != '/') {
+		AAsset* asset = AAssetManager_open(assetmanager, fileName, AASSET_MODE_UNKNOWN);
+		if (asset) {
+			result = true;
+			AAsset_close(asset);
+		}
+	} else {
+		FILE *fp = fopen(fileName.c_str(), "r");
+		if (fp) {
+			fclose(fp);
+			result = true;
+		}
+	}
+	return result;
 }
 
 FileUtils* FileUtils::getInstance() {
