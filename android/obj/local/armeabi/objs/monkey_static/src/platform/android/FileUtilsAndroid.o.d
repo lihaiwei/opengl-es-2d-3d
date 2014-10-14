@@ -8,7 +8,8 @@ obj/local/armeabi/objs/monkey_static/src/platform/android/FileUtilsAndroid.o: \
  jni/../../Monkey_libs/Monkey_libs/include/core/utils/Value.h \
  /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/string \
  /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/vector \
- /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/unordered_map
+ /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/unordered_map \
+ /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/android/asset_manager.h
 
 jni/../../Monkey_libs/Monkey_libs/include/platform/android/FileUtilsAndroid.h:
 
@@ -27,3 +28,5 @@ jni/../../Monkey_libs/Monkey_libs/include/core/utils/Value.h:
 /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/vector:
 
 /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/unordered_map:
+
+/Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/android/asset_manager.h:

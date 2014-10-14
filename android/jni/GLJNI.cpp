@@ -2,9 +2,11 @@
 #include <jni.h>
 /* Header for class monkey_helper_GLJNI */
 
+#include "JNIHelper.h"
+
 #include "App.h"
 #include "platform/android/GLViewAndroid.h"
-
+#include "core/utils/Log.h"
 #include "2d/scene/Scene2D.h"
 #include "2d/entities/Quad.h"
 
@@ -15,6 +17,11 @@ extern "C" {
 #endif
 
 USING_NS_MONKEY
+
+jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+	JNIHlper::setJavaVM(vm);
+    return JNI_VERSION_1_4;
+}
 
 /*
  * Class:     monkey_helper_GLJNI

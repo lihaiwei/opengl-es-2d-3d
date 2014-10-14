@@ -1,6 +1,7 @@
 package monkey.activity;
 
 import monkey.helper.GLJNI;
+import monkey.helper.JNIFileUtils;
 import monkey.helper.RenderWrapper;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -20,6 +21,7 @@ public class MonkeyActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		initGL();
+		initFileUtils();
 	}
 	
 	@Override
@@ -36,6 +38,14 @@ public class MonkeyActivity extends Activity {
 		if (glInited) {
 			glSurfaceView.onResume();
 		}
+	}
+	
+	/**
+	 * 初始化FileUtils
+	 */
+	private void initFileUtils() {
+		JNIFileUtils.setApkPath(getApplicationInfo().sourceDir);
+		JNIFileUtils.setAssetsManager((Context)this, getAssets());
 	}
 	
 	/**
@@ -62,6 +72,7 @@ public class MonkeyActivity extends Activity {
 			Toast.makeText(this, "This device does not support OpenGL ES 2.0.",
 		                Toast.LENGTH_LONG).show();
 		}
+		System.out.println(getApplicationInfo().sourceDir);
 	}
 	
 	/**

@@ -16,12 +16,36 @@
 #include "platform/FileUtils.h"
 #include "platform/PlatformMacros.h"
 
+#include <android/asset_manager.h>
+
 NS_MONKEY_BEGIN
 
 class FileUtilsAndroid : public FileUtils {
     
 public:
-    virtual std::string getFullPath(const std::string &filename);
+	
+	FileUtilsAndroid();
+	virtual ~FileUtilsAndroid();
+	
+    /**
+     * 获取文件全路径
+     * @paran filename	文件名称
+     */
+	virtual std::string getFullPath(const std::string &filename);
+	/**
+	 * 设置AssetManager
+	 * @manager 		资源管理器
+	 */
+	virtual void setAssetManager(AAssetManager *manager);
+	/**
+	 * 设置APK路径
+	 */
+	virtual void setAPKPath(const std::string &path);
+    
+private:
+    
+    std::string 	_apkPath;
+    AAssetManager 	*assetmanager;
 };
 
 NS_MONKEY_END

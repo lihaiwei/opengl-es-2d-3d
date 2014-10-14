@@ -10,6 +10,9 @@ MODULE_PATHS := $(LOCAL_PATH)/../../Monkey_libs
 LOCAL_MODULE := monkeyandroid
 # 源文件
 JNI_SOURCES := GLJNI.cpp \
+JNIFileUtils.cpp \
+JNIHelper.cpp
+
 # 源文件
 LOCAL_SRC_FILES += $(JNI_SOURCES)
 # lib
