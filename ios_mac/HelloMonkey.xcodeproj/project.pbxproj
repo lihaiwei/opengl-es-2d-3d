@@ -10,6 +10,8 @@
 		2839EA5719DBF46E00647183 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2839EA5619DBF46E00647183 /* RootViewController.mm */; };
 		2839EA7619DBFBEC00647183 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2839EA7519DBFBEC00647183 /* libz.dylib */; };
 		2839EA7819DBFBF300647183 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2839EA7719DBFBF300647183 /* libz.dylib */; };
+		2852DBC919EE130B00B46235 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2852DBC719EE130B00B46235 /* MainDelegate.cpp */; };
+		2852DBCA19EE130B00B46235 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2852DBC719EE130B00B46235 /* MainDelegate.cpp */; };
 		286C35D319ED34950019AAA3 /* animationbuttondown.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C35C819ED34950019AAA3 /* animationbuttondown.png */; };
 		286C35D419ED34950019AAA3 /* animationbuttondown.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C35C819ED34950019AAA3 /* animationbuttondown.png */; };
 		286C35D519ED34950019AAA3 /* animationbuttonnormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C35C919ED34950019AAA3 /* animationbuttonnormal.png */; };
@@ -32,8 +34,6 @@
 		286C35E619ED34950019AAA3 /* origami-colored-pencil-13.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D119ED34950019AAA3 /* origami-colored-pencil-13.png */; };
 		286C35E719ED34950019AAA3 /* xiaofeiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D219ED34950019AAA3 /* xiaofeiji.jpg */; };
 		286C35E819ED34950019AAA3 /* xiaofeiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D219ED34950019AAA3 /* xiaofeiji.jpg */; };
-		286C35EF19ED34C60019AAA3 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */; };
-		286C35F019ED34C60019AAA3 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */; };
 		288F1EC019DAB10A0095DF6A /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 288F1EBD19DAB0EC0095DF6A /* libchipmunk Mac.a */; };
 		288F1EC119DAB1120095DF6A /* libbox2d mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 288F1E8519DAAE0D0095DF6A /* libbox2d mac.a */; };
 		288FF78119DA7E7C0095DF6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288FF78019DA7E7C0095DF6A /* Foundation.framework */; };
@@ -142,6 +142,8 @@
 		2839EA5619DBF46E00647183 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		2839EA7519DBFBEC00647183 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		2839EA7719DBFBF300647183 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2852DBC719EE130B00B46235 /* MainDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainDelegate.cpp; sourceTree = "<group>"; };
+		2852DBC819EE130B00B46235 /* MainDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDelegate.h; sourceTree = "<group>"; };
 		286C35C819ED34950019AAA3 /* animationbuttondown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animationbuttondown.png; sourceTree = "<group>"; };
 		286C35C919ED34950019AAA3 /* animationbuttonnormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animationbuttonnormal.png; sourceTree = "<group>"; };
 		286C35CA19ED34950019AAA3 /* animationbuttonpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animationbuttonpressed.png; sourceTree = "<group>"; };
@@ -153,8 +155,6 @@
 		286C35D019ED34950019AAA3 /* origami-colored-pencil-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-colored-pencil-12.png"; sourceTree = "<group>"; };
 		286C35D119ED34950019AAA3 /* origami-colored-pencil-13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-colored-pencil-13.png"; sourceTree = "<group>"; };
 		286C35D219ED34950019AAA3 /* xiaofeiji.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xiaofeiji.jpg; sourceTree = "<group>"; };
-		286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainDelegate.cpp; sourceTree = "<group>"; };
-		286C35EE19ED34C60019AAA3 /* MainDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDelegate.h; sourceTree = "<group>"; };
 		288FF74319DA78790095DF6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		288FF74519DA78810095DF6A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		288FF74719DA78860095DF6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -233,7 +233,7 @@
 		2827191B19DA77F300B2F054 = {
 			isa = PBXGroup;
 			children = (
-				286C35EC19ED34C60019AAA3 /* src */,
+				2852DBC619EE130B00B46235 /* classes */,
 				286C35C719ED34950019AAA3 /* Resources */,
 				288FF7B219DA87460095DF6A /* Monkey_libs.xcodeproj */,
 				288FF81E19DA8BFD0095DF6A /* ios */,
@@ -250,6 +250,16 @@
 				288FF88819DA947D0095DF6A /* MonkeyMac.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2852DBC619EE130B00B46235 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				2852DBC719EE130B00B46235 /* MainDelegate.cpp */,
+				2852DBC819EE130B00B46235 /* MainDelegate.h */,
+			);
+			name = classes;
+			path = ../classes;
 			sourceTree = "<group>";
 		};
 		286C35C719ED34950019AAA3 /* Resources */ = {
@@ -269,16 +279,6 @@
 			);
 			name = Resources;
 			path = ../Resources;
-			sourceTree = "<group>";
-		};
-		286C35EC19ED34C60019AAA3 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */,
-				286C35EE19ED34C60019AAA3 /* MainDelegate.h */,
-			);
-			name = src;
-			path = ../src;
 			sourceTree = "<group>";
 		};
 		288FF74F19DA78A60095DF6A /* Frameworks */ = {
@@ -534,7 +534,7 @@
 				2839EA5719DBF46E00647183 /* RootViewController.mm in Sources */,
 				288FF83119DA8BFD0095DF6A /* ViewController.m in Sources */,
 				288FF83019DA8BFD0095DF6A /* main.mm in Sources */,
-				286C35EF19ED34C60019AAA3 /* MainDelegate.cpp in Sources */,
+				2852DBC919EE130B00B46235 /* MainDelegate.cpp in Sources */,
 				288FF82B19DA8BFD0095DF6A /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,7 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				288FF88D19DA947D0095DF6A /* main.mm in Sources */,
-				286C35F019ED34C60019AAA3 /* MainDelegate.cpp in Sources */,
+				2852DBCA19EE130B00B46235 /* MainDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

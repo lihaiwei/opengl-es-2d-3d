@@ -3,6 +3,9 @@ obj/local/armeabi/objs/monkeyandroid/GLJNI.o: jni/GLJNI.cpp \
  jni/JNIHelper.h \
  /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/string \
  jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h \
+ jni/../../classes/MainDelegate.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/base/Object.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h \
  jni/../../Monkey_libs/Monkey_libs/include/App.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/base/GLBase.h \
  jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h \
@@ -18,7 +21,6 @@ obj/local/armeabi/objs/monkeyandroid/GLJNI.o: jni/GLJNI.cpp \
  jni/../../Monkey_libs/Monkey_libs/include/core/geom/Vector2D.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/event/EventDispatcher.h \
  /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/map \
- jni/../../Monkey_libs/Monkey_libs/include/core/base/Object.h \
  jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h \
  jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h \
  jni/../../Monkey_libs/Monkey_libs/include/platform/android/GLViewAndroid.h \
@@ -33,7 +35,6 @@ obj/local/armeabi/objs/monkeyandroid/GLJNI.o: jni/GLJNI.cpp \
  jni/../../Monkey_libs/Monkey_libs/include/2d/scene/Scene2D.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/scene/Scene.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/base/Pivot3D.h \
- jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/event/EventDispatcher.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/geom/Vector2D.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/geom/Vector3D.h \
@@ -59,6 +60,12 @@ jni/JNIHelper.h:
 /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/string:
 
 jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h:
+
+jni/../../classes/MainDelegate.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/base/Object.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/App.h:
 
@@ -90,8 +97,6 @@ jni/../../Monkey_libs/Monkey_libs/include/core/event/EventDispatcher.h:
 
 /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/map:
 
-jni/../../Monkey_libs/Monkey_libs/include/core/base/Object.h:
-
 jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h:
@@ -119,8 +124,6 @@ jni/../../Monkey_libs/Monkey_libs/include/2d/scene/Scene2D.h:
 jni/../../Monkey_libs/Monkey_libs/include/core/scene/Scene.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/base/Pivot3D.h:
-
-jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/event/EventDispatcher.h:
 

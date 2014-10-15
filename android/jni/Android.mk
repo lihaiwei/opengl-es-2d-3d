@@ -8,13 +8,19 @@ $(call import-add-path, $(LOCAL_PATH)/../../Monkey_libs)
 MODULE_PATHS := $(LOCAL_PATH)/../../Monkey_libs
 # 模块名称
 LOCAL_MODULE := monkeyandroid
+# class路径
+CLASSES_SRC := ../../classes
 # 源文件
 JNI_SOURCES := GLJNI.cpp \
 JNIFileUtils.cpp \
-JNIHelper.cpp
+JNIHelper.cpp \
+$(CLASSES_SRC)/MainDelegate.cpp
+
 
 # 源文件
 LOCAL_SRC_FILES += $(JNI_SOURCES)
+# 头文件
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../classes
 # lib
 LOCAL_LDLIBS := -lGLESv1_CM \
                 -lGLESv2 \

@@ -105,5 +105,10 @@
 			<type>2</type>
 			<location>/Users/Neil/Documents/xcodeworkpace/Monkey/Resources</location>
 		</link>
+		<link>
+			<name>classes</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/classes</locationURI>
+		</link>
 	</linkedResources>
 </projectDescription>
