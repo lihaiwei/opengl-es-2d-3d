@@ -51,7 +51,6 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jc
 	GLViewAndroid *glview = new GLViewAndroid();
 	App::getInstance()->setOpenGLView(glview);
 	App::getInstance()->setBackcolor(0x333333);
-	App::getInstance()->setVisiableStats(false);
 	
 	Scene2D *scene = new Scene2D();
 	App::getInstance()->addScene2D(scene);

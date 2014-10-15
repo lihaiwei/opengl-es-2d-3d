@@ -61,7 +61,7 @@ bool FileUtilsAndroid::isFileExist(const std::string &fileName) {
 	}
 	bool result = false;
 	if (fileName[0] != '/') {
-		AAsset* asset = AAssetManager_open(assetmanager, fileName, AASSET_MODE_UNKNOWN);
+		AAsset* asset = AAssetManager_open(assetmanager, fileName.c_str(), AASSET_MODE_UNKNOWN);
 		if (asset) {
 			result = true;
 			AAsset_close(asset);

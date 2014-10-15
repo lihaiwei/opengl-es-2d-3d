@@ -32,6 +32,8 @@
 		286C35E619ED34950019AAA3 /* origami-colored-pencil-13.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D119ED34950019AAA3 /* origami-colored-pencil-13.png */; };
 		286C35E719ED34950019AAA3 /* xiaofeiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D219ED34950019AAA3 /* xiaofeiji.jpg */; };
 		286C35E819ED34950019AAA3 /* xiaofeiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D219ED34950019AAA3 /* xiaofeiji.jpg */; };
+		286C35EF19ED34C60019AAA3 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */; };
+		286C35F019ED34C60019AAA3 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */; };
 		288F1EC019DAB10A0095DF6A /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 288F1EBD19DAB0EC0095DF6A /* libchipmunk Mac.a */; };
 		288F1EC119DAB1120095DF6A /* libbox2d mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 288F1E8519DAAE0D0095DF6A /* libbox2d mac.a */; };
 		288FF78119DA7E7C0095DF6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288FF78019DA7E7C0095DF6A /* Foundation.framework */; };
@@ -60,8 +62,6 @@
 		288FF8B619DA95F20095DF6A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288FF74919DA788F0095DF6A /* OpenAL.framework */; };
 		288FF8B719DA95FB0095DF6A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288FF74B19DA78940095DF6A /* AVFoundation.framework */; };
 		288FF8B819DA96060095DF6A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288FF74D19DA789B0095DF6A /* AudioToolbox.framework */; };
-		28E9F4F719E4D65900321150 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28E9F4F519E4D65900321150 /* MainDelegate.cpp */; };
-		28E9F4F819E4D65900321150 /* MainDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28E9F4F519E4D65900321150 /* MainDelegate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +153,8 @@
 		286C35D019ED34950019AAA3 /* origami-colored-pencil-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-colored-pencil-12.png"; sourceTree = "<group>"; };
 		286C35D119ED34950019AAA3 /* origami-colored-pencil-13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-colored-pencil-13.png"; sourceTree = "<group>"; };
 		286C35D219ED34950019AAA3 /* xiaofeiji.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xiaofeiji.jpg; sourceTree = "<group>"; };
+		286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainDelegate.cpp; sourceTree = "<group>"; };
+		286C35EE19ED34C60019AAA3 /* MainDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDelegate.h; sourceTree = "<group>"; };
 		288FF74319DA78790095DF6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		288FF74519DA78810095DF6A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		288FF74719DA78860095DF6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -185,8 +187,6 @@
 		288FF8AD19DA95C10095DF6A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		288FF8AF19DA95CB0095DF6A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		288FF8B119DA95D20095DF6A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		28E9F4F519E4D65900321150 /* MainDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainDelegate.cpp; sourceTree = "<group>"; };
-		28E9F4F619E4D65900321150 /* MainDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,8 +233,8 @@
 		2827191B19DA77F300B2F054 = {
 			isa = PBXGroup;
 			children = (
+				286C35EC19ED34C60019AAA3 /* src */,
 				286C35C719ED34950019AAA3 /* Resources */,
-				28E9F4F219E4D61C00321150 /* src */,
 				288FF7B219DA87460095DF6A /* Monkey_libs.xcodeproj */,
 				288FF81E19DA8BFD0095DF6A /* ios */,
 				288FF88919DA947D0095DF6A /* mac */,
@@ -269,6 +269,16 @@
 			);
 			name = Resources;
 			path = ../Resources;
+			sourceTree = "<group>";
+		};
+		286C35EC19ED34C60019AAA3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				286C35ED19ED34C60019AAA3 /* MainDelegate.cpp */,
+				286C35EE19ED34C60019AAA3 /* MainDelegate.h */,
+			);
+			name = src;
+			path = ../src;
 			sourceTree = "<group>";
 		};
 		288FF74F19DA78A60095DF6A /* Frameworks */ = {
@@ -344,15 +354,6 @@
 				288FF88C19DA947D0095DF6A /* main.mm */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		28E9F4F219E4D61C00321150 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				28E9F4F519E4D65900321150 /* MainDelegate.cpp */,
-				28E9F4F619E4D65900321150 /* MainDelegate.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,7 +534,7 @@
 				2839EA5719DBF46E00647183 /* RootViewController.mm in Sources */,
 				288FF83119DA8BFD0095DF6A /* ViewController.m in Sources */,
 				288FF83019DA8BFD0095DF6A /* main.mm in Sources */,
-				28E9F4F719E4D65900321150 /* MainDelegate.cpp in Sources */,
+				286C35EF19ED34C60019AAA3 /* MainDelegate.cpp in Sources */,
 				288FF82B19DA8BFD0095DF6A /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,7 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				288FF88D19DA947D0095DF6A /* main.mm in Sources */,
-				28E9F4F819E4D65900321150 /* MainDelegate.cpp in Sources */,
+				286C35F019ED34C60019AAA3 /* MainDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

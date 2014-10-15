@@ -311,8 +311,6 @@ void App::update() {
             _fpsFrame = 0;
             _fpsTime  = 0;
             
-            LOGE("FPS=%f", _fps);
-            
             if (_showStats) {
                 char buf[1024];
                 sprintf(buf, "FPS:%.2f\nTRI:%d\nDRA:%d\n", _fps, triangles, drawcalls);
