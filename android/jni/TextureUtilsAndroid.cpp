@@ -6,29 +6,7 @@
 
 NS_MONKEY_BEGIN
 
-#define ALIGN_TOP    1
-#define ALIGN_CENTER 3
-#define ALIGN_BOTTOM 2
-
-typedef struct {
-    unsigned int    height;
-    unsigned int    width;
-    bool            isPremultipliedAlpha;
-    bool            hasShadow;
-    float           offsetX;
-    float           offsetY;
-    float           shadowBlur;
-    float           shadowOpacity;
-    bool            hasStroke;
-    float           strokeR;
-    float           strokeG;
-    float           strokeB;
-    float           strokeSize;
-    float           tintR;
-    float           tintG;
-    float           tintB;
-    unsigned char*  data;
-} TextureInfo;
+TextureInfo* TextureUtilsAndroid::sharedInfo = NULL;
 
 static bool initWithString(const char* text, TextAlign align, const char *fontName, int size, TextureInfo *info) {
 	
@@ -61,7 +39,6 @@ static bool initWithString(const char* text, TextAlign align, const char *fontNa
 			info->hasShadow, info->offsetX, -info->offsetY, info->shadowBlur, 	info->shadowOpacity, 
 			info->hasStroke, info->strokeR, info->strokeG, 	info->strokeB, 		info->strokeSize
 	)) {
-		LOGE("失败失败失败失败是吧。。。。。。。");
 		return false;
 	}
 	
@@ -91,15 +68,21 @@ ByteArray* TextureUtilsAndroid::getTextureDataWithText(const char* text, const T
     info.tintG     = format.fontFillColorG;
     info.tintB     = format.fontFillColorB;
     
+    // 共享info
+    TextureUtilsAndroid::sharedInfo = &info;
+    
     if (!initWithString(text, format.align, format.fontName.c_str(), format.fontSize, &info)) {
     	return NULL;
     }
-	
+    
     height	= info.height;
     width	= info.width;
     hasAlpha= info.isPremultipliedAlpha;
     
+    LOGE("宽度=%d, 高度=%d, 是否透明 = %d", info.width, info.height, info.isPremultipliedAlpha);
+    
     ByteArray *bytes = new ByteArray(info.data, width * height * 4);
+    
 	return bytes;
 }
 
@@ -118,13 +101,11 @@ extern "C"
     * this method is called by java code to init width, height and pixels data
     */
     JNIEXPORT void JNICALL Java_monkey_helper_TextureUtils_nativeInitBitmapDC(JNIEnv*  env, jobject thiz, int width, int height, jbyteArray pixels) {
-//        int size = width * height * 4;
-//        cocos2d::BitmapDC& bitmapDC = cocos2d::sharedBitmapDC();
-//        bitmapDC._width = width;
-//        bitmapDC._height = height;
-//        bitmapDC._data = (unsigned char*)malloc(sizeof(unsigned char) * size);
-//        env->GetByteArrayRegion(pixels, 0, size, (jbyte*)bitmapDC._data);
-        
-        LOGE("啊实打实看混搭还是到哈市的回家啊SD敢达市房管局啊撒股的话费哈帅哥快递费噶是的高发斯蒂芬");
+        int size = width * height * 4;
+        monkey::TextureUtilsAndroid::sharedInfo->width  = width;
+        monkey::TextureUtilsAndroid::sharedInfo->height = height;
+        monkey::TextureUtilsAndroid::sharedInfo->data   = (unsigned char*)malloc(sizeof(unsigned char) * size);
+        monkey::TextureUtilsAndroid::sharedInfo->isPremultipliedAlpha = true;
+        env->GetByteArrayRegion(pixels, 0, size, (jbyte*)monkey::TextureUtilsAndroid::sharedInfo->data);
     }
 };

@@ -18,10 +18,36 @@
 
 NS_MONKEY_BEGIN
 
+#define ALIGN_TOP    1
+#define ALIGN_CENTER 3
+#define ALIGN_BOTTOM 2
+
+typedef struct {
+    unsigned int    height;
+    unsigned int    width;
+    bool            isPremultipliedAlpha;
+    bool            hasShadow;
+    float           offsetX;
+    float           offsetY;
+    float           shadowBlur;
+    float           shadowOpacity;
+    bool            hasStroke;
+    float           strokeR;
+    float           strokeG;
+    float           strokeB;
+    float           strokeSize;
+    float           tintR;
+    float           tintG;
+    float           tintB;
+    unsigned char*  data;
+} TextureInfo;
+
 class TextureUtilsAndroid : public TextureUtils {
     
 public:
     
+	static TextureInfo *sharedInfo;
+	
     ByteArray*  getTextureDataWithText(const char* text, const TextFormatter &format, int &width, int &height, bool &hasAlpha) override;
     
 };

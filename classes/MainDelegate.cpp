@@ -46,31 +46,21 @@ void MainDelegate::didFinishLaunching() {
     scene->addChild(img);
     img->addEventListener(TouchEvent::TOUCH_HIT, this, EVENT_CALLBACK(MainDelegate::onClick));
     
-    Label *label = Label::create("Ni hao A.", "", 24);
-//    scene->addChild(label);
+    Label *sysFont = Label::create("Hello , This is 系统字体。", "", 24);
+    sysFont->setPosition(100.0f, -300.0f, 0.0f);
+    scene->addChild(sysFont);
     
     LabelFNT *fnt = LabelFNT::create("bitmapFontChinese.fnt", "亲自成立于HelloWORD!123");
     fnt->setPosition(0.0f, -300.0f, 0.0f);
-//    scene->addChild(fnt);
     
     ButtonImage *btn = new ButtonImage();
     btn->initWithImage("animationbuttonnormal.png", "animationbuttonpressed.png");
-//    scene->addChild(btn);
-    btn->addChild(fnt);
     btn->setPosition(0, 0, 0.0f);
     
+    btn->addChild(fnt);
     img->addChild(btn);
     
     App::getInstance()->addScene2D(scene);
-    
-    
-    TextFormatter format;
-    format.fontName = "...";
-    format.fontSize = 14;
-    bool hasAlpha;
-    int  w;
-    int  h;
-    TextureUtils::getInstance()->getTextureDataWithText("Ni Hao", format, w, h, hasAlpha);
 }
 
 void MainDelegate::didEnterBackground() {
