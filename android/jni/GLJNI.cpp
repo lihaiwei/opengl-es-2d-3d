@@ -56,17 +56,17 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jc
 	App::getInstance()->setBackcolor(0xFF00FF);
 	App::getInstance()->setVisiableStats(false);
 	
-//	delegate = new MainDelegate();
-//	delegate->didFinishLaunching();
+	delegate = new MainDelegate();
+	delegate->didFinishLaunching();
 	
-	Scene2D *scene = new Scene2D();
-	App::getInstance()->addScene2D(scene);
+//	Scene2D *scene = new Scene2D();
+//	App::getInstance()->addScene2D(scene);
 	
 //	for (int i = 0; i < 15; i++) {
 //		for (int j = 0; j < 15; j++) {
-			Quad *quad0 = Quad::create(400 * randomf(), 600 * randomf(), 0xFFFFFF * randomf(), 1.0f * randomf());
-			quad0->setPosition(200 * randomf(), -600 * randomf(), 0.0f);
-			scene->addChild(quad0);
+//			Quad *quad0 = Quad::create(400 * randomf(), 600 * randomf(), 0xFFFFFF * randomf(), 1.0f * randomf());
+//			quad0->setPosition(200 * randomf(), -600 * randomf(), 0.0f);
+//			scene->addChild(quad0);
 //		}
 //	}
 }
