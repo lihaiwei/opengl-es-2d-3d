@@ -22,7 +22,7 @@ USING_NS_MONKEY
  */
 JNIEXPORT void JNICALL Java_monkey_helper_JNIFileUtils_setApkPath(JNIEnv *env, jclass jc, jstring str) {
 	FileUtilsAndroid *fileutils = dynamic_cast<FileUtilsAndroid*>(FileUtils::getInstance());
-	fileutils->setAPKPath(JNIHlper::jstring2string(str));
+	fileutils->setAPKPath(JNIHelper::jstring2string(str));
 }
 
 /*
@@ -30,7 +30,8 @@ JNIEXPORT void JNICALL Java_monkey_helper_JNIFileUtils_setApkPath(JNIEnv *env, j
  * Method:    setAssetsManager
  * Signature: (Ljava/lang/Object;Ljava/lang/Object;)V
  */
-JNIEXPORT void JNICALL Java_monkey_helper_JNIFileUtils_setAssetsManager(JNIEnv *env, jclass jc, jobject context, jobject assetManager) {
+JNIEXPORT void JNICALL Java_monkey_helper_JNIFileUtils_setContext(JNIEnv *env, jclass jc, jobject context, jobject assetManager) {
+	JNIHelper::setClassLoaderFrom(context);
 	FileUtilsAndroid *fileutils = dynamic_cast<FileUtilsAndroid*>(FileUtils::getInstance());
 	fileutils->setAssetManager(AAssetManager_fromJava(env, assetManager));
 }

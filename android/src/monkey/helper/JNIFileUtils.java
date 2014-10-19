@@ -12,6 +12,6 @@ public class JNIFileUtils {
 	 * @param context		context
 	 * @param assetManager	manager
 	 */
-	public static native void setAssetsManager(final Object context, final Object assetManager);
+	public static native void setContext(final Object context, final Object assetManager);
 	
 }

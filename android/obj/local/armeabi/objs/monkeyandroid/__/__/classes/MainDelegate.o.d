@@ -74,6 +74,8 @@ obj/local/armeabi/objs/monkeyandroid/__/__/classes/MainDelegate.o: \
  jni/../../Monkey_libs/Monkey_libs/include/2d/entities/BatchDisplayObject.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/utils/Log.h \
  /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/android/log.h \
+ jni/../../Monkey_libs/Monkey_libs/include/platform/TextureUtils.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/utils/ByteArray.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/Button.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/ButtonImage.h
 
@@ -226,6 +228,10 @@ jni/../../Monkey_libs/Monkey_libs/include/2d/entities/BatchDisplayObject.h:
 jni/../../Monkey_libs/Monkey_libs/include/core/utils/Log.h:
 
 /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/android/log.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/platform/TextureUtils.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/utils/ByteArray.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/Button.h:
 

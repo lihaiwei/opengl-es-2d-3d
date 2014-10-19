@@ -19,6 +19,7 @@
 #include <2d/ui/label/Label.h>
 #include <2d/ui/label/LabelFNT.h>
 #include <core/utils/Log.h>
+#include <platform/TextureUtils.h>
 #include "2d/ui/button/Button.h"
 #include "2d/ui/button/ButtonImage.h"
 
@@ -61,6 +62,15 @@ void MainDelegate::didFinishLaunching() {
     img->addChild(btn);
     
     App::getInstance()->addScene2D(scene);
+    
+    
+    TextFormatter format;
+    format.fontName = "...";
+    format.fontSize = 14;
+    bool hasAlpha;
+    int  w;
+    int  h;
+    TextureUtils::getInstance()->getTextureDataWithText("Ni Hao", format, w, h, hasAlpha);
 }
 
 void MainDelegate::didEnterBackground() {

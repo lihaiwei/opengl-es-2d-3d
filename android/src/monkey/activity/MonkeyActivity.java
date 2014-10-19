@@ -45,7 +45,7 @@ public class MonkeyActivity extends Activity {
 	 */
 	private void initFileUtils() {
 		JNIFileUtils.setApkPath(getApplicationInfo().sourceDir);
-		JNIFileUtils.setAssetsManager((Context)this, getAssets());
+		JNIFileUtils.setContext((Context)this, getAssets());
 	}
 	
 	/**

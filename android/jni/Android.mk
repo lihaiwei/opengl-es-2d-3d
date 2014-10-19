@@ -14,6 +14,7 @@ CLASSES_SRC := ../../classes
 JNI_SOURCES := GLJNI.cpp \
 JNIFileUtils.cpp \
 JNIHelper.cpp \
+TextureUtilsAndroid.cpp \
 $(CLASSES_SRC)/MainDelegate.cpp
 
 

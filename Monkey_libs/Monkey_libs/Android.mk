@@ -63,7 +63,6 @@ src/platform/FileUtils.cpp \
 src/platform/GLView.cpp \
 src/platform/TextureUtils.cpp \
 src/platform/android/FileUtilsAndroid.cpp \
-src/platform/android/TextureUtilsAndroid.cpp \
 src/platform/android/GLViewAndroid.cpp \
 ../external/ConvertUTF/ConvertUTFWrapper.cpp \
 ../external/ConvertUTF/ConvertUTF.c \

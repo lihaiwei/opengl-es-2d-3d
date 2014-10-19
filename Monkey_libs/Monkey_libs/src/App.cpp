@@ -267,7 +267,7 @@ void App::setBackcolor(int color) {
 
 void App::update() {
     if (_glview) {
-        
+    	
         if (_paused) {
             return;
         }

@@ -23,7 +23,7 @@ USING_NS_MONKEY
 static MainDelegate* delegate = NULL;
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
-	JNIHlper::setJavaVM(vm);
+	JNIHelper::setJavaVM(vm);
     return JNI_VERSION_1_4;
 }
 
@@ -53,19 +53,20 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceChanged(JNIEnv *env, jc
 JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jclass jc) {
 	GLViewAndroid *glview = new GLViewAndroid();
 	App::getInstance()->setOpenGLView(glview);
-	App::getInstance()->setBackcolor(0x333333);
+	App::getInstance()->setBackcolor(0xFF00FF);
+	App::getInstance()->setVisiableStats(false);
 	
-	delegate = new MainDelegate();
-	delegate->didFinishLaunching();
+//	delegate = new MainDelegate();
+//	delegate->didFinishLaunching();
 	
-//	Scene2D *scene = new Scene2D();
-//	App::getInstance()->addScene2D(scene);
-//	
+	Scene2D *scene = new Scene2D();
+	App::getInstance()->addScene2D(scene);
+	
 //	for (int i = 0; i < 15; i++) {
 //		for (int j = 0; j < 15; j++) {
-//			Quad *quad0 = Quad::create(400 * randomf(), 600 * randomf(), 0xFFFFFF * randomf(), 1.0f * randomf());
-//			quad0->setPosition(200 * randomf(), -600 * randomf(), 0.0f);
-//			scene->addChild(quad0);
+			Quad *quad0 = Quad::create(400 * randomf(), 600 * randomf(), 0xFFFFFF * randomf(), 1.0f * randomf());
+			quad0->setPosition(200 * randomf(), -600 * randomf(), 0.0f);
+			scene->addChild(quad0);
 //		}
 //	}
 }
