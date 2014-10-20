@@ -337,6 +337,7 @@ void BatchDisplayObject::draw(bool includeChildren, Material3D* shader) {
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
         glDrawElements(GL_TRIANGLES, 6 * _quadsLimit, GL_UNSIGNED_INT, 0);
+//        glDrawElements(GL_TRIANGLES, 6 * _quadsLimit, GL_UNSIGNED_SHORT, 0);
         
         glDisableVertexAttribArray(posVa);
         glDisableVertexAttribArray(uvVa);

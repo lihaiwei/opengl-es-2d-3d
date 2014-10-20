@@ -77,7 +77,8 @@ obj/local/armeabi/objs/monkeyandroid/__/__/classes/MainDelegate.o: \
  jni/../../Monkey_libs/Monkey_libs/include/platform/TextureUtils.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/utils/ByteArray.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/Button.h \
- jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/ButtonImage.h
+ jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/ButtonImage.h \
+ jni/../../Monkey_libs/Monkey_libs/include/2d/entities/Quad.h
 
 jni/../../classes/MainDelegate.h:
 
@@ -236,3 +237,5 @@ jni/../../Monkey_libs/Monkey_libs/include/core/utils/ByteArray.h:
 jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/Button.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/ButtonImage.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/2d/entities/Quad.h:

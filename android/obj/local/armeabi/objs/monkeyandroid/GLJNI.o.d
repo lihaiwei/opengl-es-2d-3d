@@ -51,7 +51,9 @@ obj/local/armeabi/objs/monkeyandroid/GLJNI.o: jni/GLJNI.cpp \
  jni/../../Monkey_libs/Monkey_libs/include/core/material/Geometry3D.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/entities/Quad.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h \
- jni/../../Monkey_libs/Monkey_libs/include/core/material/BlendMode.h
+ jni/../../Monkey_libs/Monkey_libs/include/core/material/BlendMode.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/material/GLSLProgram.h \
+ jni/Matrix.h
 
 /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/jni.h:
 
@@ -158,3 +160,7 @@ jni/../../Monkey_libs/Monkey_libs/include/2d/entities/Quad.h:
 jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/material/BlendMode.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/material/GLSLProgram.h:
+
+jni/Matrix.h:

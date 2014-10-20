@@ -11,6 +11,9 @@
 #include "core/utils/Log.h"
 #include "2d/scene/Scene2D.h"
 #include "2d/entities/Quad.h"
+#include "core/material/GLSLProgram.h"
+
+#include "Matrix.h"
 
 #ifndef _Included_monkey_helper_GLJNI
 #define _Included_monkey_helper_GLJNI
@@ -51,6 +54,7 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceChanged(JNIEnv *env, jc
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jclass jc) {
+	
 	GLViewAndroid *glview = new GLViewAndroid();
 	App::getInstance()->setOpenGLView(glview);
 	App::getInstance()->setBackcolor(0xFF00FF);
@@ -58,17 +62,6 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jc
 	
 	delegate = new MainDelegate();
 	delegate->didFinishLaunching();
-	
-//	Scene2D *scene = new Scene2D();
-//	App::getInstance()->addScene2D(scene);
-	
-//	for (int i = 0; i < 15; i++) {
-//		for (int j = 0; j < 15; j++) {
-//			Quad *quad0 = Quad::create(400 * randomf(), 600 * randomf(), 0xFFFFFF * randomf(), 1.0f * randomf());
-//			quad0->setPosition(200 * randomf(), -600 * randomf(), 0.0f);
-//			scene->addChild(quad0);
-//		}
-//	}
 }
 
 #ifdef __cplusplus

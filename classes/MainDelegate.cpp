@@ -22,6 +22,7 @@
 #include <platform/TextureUtils.h>
 #include "2d/ui/button/Button.h"
 #include "2d/ui/button/ButtonImage.h"
+#include <2d/entities/Quad.h>
 
 USING_NS_MONKEY
 

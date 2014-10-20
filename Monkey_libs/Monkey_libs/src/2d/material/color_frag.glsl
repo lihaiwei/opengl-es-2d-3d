@@ -8,5 +8,4 @@ uniform vec4 colorAlpha;
 void main() {
     gl_FragColor = colorAlpha;
 }
-
 );

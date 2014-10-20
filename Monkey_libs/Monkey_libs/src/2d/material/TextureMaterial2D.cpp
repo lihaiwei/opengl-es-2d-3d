@@ -66,7 +66,7 @@ void TextureMaterial2D::draw(Geometry3D *geometry, Texture2D *texture, Matrix3D 
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, geometry->getIndexBuffer());
     // draw
-    glDrawElements(GL_TRIANGLES, geometry->getTrianglesNum(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, geometry->getTrianglesNum(), GL_UNSIGNED_SHORT, 0);
     // disable
     geometry->disableVertexBuffer(Geometry3D::VertexType::POSITION, _posVaInstance);
     geometry->disableVertexBuffer(Geometry3D::VertexType::UV0,      _uvVaInstance);

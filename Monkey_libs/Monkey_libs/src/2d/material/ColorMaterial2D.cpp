@@ -68,7 +68,7 @@ void ColorMaterial2D::draw(Geometry3D *geometry, Matrix3D &world) {
     program->setUniformMatrix4fv(_mvpUniform, world.rawData, 1, GL_FALSE);
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, geometry->getIndexBuffer());
-    glDrawElements(GL_TRIANGLES, geometry->getTrianglesNum(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, geometry->getTrianglesNum(), GL_UNSIGNED_SHORT, 0);
     
     geometry->disableVertexBuffer(Geometry3D::VertexType::POSITION, _posVa);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);

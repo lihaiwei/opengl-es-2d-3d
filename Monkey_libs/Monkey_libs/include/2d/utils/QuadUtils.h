@@ -10,6 +10,7 @@
 #define _QuadUtils_h
 
 #include "core/material/Geometry3D.h"
+#include "core/base/GLBase.h"
 
 NS_MONKEY_BEGIN
 
@@ -75,7 +76,7 @@ static inline Geometry3D* createQuadGeometry(int width, int height, float anchor
         eu, sv
     };
     
-    unsigned int indices[6] = {0, 1, 2, 2, 1, 3};
+    GLushort indices[6] = {0, 1, 2, 2, 1, 3};
     
     geo->addVertexBuffer(Geometry3D::VertexType::POSITION, (const char*)vertices, sizeof(vertices), 3);
     geo->addVertexBuffer(Geometry3D::VertexType::UV0, (const char*)uvs, sizeof(uvs), 2);
