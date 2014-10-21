@@ -15,7 +15,6 @@ JNI_SOURCES := GLJNI.cpp \
 JNIFileUtils.cpp \
 JNIHelper.cpp \
 TextureUtilsAndroid.cpp \
-Matrix.cpp \
 $(CLASSES_SRC)/MainDelegate.cpp
 
 

@@ -10,6 +10,7 @@ import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.widget.Toast;
 
 public class MonkeyActivity extends Activity {
@@ -28,7 +29,7 @@ public class MonkeyActivity extends Activity {
 	protected void onPause() {
 		super.onPause();
 		if (glInited) {
-			glSurfaceView.onPause();
+//			glSurfaceView.onPause();
 		}
 	}
 
@@ -36,10 +37,64 @@ public class MonkeyActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		if (glInited) {
-			glSurfaceView.onResume();
+//			glSurfaceView.onResume();
 		}
 	}
 	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		
+		final int size = event.getPointerCount();
+		final int[] ids = new int[size];
+		final float[] xs= new float[size];
+		final float[] ys= new float[size];
+		
+		for (int i = 0; i < size; i++) {
+			ids[i] 	= event.getPointerId(i);
+			xs[i]	= event.getX(i);
+			ys[i] 	= event.getY(i);
+		}
+		
+		switch (event.getAction() & MotionEvent.ACTION_MASK) {
+		case MotionEvent.ACTION_POINTER_DOWN:
+			final int indexPointerDown 	= event.getAction() >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+			final int idPointerDown 	= event.getPointerId(indexPointerDown);
+			final float xPointerDown	= event.getX(indexPointerDown);
+			final float yPointerDown	= event.getY(indexPointerDown);
+			GLJNI.touchesBegin(idPointerDown, xPointerDown, yPointerDown);
+			break;
+		case MotionEvent.ACTION_DOWN:
+			final int idDown  = event.getPointerId(0);
+			final float xDown = xs[0];
+			final float yDown = ys[0];
+			GLJNI.touchesBegin(idDown, xDown, yDown);
+			break;
+		case MotionEvent.ACTION_MOVE:
+			GLJNI.touchesMove(ids, xs, ys);
+			break;
+		case MotionEvent.ACTION_POINTER_UP:
+			final int indexPointUp = event.getAction() >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+			final int idPointerUp  = event.getPointerId(indexPointUp);
+			final float xPointerUp = event.getX(indexPointUp);
+			final float yPointerUp = event.getY(indexPointUp);
+			GLJNI.touchesEnd(idPointerUp, xPointerUp, yPointerUp);
+			break;
+		case MotionEvent.ACTION_UP:
+			final int idUp  = event.getPointerId(0);
+			final float xUp = xs[0];
+			final float yUp = ys[0];
+			GLJNI.touchesEnd(idUp, xUp, yUp);
+			break;
+		case MotionEvent.ACTION_CANCEL:
+			GLJNI.touchesCancel(ids, xs, ys);
+			break;
+		default:
+			break;
+		}
+		
+		return true;
+	}
+
 	/**
 	 * 初始化FileUtils
 	 */
