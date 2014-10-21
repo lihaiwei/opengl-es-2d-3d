@@ -10,6 +10,8 @@
 #define Monkey_libs_Input3D_h
 
 #include "platform/PlatformMacros.h"
+
+#include "core/geom/Vector2D.h"
 #include "core/base/Object.h"
 #include "core/event/KeyboardEvent.h"
 
@@ -59,7 +61,7 @@ public:
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void mouseMove(float* xs, float* ys, int num);
+    static void mouseMove(Point2D *points, int num);
     /**
      *  mouse up
      *
@@ -67,7 +69,7 @@ public:
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void mouseUP(float* xs, float* ys, int num);
+    static void mouseUP(Point2D *points, int num);
     /**
      *  mouse Down
      *
@@ -75,7 +77,7 @@ public:
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void mouseDown(float* xs, float* ys, int num);
+    static void mouseDown(Point2D *points, int num);
     /**
      *  mouse wheel
      *  @param deltaX
@@ -89,28 +91,28 @@ public:
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void rightMouseDown(float* xs, float* ys, int num);
+    static void rightMouseDown(Point2D *points, int num);
     /**
      *  right mouse up
      *  @param xs  x坐标
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void rightMouseUp(float* xs, float* ys, int num);
+    static void rightMouseUp(Point2D *points, int num);
     /**
      *  millde mouse down
      *  @param xs  x坐标
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void middleMouseDown(float* xs, float* ys, int num);
+    static void middleMouseDown(Point2D *points, int num);
     /**
      *  middle mouse up
      *  @param xs  x坐标
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void middleMouseUp(float* xs, float* ys, int num);
+    static void middleMouseUp(Point2D *points, int num);
     /**
      *  double click
      *
@@ -118,7 +120,7 @@ public:
      *  @param ys  y坐标
      *  @param num 数量
      */
-    static void doubleClick(float* xs, float* ys, int num);
+    static void doubleClick(Point2D *points, int num);
     /**
      *  key down
      *  @param keycode 键code

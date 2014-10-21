@@ -14,7 +14,9 @@ NS_MONKEY_BEGIN
 Button::Button() : DisplayObject() {
     addEventListener(TouchEvent::TOUCH_BEGAN, this, EVENT_CALLBACK(Button::onTouchBegan));
     addEventListener(TouchEvent::TOUCH_END,   this, EVENT_CALLBACK(Button::onTouchEnd));
-//    addEventListener(TouchEvent::TOUCH_MOVE,  this, EVENT_CALLBACK(Button::onTouchMove));
+#if CC_TARGET_PLATFORM != CC_PLATFORM_MAC && CC_TARGET_PLATFORM != CC_PLATFORM_WIN32
+    addEventListener(TouchEvent::TOUCH_MOVE,  this, EVENT_CALLBACK(Button::onTouchMove));
+#endif
     addEventListener(TouchEvent::TOUCH_OUT,   this, EVENT_CALLBACK(Button::onTouchOut));
 }
 
@@ -35,7 +37,7 @@ void Button::onTouchEnd(Event *e) {
 }
 
 void Button::onTouchMove(Event *e) {
-//    setButtonStatus(Button::ButtonStats::DOWN);
+    setButtonStatus(Button::ButtonStats::DOWN);
 }
 
 void Button::onTouchOut(Event *e) {

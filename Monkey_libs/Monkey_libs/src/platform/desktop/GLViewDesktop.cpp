@@ -388,39 +388,33 @@ void GLViewDesktop::onGLFWMouseCallBack(GLFWwindow *window, int button, int acti
             if (GLFW_PRESS == action) {
                 MouseEvent event(MouseEvent::TOUCH_BEGAN, true, point, 1);
                 App::getInstance()->handleTouchesBegan(event);
-                
-                Input3D::mouseDown(&_mouseX, &_mouseY, 1);
+                Input3D::mouseDown(point, 1);
             } else if (GLFW_RELEASE == action) {
                 MouseEvent event(MouseEvent::TOUCH_END, true, point, 1);
                 App::getInstance()->handleTouchesEnd(event);
-                
-                Input3D::mouseUP(&_mouseX, &_mouseY, 1);
+                Input3D::mouseUP(point, 1);
             }
             break;
         case GLFW_MOUSE_BUTTON_RIGHT:
             if (GLFW_PRESS == action) {
                 MouseEvent event(MouseEvent::RIGHT_MOUSE_DOWN, true, point, 1);
                 App::getInstance()->handleTouchesBegan(event);
-                
-                Input3D::rightMouseDown(&_mouseX, &_mouseY, 1);
+                Input3D::rightMouseDown(point, 1);
             } else if (GLFW_RELEASE == action) {
                 MouseEvent event(MouseEvent::RIGHT_MOUSE_UP, true, point, 1);
                 App::getInstance()->handleTouchesEnd(event);
-                
-                Input3D::rightMouseUp(&_mouseX, &_mouseY, 1);
+                Input3D::rightMouseUp(point, 1);
             }
             break;
         case GLFW_MOUSE_BUTTON_MIDDLE:
             if (GLFW_PRESS == action) {
                 MouseEvent event(MouseEvent::MIDDLE_MOUSE_DOWN, true, point, 1);
                 App::getInstance()->handleTouchesBegan(event);
-                
-                Input3D::middleMouseDown(&_mouseX, &_mouseY, 1);
+                Input3D::middleMouseDown(point, 1);
             } else if (GLFW_RELEASE == action) {
                 MouseEvent event(MouseEvent::MIDDLE_MOUSE_UP, true, point, 1);
                 App::getInstance()->handleTouchesEnd(event);
-                
-                Input3D::middleMouseUp(&_mouseX, &_mouseY, 1);
+                Input3D::middleMouseUp(point, 1);
             }
             break;
         default:
@@ -445,7 +439,7 @@ void GLViewDesktop::onGLFWMouseMoveCallBack(GLFWwindow *window, double x, double
     Point2D *point = new Point2D(_mouseX, _mouseY);
     MouseEvent event(MouseEvent::TOUCH_MOVE, false, point, 1);
     App::getInstance()->handleTouchesMove(event);
-    Input3D::mouseMove(&_mouseX, &_mouseY, 1);
+    Input3D::mouseMove(point, 1);
     
     free(point);
 }

@@ -106,7 +106,7 @@ public:
      *  @param x                宽度百分比
      *  @param y                高度百分比
      */
-    virtual void                setAnchor(float x, float y);
+    virtual void setAnchor(float x, float y);
     
 protected:
     

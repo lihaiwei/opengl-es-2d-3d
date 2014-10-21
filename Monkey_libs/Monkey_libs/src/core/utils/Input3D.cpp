@@ -43,18 +43,18 @@ float Input3D::_movementY   = 0.0f;
  * TODO:暂时只支持单点触控
  */
 
-void Input3D::mouseMove(float *xs, float *ys, int num) {
-    _stageX = xs[0];
-    _stageY = ys[0];
+void Input3D::mouseMove(Point2D *points, int num) {
+    _stageX = points[0].x;
+    _stageY = points[0].y;
 }
 
-void Input3D::mouseUP(float *xs, float *ys, int num) {
+void Input3D::mouseUP(Point2D *points, int num) {
     _mouseDown = 0;
     _mouseHit  = 0;
     _mouseUp   = _currFrame + 1;
 }
 
-void Input3D::mouseDown(float *xs, float *ys, int num) {
+void Input3D::mouseDown(Point2D *points, int num) {
     _mouseDown = 1;
     _mouseUp   = 0;
     _mouseHit  = _currFrame + 1;
@@ -66,31 +66,31 @@ void Input3D::mouseWheel(float deltaX, float deltaY) {
     _deltaMove = _currFrame + 1;
 }
 
-void Input3D::rightMouseDown(float *xs, float *ys, int num) {
+void Input3D::rightMouseDown(Point2D *points, int num) {
     _rightMouseDown = 1;
     _rightMouseUp   = 0;
     _rightMouseHit  = _currFrame + 1;
 }
 
-void Input3D::rightMouseUp(float *xs, float *ys, int num) {
+void Input3D::rightMouseUp(Point2D *points, int num) {
     _rightMouseDown = 0;
     _rightMouseUp   = _currFrame + 1;
     _rightMouseHit  = 0;
 }
 
-void Input3D::middleMouseDown(float *xs, float *ys, int num) {
+void Input3D::middleMouseDown(Point2D *points, int num) {
     _middleMouseDown = 1;
     _middleMouseUp   = 0;
     _middleMouseHit  = _currFrame + 1;
 }
 
-void Input3D::middleMouseUp(float *xs, float *ys, int num) {
+void Input3D::middleMouseUp(Point2D *points, int num) {
     _middleMouseDown = 0;
     _middleMouseUp   = _currFrame + 1;
     _middleMouseHit  = 0;
 }
 
-void Input3D::doubleClick(float *xs, float *ys, int num) {
+void Input3D::doubleClick(Point2D *points, int num) {
     _mouseDoubleClick = _currFrame + 1;
 }
 

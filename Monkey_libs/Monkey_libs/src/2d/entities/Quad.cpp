@@ -66,6 +66,7 @@ void Quad::draw(bool includeChildren, Material3D* shader) {
     if (inView() && _visible) {
         // draw quad-began
         DisplayObject::setGPUStats();
+        
         App::getInstance()->mvp.identity();
         App::getInstance()->mvp.append(getWorld());
         App::getInstance()->mvp.append(App::getInstance()->view);

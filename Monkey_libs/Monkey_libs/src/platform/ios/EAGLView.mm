@@ -8,8 +8,12 @@
 
 #include "platform/ios/ES2Renderer.h"
 #include "platform/ios/EAGLView.h"
-#include "core/geom/Vector2D.h"
 #include "platform/PlatformMacros.h"
+
+#include "core/geom/Vector2D.h"
+#include "core/event/TouchEvent.h"
+
+#include "core/utils/Input3D.h"
 
 #include "App.h"
 
@@ -341,7 +345,9 @@ USING_NS_MONKEY
         length++;
     }
     // handle events
-//    App::getInstance()->handleTouchesBegan(points, length, "");
+    MouseEvent mouseEvent(MouseEvent::TOUCH_BEGAN, true, points, length);
+    App::getInstance()->handleTouchesBegan(mouseEvent);
+    Input3D::mouseDown(points, length);
     // delete
     delete [] points;
 }
@@ -365,7 +371,9 @@ USING_NS_MONKEY
         size++;
     }
     
-//    App::getInstance()->handleTouchesMove(points, size, "");
+    MouseEvent mouseEvent(MouseEvent::TOUCH_MOVE, true, points, size);
+    App::getInstance()->handleTouchesMove(mouseEvent);
+    Input3D::mouseMove(points, size);
     
     delete [] points;
 }
@@ -388,7 +396,9 @@ USING_NS_MONKEY
         size++;
     }
     
-//    App::getInstance()->handleTouchesEnd(points, size, "");
+    MouseEvent mouseEvent(MouseEvent::TOUCH_END, true, points, size);
+    App::getInstance()->handleTouchesEnd(mouseEvent);
+    Input3D::mouseUP(points, size);
     
     delete [] points;
  }

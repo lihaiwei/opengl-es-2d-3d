@@ -99,14 +99,17 @@ void Label::initWithTexture(Texture2D *texture) {
     }
     
     if (_display) {
+        removeChild(_display);
         delete _display;
         _display = nullptr;
     }
     
     _display = Image::create(texture);
-    _display->setAlpha(_alpha);         //
+    _display->setAlpha(_alpha);
     _texture      = texture;
     _contentDirty = false;
+    
+    addChild(_display);
 }
 
 void Label::setText(std::string text) {
@@ -190,11 +193,13 @@ void Label::draw(bool includeChildren, Material3D* shader) {
     
     _enterDrawEvent.reset();
     dispatchEvent(_enterDrawEvent);
-    // draw
+    
     _display->draw(includeChildren, shader);
-    //
+    
     for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-        (*iter)->draw(includeChildren, shader);
+        if ((*iter) != _display) {
+            (*iter)->draw(includeChildren, shader);
+        }
     }
     
     _exitDrawEvent.reset();
