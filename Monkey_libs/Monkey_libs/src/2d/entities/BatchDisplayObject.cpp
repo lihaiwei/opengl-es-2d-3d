@@ -37,11 +37,11 @@ _texture(nullptr)
     
     _vertices = (float*)malloc(sizeof(float) * 12 * _quadsLimit);
     _uvs      = (float*)malloc(sizeof(float) * 8  * _quadsLimit);
-    _indices  = (unsigned int*)malloc(sizeof(unsigned int) * 6 * _quadsLimit);
+    _indices  = (unsigned short*)malloc(sizeof(unsigned short) * 6 * _quadsLimit);
     
     memset(_vertices, 0, sizeof(float) * 12 * _quadsLimit);
     memset(_uvs, 0, sizeof(float) * 8 * _quadsLimit);
-    memset(_indices, 0, sizeof(unsigned int) * 6 * _quadsLimit);
+    memset(_indices, 0, sizeof(unsigned short) * 6 * _quadsLimit);
     
     _min.setTo(0, 0);
     _max.setTo(0, 0);
@@ -193,7 +193,7 @@ void BatchDisplayObject::setupIndices() {
     }
     glGenBuffers(1, &indexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * 6 * _quadsLimit, _indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short) * 6 * _quadsLimit, _indices, GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
@@ -336,8 +336,7 @@ void BatchDisplayObject::draw(bool includeChildren, Material3D* shader) {
         glVertexAttribPointer(uvVa, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-        glDrawElements(GL_TRIANGLES, 6 * _quadsLimit, GL_UNSIGNED_INT, 0);
-//        glDrawElements(GL_TRIANGLES, 6 * _quadsLimit, GL_UNSIGNED_SHORT, 0);
+        glDrawElements(GL_TRIANGLES, 6 * _quadsLimit, GL_UNSIGNED_SHORT, 0);
         
         glDisableVertexAttribArray(posVa);
         glDisableVertexAttribArray(uvVa);

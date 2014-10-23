@@ -111,7 +111,7 @@ protected:
     float*      _vertices;  // 顶点数据
     float*      _uvs;       // uv数据
     
-    unsigned int*    _indices;   // 索引数据
+    unsigned short*    _indices;   // 索引数据
     
     // gpu各种buffer
     GLuint vertexBuffer;
