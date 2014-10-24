@@ -23,6 +23,7 @@
 #include "2d/ui/button/Button.h"
 #include "2d/ui/button/ButtonImage.h"
 #include <2d/entities/Quad.h>
+#include <2d/ui/button/CheckBox.h>
 
 USING_NS_MONKEY
 
@@ -39,6 +40,10 @@ void MainDelegate::onClick(monkey::Event &event) {
 }
 
 void MainDelegate::didFinishLaunching() {
+    
+    float screenWidth  = App::getInstance()->getWidth();
+    float screenHeight = App::getInstance()->getHeight();
+    
     Scene2D *scene = new Scene2D();
     scene->setViewport(0, 0, App::getInstance()->getWidth(), App::getInstance()->getHeight());
     
@@ -60,6 +65,14 @@ void MainDelegate::didFinishLaunching() {
     
     btn->addChild(fnt);
     img->addChild(btn);
+    
+    CheckBox *checkbox = new CheckBox();
+    checkbox->initwithImage("check_box_normal.png", "check_box_normal_press.png", "check_box_active.png", "check_box_active_press.png");
+    checkbox->setPosition(screenWidth / 2, -screenHeight / 2, 0);
+    
+    scene->addChild(checkbox);
+    
+    LOGE("屏幕尺寸:%dx%d", screenWidth, screenHeight);
     
     App::getInstance()->addScene2D(scene);
 }

@@ -406,6 +406,10 @@
 		28AC575919E0191900A1B8C0 /* TouchEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 28AC575719E0191900A1B8C0 /* TouchEvent.h */; };
 		28AC575C19E019DE00A1B8C0 /* TouchEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28AC575A19E019DE00A1B8C0 /* TouchEvent.cpp */; };
 		28AC575D19E019DE00A1B8C0 /* TouchEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28AC575A19E019DE00A1B8C0 /* TouchEvent.cpp */; };
+		28AC9A3B19F9E95C00E584FC /* CheckBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 28AC9A3A19F9E95C00E584FC /* CheckBox.h */; };
+		28AC9A3C19F9E95C00E584FC /* CheckBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 28AC9A3A19F9E95C00E584FC /* CheckBox.h */; };
+		28AC9A3F19F9E98400E584FC /* CheckBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28AC9A3D19F9E98400E584FC /* CheckBox.cpp */; };
+		28AC9A4019F9E98400E584FC /* CheckBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28AC9A3D19F9E98400E584FC /* CheckBox.cpp */; };
 		28B70B9619DD0B7700B1C521 /* GLViewIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B70B9519DD0B7700B1C521 /* GLViewIOS.h */; };
 		28B70B9F19DD1BF400B1C521 /* KeyboardEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B70B9E19DD1BF400B1C521 /* KeyboardEvent.h */; };
 		28B70BA019DD1BF400B1C521 /* KeyboardEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B70B9E19DD1BF400B1C521 /* KeyboardEvent.h */; };
@@ -1327,6 +1331,8 @@
 		28AC575019DFB35E00A1B8C0 /* Input3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input3D.cpp; sourceTree = "<group>"; };
 		28AC575719E0191900A1B8C0 /* TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchEvent.h; sourceTree = "<group>"; };
 		28AC575A19E019DE00A1B8C0 /* TouchEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchEvent.cpp; sourceTree = "<group>"; };
+		28AC9A3A19F9E95C00E584FC /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
+		28AC9A3D19F9E98400E584FC /* CheckBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckBox.cpp; sourceTree = "<group>"; };
 		28B70B8D19DD09C200B1C521 /* GLView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLView.cpp; sourceTree = "<group>"; };
 		28B70B9519DD0B7700B1C521 /* GLViewIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewIOS.h; sourceTree = "<group>"; };
 		28B70B9719DD0B8700B1C521 /* GLViewIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLViewIOS.mm; sourceTree = "<group>"; };
@@ -1706,6 +1712,7 @@
 			children = (
 				285F0BEF19E56B3E00D4C2B2 /* Button.h */,
 				285F0BF819E56C2000D4C2B2 /* ButtonImage.h */,
+				28AC9A3A19F9E95C00E584FC /* CheckBox.h */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -1715,6 +1722,7 @@
 			children = (
 				285F0BF219E56B5700D4C2B2 /* Button.cpp */,
 				285F0BF519E56C1600D4C2B2 /* ButtonImage.cpp */,
+				28AC9A3D19F9E98400E584FC /* CheckBox.cpp */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -3607,6 +3615,7 @@
 				287E237D19DD367C009DF95D /* EventDispatcher.h in Headers */,
 				28AA199019DE3F6700073ED3 /* Geometry3D.h in Headers */,
 				287E237419DD3183009DF95D /* Event.h in Headers */,
+				28AC9A3C19F9E95C00E584FC /* CheckBox.h in Headers */,
 				2839E9DC19DBD4AC00647183 /* mmath.h in Headers */,
 				28AA198E19DE3F6700073ED3 /* BlendMode.h in Headers */,
 				28A4DA4919E3E59200A093DC /* BatchDisplayObject.h in Headers */,
@@ -3657,6 +3666,7 @@
 				28A90E5319E42640007B6C7B /* TextFormatter.h in Headers */,
 				2839EA1A19DBDE8B00647183 /* App.h in Headers */,
 				2839E9F919DBDCD600647183 /* ES2Renderer.h in Headers */,
+				28AC9A3B19F9E95C00E584FC /* CheckBox.h in Headers */,
 				28A4DA3F19E3D59B00A093DC /* Image.h in Headers */,
 				2839E9E119DBD4AC00647183 /* Vector3D.h in Headers */,
 				28A90E4B19E42640007B6C7B /* Font.h in Headers */,
@@ -4074,6 +4084,7 @@
 				28AC575C19E019DE00A1B8C0 /* TouchEvent.cpp in Sources */,
 				2804034A19E186110092E82E /* TextureMaterial2D.cpp in Sources */,
 				2804034E19E187F20092E82E /* Material3D.cpp in Sources */,
+				28AC9A3F19F9E98400E584FC /* CheckBox.cpp in Sources */,
 				287E23CC19DD3F3B009DF95D /* BitmapData.cpp in Sources */,
 				287E23C519DD3EA6009DF95D /* Pivot3D.cpp in Sources */,
 				28A4DA4B19E3E59800A093DC /* BatchDisplayObject.cpp in Sources */,
@@ -4156,6 +4167,7 @@
 				287E23AE19DD3E5F009DF95D /* Texture2D.cpp in Sources */,
 				287E239919DD3E3E009DF95D /* FileUtils.cpp in Sources */,
 				280444E719E4352200243742 /* FontCache.cpp in Sources */,
+				28AC9A4019F9E98400E584FC /* CheckBox.cpp in Sources */,
 				2839EA5A19DBF4C900647183 /* App.cpp in Sources */,
 				287E23A119DD3E49009DF95D /* FileUtilsMac.mm in Sources */,
 				2839E9E819DBD80200647183 /* ConvertUTF.c in Sources */,

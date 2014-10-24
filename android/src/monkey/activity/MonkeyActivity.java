@@ -29,7 +29,7 @@ public class MonkeyActivity extends Activity {
 	protected void onPause() {
 		super.onPause();
 		if (glInited) {
-//			glSurfaceView.onPause();
+			glSurfaceView.onPause();
 		}
 	}
 
@@ -37,7 +37,7 @@ public class MonkeyActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		if (glInited) {
-//			glSurfaceView.onResume();
+			glSurfaceView.onResume();
 		}
 	}
 	
@@ -127,7 +127,6 @@ public class MonkeyActivity extends Activity {
 			Toast.makeText(this, "This device does not support OpenGL ES 2.0.",
 		                Toast.LENGTH_LONG).show();
 		}
-		System.out.println(getApplicationInfo().sourceDir);
 	}
 	
 	/**

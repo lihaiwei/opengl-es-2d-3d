@@ -25,6 +25,7 @@ src/2d/material/TextureMaterial2D.cpp \
 src/2d/scene/Scene2D.cpp \
 src/2d/ui/button/Button.cpp \
 src/2d/ui/button/ButtonImage.cpp \
+src/2d/ui/button/CheckBox.cpp \
 src/2d/ui/font/Font.cpp \
 src/2d/ui/font/FontCache.cpp \
 src/2d/ui/font/FontFNT.cpp \
