@@ -6,6 +6,9 @@ import javax.microedition.khronos.opengles.GL10;
 import android.opengl.GLSurfaceView.Renderer;
 
 public class RenderWrapper implements Renderer {
+	
+	private int width;
+	private int height;
 
 	@Override
 	public void onDrawFrame(GL10 gl) {
@@ -19,7 +22,17 @@ public class RenderWrapper implements Renderer {
 	
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-		GLJNI.onSurfaceCreated();
+		GLJNI.onSurfaceCreated(width, height);
+	}
+	
+	/**
+	 * 设置尺寸
+	 * @param width
+	 * @param height
+	 */
+	public void setSize(int width, int height) {
+		this.width  = width;
+		this.height = height;
 	}
 	
 }

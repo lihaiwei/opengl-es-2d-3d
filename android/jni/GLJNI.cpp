@@ -18,7 +18,6 @@
 USING_NS_MONKEY
 
 static MainDelegate* delegate = NULL;
-static bool			 isInited = false;
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 	JNIHelper::setJavaVM(vm);
@@ -41,11 +40,6 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onDrawFrame(JNIEnv *, jclass) {
  */
 JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceChanged(JNIEnv *env, jclass jc, jint width, jint height) {
 	App::getInstance()->setViewport(0, 0, width, height);
-	if (!isInited) {
-		delegate = new MainDelegate();
-		delegate->didFinishLaunching();
-		isInited = true;
-	}
 }
 
 /*
@@ -53,11 +47,15 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceChanged(JNIEnv *env, jc
  * Method:    onSurfaceCreated
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jclass jc) {
+JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated(JNIEnv *env, jclass jc, jint w, jint h) {
 	GLViewAndroid *glview = new GLViewAndroid();
 	App::getInstance()->setOpenGLView(glview);
 	App::getInstance()->setBackcolor(0xFF00FF);
-	App::getInstance()->setVisiableStats(false);
+	App::getInstance()->setVisiableStats(true);
+	App::getInstance()->setViewport(0, 0, w, h);
+	
+	delegate = new MainDelegate();
+	delegate->didFinishLaunching();
 }
 
 JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_touchesBegin(JNIEnv *, jclass, jint id, jfloat x, jfloat y) {

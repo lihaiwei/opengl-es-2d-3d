@@ -72,8 +72,6 @@ void MainDelegate::didFinishLaunching() {
     
     scene->addChild(checkbox);
     
-    LOGE("屏幕尺寸:%dx%d", screenWidth, screenHeight);
-    
     App::getInstance()->addScene2D(scene);
 }
 

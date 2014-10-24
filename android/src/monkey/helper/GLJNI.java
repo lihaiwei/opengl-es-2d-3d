@@ -25,10 +25,11 @@ public class GLJNI {
 	 */
 	public static native void onSurfaceChanged(int width, int height);
 	/**
-	 * created
+	 * create
+	 * @param width		宽度
+	 * @param height	高度
 	 */
-	public static native void onSurfaceCreated();
-	
+	public static native void onSurfaceCreated(int width, int height);
 	// Touch事件
 	/**
 	 * TouchBegin

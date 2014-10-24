@@ -2,12 +2,12 @@ package monkey.activity;
 
 import monkey.helper.GLJNI;
 import monkey.helper.JNIFileUtils;
+import monkey.helper.MonkeyGLSurfaceView;
 import monkey.helper.RenderWrapper;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
-import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 public class MonkeyActivity extends Activity {
 
-	private GLSurfaceView glSurfaceView;
-	private boolean		  glInited;
+	private MonkeyGLSurfaceView glSurfaceView;
+	private boolean		  		glInited;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -114,12 +114,11 @@ public class MonkeyActivity extends Activity {
 		ConfigurationInfo config  = manager.getDeviceConfigurationInfo();
 		final boolean supportsES2 = config.reqGlEsVersion >= 0x20000 || isProbablyEmulator();
 		if (supportsES2) {
-			glSurfaceView = new GLSurfaceView(this);
+			glSurfaceView = new MonkeyGLSurfaceView(this);
 			if (isProbablyEmulator()) {
 				glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 			}
-			glSurfaceView.setEGLContextClientVersion(2);
-			glSurfaceView.setRenderer(new RenderWrapper());
+			glSurfaceView.setRendererWrapper(new RenderWrapper());
 			setContentView(glSurfaceView);
 			glInited = true;
 		} else {

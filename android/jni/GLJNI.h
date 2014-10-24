@@ -29,7 +29,7 @@ JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceChanged
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_monkey_helper_GLJNI_onSurfaceCreated
-  (JNIEnv *, jclass);
+  (JNIEnv *, jclass, jint, jint);
 
 /*
  * Class:     monkey_helper_GLJNI

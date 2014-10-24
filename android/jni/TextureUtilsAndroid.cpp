@@ -79,8 +79,6 @@ ByteArray* TextureUtilsAndroid::getTextureDataWithText(const char* text, const T
     width	= info.width;
     hasAlpha= info.isPremultipliedAlpha;
     
-    LOGE("宽度=%d, 高度=%d, 是否透明 = %d", info.width, info.height, info.isPremultipliedAlpha);
-    
     ByteArray *bytes = new ByteArray(info.data, width * height * 4);
     
 	return bytes;
