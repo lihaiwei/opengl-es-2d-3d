@@ -96,6 +96,9 @@ protected:
     Image* _activeRenderer;
     Image* _activeSeltectedRenderer;
     
+    Event _activeEvent;
+    Event _disableEvent;
+    
     bool   _active;
     
 };

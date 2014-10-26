@@ -18,6 +18,8 @@ _disableRenderer(nullptr),
 _disableSelectedRenderer(nullptr),
 _activeRenderer(nullptr),
 _activeSeltectedRenderer(nullptr),
+_activeEvent(Event::ACTIVE),
+_disableEvent(Event::DISABLE),
 _active(false)
 {
     initRenderer();
@@ -31,6 +33,7 @@ CheckBox::~CheckBox() {
 }
 
 void CheckBox::initRenderer() {
+    
     _activeSeltectedRenderer    = new Image();
     _activeRenderer             = new Image();
     _disableRenderer            = new Image();
@@ -99,6 +102,9 @@ void CheckBox::hideAll() {
 void CheckBox::onActive() {
     hideAll();
     _activeRenderer->setVisiable(true);
+    
+    _activeEvent.reset();
+    dispatchEvent(_activeEvent);
 }
 
 void CheckBox::onPressActive() {
@@ -109,6 +115,9 @@ void CheckBox::onPressActive() {
 void CheckBox::onDisable() {
     hideAll();
     _disableRenderer->setVisiable(true);
+    
+    _disableEvent.reset();
+    dispatchEvent(_disableEvent);
 }
 
 void CheckBox::onPressDisable() {

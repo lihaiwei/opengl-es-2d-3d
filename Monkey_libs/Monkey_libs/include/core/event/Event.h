@@ -21,6 +21,12 @@ class EventDispatcher;
 class Event : public Object {
     
 public:
+    
+    static const std::string ACTIVE;
+    static const std::string DISABLE;
+    static const std::string COMPLETE;
+    
+public:
     /**
      * 事件阶段
      */

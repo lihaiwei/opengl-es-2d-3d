@@ -13,6 +13,10 @@
 
 NS_MONKEY_BEGIN
 
+const std::string Event::ACTIVE   = "ACTIVE";
+const std::string Event::DISABLE  = "DISABLE";
+const std::string Event::COMPLETE = "COMPLETE";
+
 Event::Event(std::string type, bool bubbles):
 Object(),
 _bubbles(bubbles),
