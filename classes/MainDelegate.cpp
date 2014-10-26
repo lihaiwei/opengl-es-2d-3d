@@ -100,7 +100,6 @@ void MainDelegate::onEnterFrame(monkey::Event &event) {
     if (progressBar->getPercent() >= 1.0f) {
         progressBar->setPercent(0.0f);
     }
-    LOGE("Percent = %f", progressBar->getPercent());
 }
 
 void MainDelegate::didEnterBackground() {

@@ -80,6 +80,12 @@ protected:
      *  @param type texture类型
      */
     void initActiveSeltectedRenderer(const std::string &name, CheckBox::Type type);
+    /**
+     *  绘制
+     *  @param includeChildren 是否一并绘制子节点
+     *  @param shader          shader
+     */
+    virtual void draw(bool includeChildren = true, Material3D* shader = nullptr) override;
     
     void hideAll();
     

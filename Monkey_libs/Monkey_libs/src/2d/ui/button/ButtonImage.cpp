@@ -95,4 +95,24 @@ void ButtonImage::setButtonStatus(Button::ButtonStats stats) {
     }
 }
 
+void ButtonImage::draw(bool includeChildren, Material3D* shader) {
+
+    _enterDrawEvent.reset();
+    dispatchEvent(_enterDrawEvent);
+    
+    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        if ((*iter) == _upImage || (*iter) == _downImage) {
+            continue;
+        }
+        (*iter)->draw(includeChildren, shader);
+    }
+    
+    _upImage->draw(includeChildren, shader);
+    _downImage->draw(includeChildren, shader);
+    
+    _exitDrawEvent.reset();
+    dispatchEvent(_exitDrawEvent);
+    
+}
+
 NS_MONKEY_END

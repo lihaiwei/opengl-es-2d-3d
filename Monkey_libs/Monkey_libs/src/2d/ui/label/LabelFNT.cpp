@@ -161,7 +161,7 @@ void LabelFNT::updateContent() {
     _bath->setAutoRelease(true);
     _bath->setupTexture(_fontFNT->getTexture());
     
-    addChildAt(_bath, 0);
+    addChild(_bath, 0);
     
     computeLinesNum();
     
@@ -181,13 +181,19 @@ void LabelFNT::draw(bool includeChildren, Material3D* shader) {
         }
     }
     
-    if (includeChildren) {
-        for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-            (*iter)->draw(includeChildren);
+    _enterDrawEvent.reset();
+    dispatchEvent(_enterDrawEvent);
+    
+    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        if ((*iter) == _bath) {
+            continue;
         }
-    } else {
-        _bath->draw(includeChildren, shader);
+        (*iter)->draw(includeChildren);
     }
+    _bath->draw(includeChildren, shader);
+    
+    _exitDrawEvent.reset();
+    dispatchEvent(_exitDrawEvent);
 }
 
 NS_MONKEY_END

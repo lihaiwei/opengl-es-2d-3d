@@ -193,4 +193,25 @@ void CheckBox::initActiveSeltectedRenderer(const std::string &fileName, CheckBox
     }
 }
 
+void CheckBox::draw(bool includeChildren, Material3D* shader) {
+    
+    _enterDrawEvent.reset();
+    dispatchEvent(_enterDrawEvent);
+    
+    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        if ((*iter) == _activeRenderer || (*iter) == _activeSeltectedRenderer || (*iter) == _disableRenderer || (*iter) == _disableSelectedRenderer) {
+            continue;
+        }
+        (*iter)->draw(includeChildren, shader);
+    }
+    
+    _activeRenderer->draw(includeChildren, shader);
+    _activeSeltectedRenderer->draw(includeChildren, shader);
+    _disableSelectedRenderer->draw(includeChildren, shader);
+    _disableRenderer->draw(includeChildren, shader);
+    
+    _exitDrawEvent.reset();
+    dispatchEvent(_exitDrawEvent);
+}
+
 NS_MONKEY_END
