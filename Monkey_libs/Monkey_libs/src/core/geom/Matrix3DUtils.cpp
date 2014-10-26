@@ -7,10 +7,11 @@
 //
 
 #include "core/geom/Matrix3DUtils.h"
-
 #include "platform/PlatformMacros.h"
 
 NS_MONKEY_BEGIN
+
+static float MIN_SCALE = 0.000001f;
 
 const static Vector3D X_AXIS = Vector3D::X_AXIS;
 const static Vector3D Y_AXIS = Vector3D::Y_AXIS;
@@ -189,7 +190,16 @@ void Matrix3DUtils::translateAxis(Matrix3D &m, const float distance, const Vecto
     m.copyColumnFrom(3, _pos);
 }
 
-void Matrix3DUtils::setScale(Matrix3D &m, const float x, const float y, const float z, const float smooth) {
+void Matrix3DUtils::setScale(Matrix3D &m, float x, float y, float z, const float smooth) {
+    if (x < MIN_SCALE) {
+        x = MIN_SCALE;
+    }
+    if (y < MIN_SCALE) {
+        y = MIN_SCALE;
+    }
+    if (z < MIN_SCALE) {
+        z = MIN_SCALE;
+    }
     getScale(m, _scale);
     _x = _scale.x;
     _y = _scale.y;
@@ -203,21 +213,30 @@ void Matrix3DUtils::setScale(Matrix3D &m, const float x, const float y, const fl
     setVectors(m, _right, _up, _dir);
 }
 
-void Matrix3DUtils::scaleX(Matrix3D &m, const float scale) {
+void Matrix3DUtils::scaleX(Matrix3D &m, float scale) {
+    if (scale < MIN_SCALE) {
+        scale = MIN_SCALE;
+    }
     m.copyColumnTo(0, _right);
     _right.normalize();
     _right.scaleBy(scale);
     m.copyColumnFrom(0, _right);
 }
 
-void Matrix3DUtils::scaleY(Matrix3D &m, const float scale) {
+void Matrix3DUtils::scaleY(Matrix3D &m, float scale) {
+    if (scale < MIN_SCALE) {
+        scale = MIN_SCALE;
+    }
     m.copyColumnTo(1, _up);
     _up.normalize();
     _up.scaleBy(scale);
     m.copyColumnFrom(1, _up);
 }
 
-void Matrix3DUtils::scaleZ(Matrix3D &m, const float scale) {
+void Matrix3DUtils::scaleZ(Matrix3D &m, float scale) {
+    if (scale < MIN_SCALE) {
+        scale = MIN_SCALE;
+    }
     m.copyColumnTo(2, _dir);
     _dir.normalize();
     _dir.scaleBy(scale);

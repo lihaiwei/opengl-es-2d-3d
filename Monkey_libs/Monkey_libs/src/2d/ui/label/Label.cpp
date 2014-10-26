@@ -194,13 +194,13 @@ void Label::draw(bool includeChildren, Material3D* shader) {
     _enterDrawEvent.reset();
     dispatchEvent(_enterDrawEvent);
     
-    _display->draw(includeChildren, shader);
-    
     for (auto iter = _children.begin(); iter != _children.end(); iter++) {
         if ((*iter) != _display) {
             (*iter)->draw(includeChildren, shader);
         }
     }
+    
+    _display->draw(includeChildren, shader);
     
     _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);

@@ -584,7 +584,7 @@ public:
      *  更新transform
      *  @param includeChildren
      */
-    virtual void updateTransforms(bool includeChildren = false);
+    virtual void updateTransforms(bool includeChildren = true);
     /**
      *  获取子集
      *  @return

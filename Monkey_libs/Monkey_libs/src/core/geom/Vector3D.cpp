@@ -156,7 +156,12 @@ void Vector3D::negate() {
 }
 
 void Vector3D::normalize() {
-    float invLenght = 1.0f / length();
+    float invLenght = 0.0f;
+    if (length() == 0) {
+        invLenght = 0;
+    } else {
+        invLenght = 1.0f / length();
+    }
     x *= invLenght;
     y *= invLenght;
     z *= invLenght;

@@ -144,25 +144,25 @@ public:
      *  @param z
      *  @param smooth
      */
-    static void setScale(Matrix3D &m, const float x, const float y, const float z, const float smooth = 1.0f);
+    static void setScale(Matrix3D &m, float x, float y, float z, const float smooth = 1.0f);
     /**
      *  设置x轴缩放
      *  @param m
      *  @param scale
      */
-    static void scaleX(Matrix3D &m, const float scale);
+    static void scaleX(Matrix3D &m, float scale);
     /**
      *  设置y轴缩放
      *  @param m
      *  @param scale
      */
-    static void scaleY(Matrix3D &m, const float scale);
+    static void scaleY(Matrix3D &m, float scale);
     /**
      *  设置z轴缩放
      *  @param m
      *  @param scale
      */
-    static void scaleZ(Matrix3D &m, const float scale);
+    static void scaleZ(Matrix3D &m, float scale);
     /**
      *  获取旋转值
      *  @param m

@@ -42,6 +42,8 @@
 		286C35E619ED34950019AAA3 /* origami-colored-pencil-13.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D119ED34950019AAA3 /* origami-colored-pencil-13.png */; };
 		286C35E719ED34950019AAA3 /* xiaofeiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D219ED34950019AAA3 /* xiaofeiji.jpg */; };
 		286C35E819ED34950019AAA3 /* xiaofeiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 286C35D219ED34950019AAA3 /* xiaofeiji.jpg */; };
+		2879C3DB19FD1719007E344C /* sliderProgress.png in Resources */ = {isa = PBXBuildFile; fileRef = 2879C3DA19FD1719007E344C /* sliderProgress.png */; };
+		2879C3DC19FD1719007E344C /* sliderProgress.png in Resources */ = {isa = PBXBuildFile; fileRef = 2879C3DA19FD1719007E344C /* sliderProgress.png */; };
 		288F1EC019DAB10A0095DF6A /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 288F1EBD19DAB0EC0095DF6A /* libchipmunk Mac.a */; };
 		288F1EC119DAB1120095DF6A /* libbox2d mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 288F1E8519DAAE0D0095DF6A /* libbox2d mac.a */; };
 		288FF78119DA7E7C0095DF6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288FF78019DA7E7C0095DF6A /* Foundation.framework */; };
@@ -167,6 +169,7 @@
 		286C35D019ED34950019AAA3 /* origami-colored-pencil-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-colored-pencil-12.png"; sourceTree = "<group>"; };
 		286C35D119ED34950019AAA3 /* origami-colored-pencil-13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-colored-pencil-13.png"; sourceTree = "<group>"; };
 		286C35D219ED34950019AAA3 /* xiaofeiji.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xiaofeiji.jpg; sourceTree = "<group>"; };
+		2879C3DA19FD1719007E344C /* sliderProgress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderProgress.png; sourceTree = "<group>"; };
 		288FF74319DA78790095DF6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		288FF74519DA78810095DF6A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		288FF74719DA78860095DF6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -277,6 +280,7 @@
 		286C35C719ED34950019AAA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2879C3DA19FD1719007E344C /* sliderProgress.png */,
 				2805962E19F9F94F00539986 /* check_box_active_press.png */,
 				2805962F19F9F94F00539986 /* check_box_active.png */,
 				2805963019F9F94F00539986 /* check_box_normal_press.png */,
@@ -510,6 +514,7 @@
 				286C35DF19ED34950019AAA3 /* FPS.fnt in Resources */,
 				286C35D919ED34950019AAA3 /* bitmapFontChinese.fnt in Resources */,
 				2805963819F9F94F00539986 /* check_box_normal.png in Resources */,
+				2879C3DB19FD1719007E344C /* sliderProgress.png in Resources */,
 				286C35DB19ED34950019AAA3 /* bitmapFontChinese.png in Resources */,
 				286C35E119ED34950019AAA3 /* FPS.png in Resources */,
 				286C35E319ED34950019AAA3 /* origami-colored-pencil-12.png in Resources */,
@@ -536,6 +541,7 @@
 				286C35E619ED34950019AAA3 /* origami-colored-pencil-13.png in Resources */,
 				2805963919F9F94F00539986 /* check_box_normal.png in Resources */,
 				2805963319F9F94F00539986 /* check_box_active_press.png in Resources */,
+				2879C3DC19FD1719007E344C /* sliderProgress.png in Resources */,
 				286C35E819ED34950019AAA3 /* xiaofeiji.jpg in Resources */,
 				288FF89219DA947D0095DF6A /* Images.xcassets in Resources */,
 				286C35DE19ED34950019AAA3 /* bitmapFontTest2.fnt in Resources */,

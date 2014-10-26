@@ -43,6 +43,10 @@
 		280444F019E4362D00243742 /* Label.h in Headers */ = {isa = PBXBuildFile; fileRef = 280444EE19E4362D00243742 /* Label.h */; };
 		280444F219E4371700243742 /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280444F119E4371700243742 /* Label.cpp */; };
 		280444F319E4371700243742 /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280444F119E4371700243742 /* Label.cpp */; };
+		28178C6B19FD13FF0043F374 /* ProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 28178C6A19FD13FF0043F374 /* ProgressBar.h */; };
+		28178C6C19FD13FF0043F374 /* ProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 28178C6A19FD13FF0043F374 /* ProgressBar.h */; };
+		28178C6F19FD14470043F374 /* ProgressBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28178C6D19FD14470043F374 /* ProgressBar.cpp */; };
+		28178C7019FD14470043F374 /* ProgressBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28178C6D19FD14470043F374 /* ProgressBar.cpp */; };
 		282ED5D819E4EF2800A63D77 /* GLViewDesktop.h in Headers */ = {isa = PBXBuildFile; fileRef = 282ED5D719E4EF2800A63D77 /* GLViewDesktop.h */; };
 		282ED5DA19E4EF5600A63D77 /* GLViewDesktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 282ED5D919E4EF5600A63D77 /* GLViewDesktop.cpp */; };
 		2839E9A619DBCF3000647183 /* FileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2839E9A419DBCF3000647183 /* FileUtils.h */; };
@@ -485,6 +489,8 @@
 		280444E319E4352200243742 /* FontFNTConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontFNTConfig.cpp; sourceTree = "<group>"; };
 		280444EE19E4362D00243742 /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
 		280444F119E4371700243742 /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
+		28178C6A19FD13FF0043F374 /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
+		28178C6D19FD14470043F374 /* ProgressBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProgressBar.cpp; sourceTree = "<group>"; };
 		282ED5D719E4EF2800A63D77 /* GLViewDesktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewDesktop.h; sourceTree = "<group>"; };
 		282ED5D919E4EF5600A63D77 /* GLViewDesktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLViewDesktop.cpp; sourceTree = "<group>"; };
 		2839E9A419DBCF3000647183 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
@@ -3468,6 +3474,7 @@
 				285F0BED19E56B2D00D4C2B2 /* button */,
 				280444EC19E4361C00243742 /* label */,
 				28A90E4419E4260E007B6C7B /* font */,
+				28178C6A19FD13FF0043F374 /* ProgressBar.h */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -3478,6 +3485,7 @@
 				285F0BEE19E56B3700D4C2B2 /* button */,
 				280444ED19E4362300243742 /* label */,
 				280444DF19E4350E00243742 /* font */,
+				28178C6D19FD14470043F374 /* ProgressBar.cpp */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -3644,6 +3652,7 @@
 				2839EA0519DBDD1B00647183 /* GLView.h in Headers */,
 				280444F019E4362D00243742 /* Label.h in Headers */,
 				28A90E5219E42640007B6C7B /* FontFNTConfig.h in Headers */,
+				28178C6C19FD13FF0043F374 /* ProgressBar.h in Headers */,
 				28A90E5419E42640007B6C7B /* TextFormatter.h in Headers */,
 				28B70BA019DD1BF400B1C521 /* KeyboardEvent.h in Headers */,
 				288FF8BF19DA9A6D0095DF6A /* PlatformConfig.h in Headers */,
@@ -3705,6 +3714,7 @@
 				28A4DA3619E3CCB400A093DC /* OrthographicLens2D.h in Headers */,
 				28AA198619DE3A7A00073ED3 /* Scene.h in Headers */,
 				285F0BF919E56C2000D4C2B2 /* ButtonImage.h in Headers */,
+				28178C6B19FD13FF0043F374 /* ProgressBar.h in Headers */,
 				2839E9DD19DBD4AC00647183 /* Rectangle.h in Headers */,
 				28A4DA1919E3806800A093DC /* Shaders2D.h in Headers */,
 				28AA199E19DEA67200073ED3 /* Camera3D.h in Headers */,
@@ -4077,6 +4087,7 @@
 				287E23B419DD3E92009DF95D /* ByteArray.cpp in Sources */,
 				287E239D19DD3E3F009DF95D /* TextureUtils.cpp in Sources */,
 				287E23BE19DD3EA1009DF95D /* Matrix3D.cpp in Sources */,
+				28178C6F19FD14470043F374 /* ProgressBar.cpp in Sources */,
 				285F0BF319E56B5700D4C2B2 /* Button.cpp in Sources */,
 				285F0BCB19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */,
 				28AA19AB19DEAB6800073ED3 /* LensBase.cpp in Sources */,
@@ -4163,6 +4174,7 @@
 				287E23B719DD3E9B009DF95D /* Value.cpp in Sources */,
 				287E239A19DD3E3E009DF95D /* TextureUtils.cpp in Sources */,
 				287E23BB19DD3EA1009DF95D /* Rectangle.cpp in Sources */,
+				28178C7019FD14470043F374 /* ProgressBar.cpp in Sources */,
 				28AA199919DEA1DF00073ED3 /* Scene.cpp in Sources */,
 				287E23AE19DD3E5F009DF95D /* Texture2D.cpp in Sources */,
 				287E239919DD3E3E009DF95D /* FileUtils.cpp in Sources */,

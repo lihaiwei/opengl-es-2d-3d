@@ -24,6 +24,7 @@
 #include "2d/ui/button/ButtonImage.h"
 #include <2d/entities/Quad.h>
 #include <2d/ui/button/CheckBox.h>
+#include <2d/ui/ProgressBar.h>
 
 USING_NS_MONKEY
 
@@ -69,10 +70,37 @@ void MainDelegate::didFinishLaunching() {
     CheckBox *checkbox = new CheckBox();
     checkbox->initwithImage("check_box_normal.png", "check_box_normal_press.png", "check_box_active.png", "check_box_active_press.png");
     checkbox->setPosition(screenWidth / 2, -screenHeight / 2, 0);
+    checkbox->addEventListener(Event::ACTIVE, this, EVENT_CALLBACK(MainDelegate::onCheckBoxEnable));
+    checkbox->addEventListener(Event::DISABLE, this, EVENT_CALLBACK(MainDelegate::onCheckBoxDisable));
     
     scene->addChild(checkbox);
+    scene->addEventListener(Scene::UPDATE_EVENT, this, EVENT_CALLBACK(MainDelegate::onEnterFrame));
+    
+    progressBar = new ProgressBar();
+    progressBar->initWithTexture("sliderProgress.png");
+    progressBar->setPosition(0, -100, 0);
+    progressBar->setPercent(0.5f);
+    progressBar->setTotalLength(screenWidth);
+    
+    scene->addChild(progressBar);
     
     App::getInstance()->addScene2D(scene);
+}
+
+void MainDelegate::onCheckBoxEnable(monkey::Event &event) {
+    LOGE("onCheckBoxEnable");
+}
+
+void MainDelegate::onCheckBoxDisable(monkey::Event &event) {
+    LOGE("onCheckBoxDisable");
+}
+
+void MainDelegate::onEnterFrame(monkey::Event &event) {
+    progressBar->setPercent(progressBar->getPercent() + 0.01f);
+    if (progressBar->getPercent() >= 1.0f) {
+        progressBar->setPercent(0.0f);
+    }
+    LOGE("Percent = %f", progressBar->getPercent());
 }
 
 void MainDelegate::didEnterBackground() {
