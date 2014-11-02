@@ -9,11 +9,11 @@
 #ifndef _Button_h
 #define _Button_h
 
-#include "2d/entities/DisplayObject.h"
+#include "2d/ui/Widget.h"
 
 NS_MONKEY_BEGIN
 
-class Button : public DisplayObject {
+class Button : public Widget {
     
 public:
     

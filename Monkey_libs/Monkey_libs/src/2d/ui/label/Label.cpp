@@ -30,7 +30,7 @@ Label* Label::create(const std::string &txt, const std::string &fontName, int fo
 }
 
 Label::Label() :
-DisplayObject(),
+Widget(),
 _contentDirty(true),
 _texture(nullptr),
 _display(nullptr),
@@ -44,11 +44,6 @@ _align(TextAlign::CENTER)
 }
 
 Label::~Label() {
-    if (_display) {
-        removeChild(_display);
-        delete _display;
-        _display = nullptr;
-    }
     if (_texture) {
         delete _texture;
         _texture = nullptr;
@@ -99,7 +94,7 @@ void Label::initWithTexture(Texture2D *texture) {
     }
     
     if (_display) {
-        removeChild(_display);
+        removeWidget(_display);
         delete _display;
         _display = nullptr;
     }
@@ -109,7 +104,7 @@ void Label::initWithTexture(Texture2D *texture) {
     _texture      = texture;
     _contentDirty = false;
     
-    addChild(_display);
+    addWidget(_display);
 }
 
 void Label::setText(std::string text) {
@@ -191,19 +186,7 @@ void Label::draw(bool includeChildren, Material3D* shader) {
         updateContent();
     }
     
-    _enterDrawEvent.reset();
-    dispatchEvent(_enterDrawEvent);
-    
-    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-        if ((*iter) != _display) {
-            (*iter)->draw(includeChildren, shader);
-        }
-    }
-    
-    _display->draw(includeChildren, shader);
-    
-    _exitDrawEvent.reset();
-    dispatchEvent(_exitDrawEvent);
+    Widget::draw(includeChildren, shader);
 }
 
 NS_MONKEY_END

@@ -11,7 +11,7 @@
 
 NS_MONKEY_BEGIN
 
-Button::Button() : DisplayObject() {
+Button::Button() : Widget() {
     addEventListener(TouchEvent::TOUCH_BEGAN, this, EVENT_CALLBACK(Button::onTouchBegan));
     addEventListener(TouchEvent::TOUCH_END,   this, EVENT_CALLBACK(Button::onTouchEnd));
 #if CC_TARGET_PLATFORM != CC_PLATFORM_MAC && CC_TARGET_PLATFORM != CC_PLATFORM_WIN32

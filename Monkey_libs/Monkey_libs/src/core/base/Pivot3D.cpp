@@ -706,17 +706,11 @@ void Pivot3D::hide() {
 }
 
 void Pivot3D::draw(bool includeChildren, Material3D* shader) {
-    _enterFrameEvent.reset();
-    dispatchEvent(_enterDrawEvent);
-    
     if (includeChildren) {
         for (auto iter = _children.begin(); iter != _children.end(); iter++) {
             (*iter)->draw(includeChildren, shader);
         }
     }
-    
-    _exitDrawEvent.reset();
-    dispatchEvent(_exitDrawEvent);
 }
 
 void Pivot3D::drawDepth(bool includeChildren, Material3D* shader) {

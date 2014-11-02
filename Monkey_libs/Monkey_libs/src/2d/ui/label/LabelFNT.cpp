@@ -152,7 +152,7 @@ void LabelFNT::alignText() {
 void LabelFNT::updateContent() {
     
     if (_bath) {
-        removeChild(_bath);
+        removeWidget(_bath);
         delete _bath;
         _bath = nullptr;
     }
@@ -161,7 +161,7 @@ void LabelFNT::updateContent() {
     _bath->setAutoRelease(true);
     _bath->setupTexture(_fontFNT->getTexture());
     
-    addChild(_bath, 0);
+    addWidget(_bath);
     
     computeLinesNum();
     
@@ -181,19 +181,7 @@ void LabelFNT::draw(bool includeChildren, Material3D* shader) {
         }
     }
     
-    _enterDrawEvent.reset();
-    dispatchEvent(_enterDrawEvent);
-    
-    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-        if ((*iter) == _bath) {
-            continue;
-        }
-        (*iter)->draw(includeChildren);
-    }
-    _bath->draw(includeChildren, shader);
-    
-    _exitDrawEvent.reset();
-    dispatchEvent(_exitDrawEvent);
+    Widget::draw(includeChildren, shader);
 }
 
 NS_MONKEY_END

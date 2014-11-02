@@ -11,7 +11,7 @@
 NS_MONKEY_BEGIN
 
 ProgressBar::ProgressBar() :
-DisplayObject(),
+Widget(),
 _direction(ProgressBar::Direction::RIGHT),
 _percent(0.0f),
 _renderer(nullptr),
@@ -28,7 +28,7 @@ ProgressBar::~ProgressBar() {
 void ProgressBar::initWithTexture(const std::string &textureName, Type type, Direction direction) {
     
     if (_renderer) {
-        removeChild(_renderer);
+        removeWidget(_renderer);
         delete _renderer;
         _renderer = nullptr;
     }
@@ -44,7 +44,7 @@ void ProgressBar::initWithTexture(const std::string &textureName, Type type, Dir
             break;
     }
     
-    addChild(_renderer);
+    addWidget(_renderer);
     
     _baseWidth = _renderer->getWidth();
     setDirection(direction);
@@ -102,19 +102,7 @@ void ProgressBar::draw(bool includeChildren, Material3D* shader) {
         return;
     }
     
-    _enterDrawEvent.reset();
-    dispatchEvent(_enterDrawEvent);
-    
-    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-        if ((*iter) != _renderer) {
-            (*iter)->draw(includeChildren, shader);
-        }
-    }
-    // 绘制renderer
-    _renderer->draw(includeChildren, shader);
-    
-    _exitDrawEvent.reset();
-    dispatchEvent(_exitDrawEvent);
+    Widget::draw(includeChildren, shader);
 }
 
 NS_MONKEY_END

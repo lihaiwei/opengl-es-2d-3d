@@ -47,6 +47,14 @@
 		28178C6C19FD13FF0043F374 /* ProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 28178C6A19FD13FF0043F374 /* ProgressBar.h */; };
 		28178C6F19FD14470043F374 /* ProgressBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28178C6D19FD14470043F374 /* ProgressBar.cpp */; };
 		28178C7019FD14470043F374 /* ProgressBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28178C6D19FD14470043F374 /* ProgressBar.cpp */; };
+		28225A531A06805D00235C81 /* Slider.h in Headers */ = {isa = PBXBuildFile; fileRef = 28225A521A06805D00235C81 /* Slider.h */; };
+		28225A541A06805D00235C81 /* Slider.h in Headers */ = {isa = PBXBuildFile; fileRef = 28225A521A06805D00235C81 /* Slider.h */; };
+		28225A571A06807400235C81 /* Slider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28225A551A06807400235C81 /* Slider.cpp */; };
+		28225A581A06807400235C81 /* Slider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28225A551A06807400235C81 /* Slider.cpp */; };
+		28225A6C1A0682DD00235C81 /* Widget.h in Headers */ = {isa = PBXBuildFile; fileRef = 28225A6B1A0682DD00235C81 /* Widget.h */; };
+		28225A6D1A0682DD00235C81 /* Widget.h in Headers */ = {isa = PBXBuildFile; fileRef = 28225A6B1A0682DD00235C81 /* Widget.h */; };
+		28225A701A0682E800235C81 /* Widget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28225A6E1A0682E800235C81 /* Widget.cpp */; };
+		28225A711A0682E800235C81 /* Widget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28225A6E1A0682E800235C81 /* Widget.cpp */; };
 		282ED5D819E4EF2800A63D77 /* GLViewDesktop.h in Headers */ = {isa = PBXBuildFile; fileRef = 282ED5D719E4EF2800A63D77 /* GLViewDesktop.h */; };
 		282ED5DA19E4EF5600A63D77 /* GLViewDesktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 282ED5D919E4EF5600A63D77 /* GLViewDesktop.cpp */; };
 		2839E9A619DBCF3000647183 /* FileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2839E9A419DBCF3000647183 /* FileUtils.h */; };
@@ -491,6 +499,10 @@
 		280444F119E4371700243742 /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
 		28178C6A19FD13FF0043F374 /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
 		28178C6D19FD14470043F374 /* ProgressBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProgressBar.cpp; sourceTree = "<group>"; };
+		28225A521A06805D00235C81 /* Slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slider.h; sourceTree = "<group>"; };
+		28225A551A06807400235C81 /* Slider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Slider.cpp; sourceTree = "<group>"; };
+		28225A6B1A0682DD00235C81 /* Widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Widget.h; sourceTree = "<group>"; };
+		28225A6E1A0682E800235C81 /* Widget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Widget.cpp; sourceTree = "<group>"; };
 		282ED5D719E4EF2800A63D77 /* GLViewDesktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewDesktop.h; sourceTree = "<group>"; };
 		282ED5D919E4EF5600A63D77 /* GLViewDesktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLViewDesktop.cpp; sourceTree = "<group>"; };
 		2839E9A419DBCF3000647183 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
@@ -3475,6 +3487,8 @@
 				280444EC19E4361C00243742 /* label */,
 				28A90E4419E4260E007B6C7B /* font */,
 				28178C6A19FD13FF0043F374 /* ProgressBar.h */,
+				28225A521A06805D00235C81 /* Slider.h */,
+				28225A6B1A0682DD00235C81 /* Widget.h */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -3486,6 +3500,8 @@
 				280444ED19E4362300243742 /* label */,
 				280444DF19E4350E00243742 /* font */,
 				28178C6D19FD14470043F374 /* ProgressBar.cpp */,
+				28225A551A06807400235C81 /* Slider.cpp */,
+				28225A6E1A0682E800235C81 /* Widget.cpp */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -3603,6 +3619,7 @@
 			files = (
 				287E237A19DD326F009DF95D /* PlatformMacros.h in Headers */,
 				2804034019E183F80092E82E /* TextureMaterial2D.h in Headers */,
+				28225A6D1A0682DD00235C81 /* Widget.h in Headers */,
 				28AC575919E0191900A1B8C0 /* TouchEvent.h in Headers */,
 				28A4DA2A19E3937000A093DC /* Scene2D.h in Headers */,
 				28AA19A619DEAACB00073ED3 /* PerspectiveLens.h in Headers */,
@@ -3610,6 +3627,7 @@
 				2839E9C719DBD1D100647183 /* Texture2D.h in Headers */,
 				28A90E4E19E42640007B6C7B /* FontCache.h in Headers */,
 				2839E9B619DBD1AC00647183 /* ByteArray.h in Headers */,
+				28225A541A06805D00235C81 /* Slider.h in Headers */,
 				2839E9E219DBD4AC00647183 /* Vector3D.h in Headers */,
 				28A90E5019E42640007B6C7B /* FontFNT.h in Headers */,
 				282ED5D819E4EF2800A63D77 /* GLViewDesktop.h in Headers */,
@@ -3704,6 +3722,7 @@
 				28AC575819E0191900A1B8C0 /* TouchEvent.h in Headers */,
 				28A4DA2919E3937000A093DC /* Scene2D.h in Headers */,
 				2839E9BD19DBD1AC00647183 /* TextureCache.h in Headers */,
+				28225A6C1A0682DD00235C81 /* Widget.h in Headers */,
 				2839E9FD19DBDCD600647183 /* FileUtilsIOS.h in Headers */,
 				28A90E4F19E42640007B6C7B /* FontFNT.h in Headers */,
 				287E23D219DD63CD009DF95D /* IComponent.h in Headers */,
@@ -3715,6 +3734,7 @@
 				28AA198619DE3A7A00073ED3 /* Scene.h in Headers */,
 				285F0BF919E56C2000D4C2B2 /* ButtonImage.h in Headers */,
 				28178C6B19FD13FF0043F374 /* ProgressBar.h in Headers */,
+				28225A531A06805D00235C81 /* Slider.h in Headers */,
 				2839E9DD19DBD4AC00647183 /* Rectangle.h in Headers */,
 				28A4DA1919E3806800A093DC /* Shaders2D.h in Headers */,
 				28AA199E19DEA67200073ED3 /* Camera3D.h in Headers */,
@@ -4120,6 +4140,8 @@
 				287E23C219DD3EA1009DF95D /* Vector3D.cpp in Sources */,
 				280444E819E4352200243742 /* FontFNT.cpp in Sources */,
 				2804035419E189490092E82E /* GLSLProgram.cpp in Sources */,
+				28225A701A0682E800235C81 /* Widget.cpp in Sources */,
+				28225A571A06807400235C81 /* Slider.cpp in Sources */,
 				287E239E19DD3E3F009DF95D /* GLView.cpp in Sources */,
 				280444EA19E4352200243742 /* FontFNTConfig.cpp in Sources */,
 				280444E419E4352200243742 /* Font.cpp in Sources */,
@@ -4197,9 +4219,11 @@
 				2804035519E189490092E82E /* GLSLProgram.cpp in Sources */,
 				282ED5DA19E4EF5600A63D77 /* GLViewDesktop.cpp in Sources */,
 				285F0BF419E56B5700D4C2B2 /* Button.cpp in Sources */,
+				28225A711A0682E800235C81 /* Widget.cpp in Sources */,
 				2804034F19E187F20092E82E /* Material3D.cpp in Sources */,
 				287E23A019DD3E49009DF95D /* TextureUtilsMac.mm in Sources */,
 				287E23C919DD3EDA009DF95D /* TextureAtlas.cpp in Sources */,
+				28225A581A06807400235C81 /* Slider.cpp in Sources */,
 				280444E919E4352200243742 /* FontFNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

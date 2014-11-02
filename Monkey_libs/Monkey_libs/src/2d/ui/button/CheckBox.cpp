@@ -13,7 +13,7 @@ NS_MONKEY_BEGIN
 
 
 CheckBox::CheckBox() :
-DisplayObject(),
+Widget(),
 _disableRenderer(nullptr),
 _disableSelectedRenderer(nullptr),
 _activeRenderer(nullptr),
@@ -26,10 +26,6 @@ _active(false)
 }
 
 CheckBox::~CheckBox() {
-    delete _disableRenderer;
-    delete _disableSelectedRenderer;
-    delete _activeRenderer;
-    delete _activeSeltectedRenderer;
 }
 
 void CheckBox::initRenderer() {
@@ -46,10 +42,10 @@ void CheckBox::initRenderer() {
     
     enableMouse(true);
     
-    addChild(_activeSeltectedRenderer);
-    addChild(_activeRenderer);
-    addChild(_disableSelectedRenderer);
-    addChild(_disableRenderer);
+    addWidget(_activeSeltectedRenderer);
+    addWidget(_activeRenderer);
+    addWidget(_disableSelectedRenderer);
+    addWidget(_disableRenderer);
     
     addEventListener(TouchEvent::TOUCH_BEGAN, this, EVENT_CALLBACK(CheckBox::onTouchBegin));
     addEventListener(TouchEvent::TOUCH_END,   this, EVENT_CALLBACK(CheckBox::onTouchEnd));
@@ -191,27 +187,6 @@ void CheckBox::initActiveSeltectedRenderer(const std::string &fileName, CheckBox
         default:
             break;
     }
-}
-
-void CheckBox::draw(bool includeChildren, Material3D* shader) {
-    
-    _enterDrawEvent.reset();
-    dispatchEvent(_enterDrawEvent);
-    
-    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-        if ((*iter) == _activeRenderer || (*iter) == _activeSeltectedRenderer || (*iter) == _disableRenderer || (*iter) == _disableSelectedRenderer) {
-            continue;
-        }
-        (*iter)->draw(includeChildren, shader);
-    }
-    
-    _activeRenderer->draw(includeChildren, shader);
-    _activeSeltectedRenderer->draw(includeChildren, shader);
-    _disableSelectedRenderer->draw(includeChildren, shader);
-    _disableRenderer->draw(includeChildren, shader);
-    
-    _exitDrawEvent.reset();
-    dispatchEvent(_exitDrawEvent);
 }
 
 NS_MONKEY_END

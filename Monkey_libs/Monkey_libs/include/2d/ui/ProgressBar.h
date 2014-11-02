@@ -9,13 +9,13 @@
 #ifndef Monkey_libs_ProgressBar_h
 #define Monkey_libs_ProgressBar_h
 
-#include "2d/entities/DisplayObject.h"
 #include "2d/entities/Image.h"
+#include "2d/ui/Widget.h"
 
 NS_MONKEY_BEGIN
 
 
-class ProgressBar : public DisplayObject {
+class ProgressBar : public Widget {
     
 public:
     

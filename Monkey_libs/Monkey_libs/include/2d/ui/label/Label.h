@@ -10,7 +10,7 @@
 #define _Label_h
 
 #include "core/utils/TextFormatter.h"
-#include "2d/entities/DisplayObject.h"
+#include "2d/ui/Widget.h"
 
 NS_MONKEY_BEGIN
 
@@ -25,7 +25,7 @@ struct FontLetter {
     int   xAdvance;
 };
 
-class Label : public DisplayObject {
+class Label : public Widget {
     
 public:
     

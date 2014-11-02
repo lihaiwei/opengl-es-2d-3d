@@ -36,13 +36,6 @@ public:
      */
     virtual void initWithImage(const std::string &up, const std::string &down, ButtonImage::Type type = ButtonImage::Type::TEXTURE);
     
-    /**
-     *  绘制
-     *  @param includeChildren 是否一并绘制子节点
-     *  @param shader          shader
-     */
-    virtual void draw(bool includeChildren = true, Material3D* shader = nullptr) override;
-    
 protected:
     /**
      *  设置按钮状态

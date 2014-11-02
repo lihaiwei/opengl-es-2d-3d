@@ -20,8 +20,6 @@ _downImage(nullptr)
 }
 
 ButtonImage::~ButtonImage() {
-    delete _upImage;
-    delete _downImage;
 }
 
 void ButtonImage::initButtonRender() {
@@ -32,8 +30,8 @@ void ButtonImage::initButtonRender() {
     _upImage->enableMouse(false);
     _downImage->enableMouse(false);
     
-    addChild(_upImage);
-    addChild(_downImage);
+    addWidget(_upImage);
+    addWidget(_downImage);
 }
 
 void ButtonImage::initWithImage(const std::string &up, const std::string &down, ButtonImage::Type type) {
@@ -93,26 +91,6 @@ void ButtonImage::setButtonStatus(Button::ButtonStats stats) {
         default:
             break;
     }
-}
-
-void ButtonImage::draw(bool includeChildren, Material3D* shader) {
-
-    _enterDrawEvent.reset();
-    dispatchEvent(_enterDrawEvent);
-    
-    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-        if ((*iter) == _upImage || (*iter) == _downImage) {
-            continue;
-        }
-        (*iter)->draw(includeChildren, shader);
-    }
-    
-    _upImage->draw(includeChildren, shader);
-    _downImage->draw(includeChildren, shader);
-    
-    _exitDrawEvent.reset();
-    dispatchEvent(_exitDrawEvent);
-    
 }
 
 NS_MONKEY_END
