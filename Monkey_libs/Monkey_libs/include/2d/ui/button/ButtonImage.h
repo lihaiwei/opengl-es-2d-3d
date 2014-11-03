@@ -18,11 +18,6 @@ class ButtonImage : public Button {
     
 public:
     
-    enum Type {
-        TEXTURE,
-        TEXTURE_FRAME
-    };
-    
     ButtonImage();
     virtual ~ButtonImage();
     
@@ -34,7 +29,7 @@ public:
      *  @param disable
      *  @param type     type(Texture Or TextureFrame)
      */
-    virtual void initWithImage(const std::string &up, const std::string &down, ButtonImage::Type type = ButtonImage::Type::TEXTURE);
+    virtual void initWithImage(const std::string &up, const std::string &down, Type type = Type::TEXTURE);
     
 protected:
     /**

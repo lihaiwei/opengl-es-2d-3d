@@ -24,11 +24,6 @@ public:
         RIGHT
     };
     
-    enum class Type {
-        TEXTURE,
-        TEXTURE_FRAME
-    };
-    
     ProgressBar();
     
     virtual ~ProgressBar();
@@ -39,7 +34,7 @@ public:
      *  @param textureName      贴图名称
      *  @param type             贴图类型
      */
-    virtual void initWithTexture(const std::string &textureName, ProgressBar::Type type = ProgressBar::Type::TEXTURE, ProgressBar::Direction direction = ProgressBar::Direction::RIGHT);
+    virtual void initWithTexture(const std::string &textureName, Type type = Type::TEXTURE, ProgressBar::Direction direction = ProgressBar::Direction::RIGHT);
     
     /**
      *  设置progress bar总长度

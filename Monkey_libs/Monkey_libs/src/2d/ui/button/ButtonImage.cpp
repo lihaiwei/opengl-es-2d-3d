@@ -34,13 +34,13 @@ void ButtonImage::initButtonRender() {
     addWidget(_downImage);
 }
 
-void ButtonImage::initWithImage(const std::string &up, const std::string &down, ButtonImage::Type type) {
+void ButtonImage::initWithImage(const std::string &up, const std::string &down, Type type) {
     initUpImage(up, type);
     initDownImage(down, type);
     setButtonStatus(Button::ButtonStats::UP);
 }
 
-void ButtonImage::initUpImage(const std::string &name, ButtonImage::Type type) {
+void ButtonImage::initUpImage(const std::string &name, Type type) {
     if (name.empty()) {
         return;
     }
@@ -60,7 +60,7 @@ void ButtonImage::initUpImage(const std::string &name, ButtonImage::Type type) {
     _max.setTo(_width, _height);
 }
 
-void ButtonImage::initDownImage(const std::string &name, ButtonImage::Type type) {
+void ButtonImage::initDownImage(const std::string &name, Type type) {
     if (name.empty()) {
         return;
     }

@@ -51,7 +51,7 @@ void CheckBox::initRenderer() {
     addEventListener(TouchEvent::TOUCH_END,   this, EVENT_CALLBACK(CheckBox::onTouchEnd));
 }
 
-void CheckBox::initwithImage(const std::string &disable, const std::string &disableSelected, const std::string &active, const std::string &activeSeltected, CheckBox::Type type) {
+void CheckBox::initwithImage(const std::string &disable, const std::string &disableSelected, const std::string &active, const std::string &activeSeltected, Type type) {
     
     initDisableRenderer(disable, type);
     initDisableSeltectedRenderer(disableSelected, type);
@@ -121,7 +121,7 @@ void CheckBox::onPressDisable() {
     _disableSelectedRenderer->setVisiable(true);
 }
 
-void CheckBox::initDisableRenderer(const std::string &fileName, CheckBox::Type type) {
+void CheckBox::initDisableRenderer(const std::string &fileName, Type type) {
     if (fileName.empty()) {
         return;
     }
@@ -137,7 +137,7 @@ void CheckBox::initDisableRenderer(const std::string &fileName, CheckBox::Type t
     }
 }
 
-void CheckBox::initDisableSeltectedRenderer(const std::string &fileName, CheckBox::Type type) {
+void CheckBox::initDisableSeltectedRenderer(const std::string &fileName, Type type) {
     if (fileName.empty()) {
         return;
     }
@@ -153,7 +153,7 @@ void CheckBox::initDisableSeltectedRenderer(const std::string &fileName, CheckBo
     }
 }
 
-void CheckBox::initActiveRenderer(const std::string &fileName, CheckBox::Type type) {
+void CheckBox::initActiveRenderer(const std::string &fileName, Type type) {
     if (fileName.empty()) {
         return;
     }
@@ -173,7 +173,7 @@ void CheckBox::initActiveRenderer(const std::string &fileName, CheckBox::Type ty
     _max.setTo(_width, _height);
 }
 
-void CheckBox::initActiveSeltectedRenderer(const std::string &fileName, CheckBox::Type type) {
+void CheckBox::initActiveSeltectedRenderer(const std::string &fileName, Type type) {
     if (fileName.empty()) {
         return;
     }

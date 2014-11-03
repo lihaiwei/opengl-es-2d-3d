@@ -17,6 +17,11 @@ class Widget : public DisplayObject {
     
 public:
     
+    enum class Type {
+        TEXTURE,
+        TEXTURE_FRAME
+    };
+    
     Widget();
     
     virtual ~Widget();

@@ -18,11 +18,6 @@ class CheckBox : public Widget {
     
 public:
     
-    enum Type {
-        TEXTURE,
-        TEXTURE_FRAME
-    };
-    
     CheckBox();
     
     virtual ~CheckBox();
@@ -41,7 +36,7 @@ public:
      *  @param activeSeltected  启用被按下
      *  @param type             图片类型。
      */
-    virtual void initwithImage(const std::string &disable, const std::string &disableSelected, const std::string &active, const std::string &activeSeltected, CheckBox::Type type = CheckBox::Type::TEXTURE);
+    virtual void initwithImage(const std::string &disable, const std::string &disableSelected, const std::string &active, const std::string &activeSeltected, Type type = Type::TEXTURE);
     
 protected:
     
@@ -61,25 +56,25 @@ protected:
      *  @param name     texture名称
      *  @param type     texture类型
      */
-    void initDisableRenderer(const std::string &name, CheckBox::Type type);
+    void initDisableRenderer(const std::string &name, Type type);
     /**
      *  初始化 按下 未选中状态
      *  @param name texture名称
      *  @param type texture类型
      */
-    void initDisableSeltectedRenderer(const std::string &name, CheckBox::Type type);
+    void initDisableSeltectedRenderer(const std::string &name, Type type);
     /**
      *  初始化激活状态
      *  @param name texture名称
      *  @param type texture类型
      */
-    void initActiveRenderer(const std::string &name, CheckBox::Type type);
+    void initActiveRenderer(const std::string &name, Type type);
     /**
      *  初始化 按下 激活状态
      *  @param name texture名称
      *  @param type texture类型
      */
-    void initActiveSeltectedRenderer(const std::string &name, CheckBox::Type type);
+    void initActiveSeltectedRenderer(const std::string &name, Type type);
     
     void hideAll();
     
