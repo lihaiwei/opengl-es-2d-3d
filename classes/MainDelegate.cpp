@@ -87,7 +87,7 @@ void MainDelegate::didFinishLaunching() {
     
     Slider *slider = new Slider();
     slider->initWithTextures("sliderTrack.png", "sliderThumb.png", "sliderThumb.png", "sliderProgress2.png");
-    slider->setPosition(0, -200, 0);
+    slider->setPosition(50.0f, -200, 0);
     
     scene->addChild(slider);
     

@@ -303,13 +303,4 @@ bool DisplayObject::acceptTouchEvent(TouchEvent &event) {
     return true;
 }
 
-void DisplayObject::relativeParent(monkey::DisplayObject *parent) {
-    setParent(nullptr);
-    _parent = parent;
-}
-
-void DisplayObject::unRelativeParent() {
-    _parent = nullptr;
-}
-
 NS_MONKEY_END

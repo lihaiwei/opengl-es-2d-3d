@@ -16,34 +16,37 @@ Widget::Widget() {
 
 Widget::~Widget() {
     for (auto iter = _widgets.begin(); iter != _widgets.end(); iter++) {
-        delete (*iter);
+        delete iter->first;
     }
     _widgets.clear();
 }
 
 void Widget::addWidget(monkey::DisplayObject *widget) {
-    _widgets.push_back(widget);
-    widget->relativeParent(this);
+    _widgets.insert(std::make_pair(widget, true));
+    _widgetList.push_back(widget);
+    addChild(widget);
 }
 
-void Widget::addWidgetAt(monkey::DisplayObject *widget, int idx) {
-    _widgets.insert(_widgets.begin() + idx, widget);
-    widget->relativeParent(this);
+void Widget::addWidgetAt(monkey::DisplayObject *widget, int index) {
+    _widgets.insert(std::make_pair(widget, true));
+    _widgetList.insert(_widgetList.begin() + index, widget);
+    addChild(widget);
 }
 
 void Widget::removeWidget(monkey::DisplayObject *widget) {
-    for (auto iter = _widgets.begin(); iter != _widgets.end(); iter++) {
-        if (*iter == widget) {
-            _widgets.erase(iter);
-            widget->unRelativeParent();
-            return;
-        }
+    removeChild(widget);
+    _widgets.erase(widget);
+    auto iter = std::find(_widgetList.begin(), _widgetList.end(), widget);
+    if (iter != _widgetList.end()) {
+        _widgetList.erase(iter);
     }
 }
 
-void Widget::removeWidgetAt(int idx) {
-    (*(_widgets.begin() + idx))->unRelativeParent();
-    _widgets.erase(_widgets.begin() + idx);
+void Widget::removeWidgetAt(int index) {
+    auto iter = _widgetList.begin() + index;
+    _widgets.erase((*iter));
+    removeChild((*iter));
+    _widgetList.erase(iter);
 }
 
 void Widget::draw(bool includeChildren, Material3D* shader) {
@@ -51,31 +54,19 @@ void Widget::draw(bool includeChildren, Material3D* shader) {
     dispatchEvent(_enterDrawEvent);
     
     for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        auto widget = dynamic_cast<DisplayObject*>(*iter);
+        if (widget && _widgets.find(widget) != _widgets.end()) {
+            continue;
+        }
         (*iter)->draw(includeChildren, shader);
     }
-
-    for (auto iter = _widgets.begin(); iter != _widgets.end(); iter++) {
+    
+    for (auto iter = _widgetList.begin(); iter != _widgetList.end(); iter++) {
         (*iter)->draw(includeChildren, shader);
     }
     
     _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);
-}
-
-void Widget::updateTransforms(bool includeChildren) {
-    _updateTransformEvent.reset();
-    dispatchEvent(_updateTransformEvent);
-    
-    if (includeChildren) {
-        for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-            (*iter)->updateTransforms(includeChildren);
-        }
-        for (auto iter = _widgets.begin(); iter != _widgets.end(); iter++) {
-            (*iter)->updateTransforms(includeChildren);
-        }
-        _dirtyInv = true;
-        _dirty    = true;
-    }
 }
 
 NS_MONKEY_END

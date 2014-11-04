@@ -35,16 +35,6 @@ public:
     virtual ~DisplayObject();
     
     /**
-     *  关联父级。如果显示对象拥有父级，那么显示对象将会从父级中移除。并且不会添加到关联的父级容器中。
-     *  @param parent   父节点
-     */
-    virtual void relativeParent(DisplayObject *parent);
-    /**
-     *  取消与父级的关联
-     */
-    virtual void unRelativeParent();
-    
-    /**
      *  设置锚点
      *  @param x 宽度百分比
      *  @param y 高度百分比

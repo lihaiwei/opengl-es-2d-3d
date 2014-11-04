@@ -21,6 +21,9 @@ class Slider : public Widget {
     
 public:
     
+    static const std::string SLIDER_BEGAN;
+    static const std::string SLIDER_END;
+    static const std::string SLIDER_MOVE;
     
     Slider();
     
@@ -76,9 +79,29 @@ protected:
      */
     void loadProgressBarTexture(const std::string &progress, Type type = Type::TEXTURE);
     
+    /**
+     *  sliderball移动
+     *  @param e
+     */
+    void onSliderBallMove(TouchEvent *e);
+    
+    /**
+     *  点击sliderball
+     *  @param e
+     */
+    void onSliderBallBegan(TouchEvent *e);
+    
+    /**
+     *  释放sliderball
+     *  @param e
+     */
+    void onSliderBallEnd(TouchEvent *e);
+    
     Image*          _bar;           // bar
     ButtonImage*    _sliderBall;    // ball
     ProgressBar*    _progress;      // progress
+    float _lastMouseX;
+    float _lastMouseY;
 };
 
 NS_MONKEY_END
