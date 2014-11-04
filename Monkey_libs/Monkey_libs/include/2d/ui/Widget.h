@@ -55,6 +55,11 @@ protected:
      *  @param includeChildren
      */
     virtual void draw(bool includeChildren = false, Material3D* shader = nullptr) override;
+    /**
+     *  更新transform
+     *  @param includeChildren
+     */
+    virtual void updateTransforms(bool includeChildren = true) override;
     
     std::vector<DisplayObject*> _widgets;
     

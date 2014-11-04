@@ -62,4 +62,20 @@ void Widget::draw(bool includeChildren, Material3D* shader) {
     dispatchEvent(_exitDrawEvent);
 }
 
+void Widget::updateTransforms(bool includeChildren) {
+    _updateTransformEvent.reset();
+    dispatchEvent(_updateTransformEvent);
+    
+    if (includeChildren) {
+        for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+            (*iter)->updateTransforms(includeChildren);
+        }
+        for (auto iter = _widgets.begin(); iter != _widgets.end(); iter++) {
+            (*iter)->updateTransforms(includeChildren);
+        }
+        _dirtyInv = true;
+        _dirty    = true;
+    }
+}
+
 NS_MONKEY_END

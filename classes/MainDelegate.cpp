@@ -25,6 +25,7 @@
 #include <2d/entities/Quad.h>
 #include <2d/ui/button/CheckBox.h>
 #include <2d/ui/ProgressBar.h>
+#include <2d/ui/Slider.h>
 
 USING_NS_MONKEY
 
@@ -83,6 +84,12 @@ void MainDelegate::didFinishLaunching() {
     progressBar->setTotalLength(screenWidth);
     
     scene->addChild(progressBar);
+    
+    Slider *slider = new Slider();
+    slider->initWithTextures("sliderTrack.png", "sliderThumb.png", "sliderThumb.png", "sliderProgress2.png");
+    slider->setPosition(0, -200, 0);
+    
+    scene->addChild(slider);
     
     App::getInstance()->addScene2D(scene);
 }

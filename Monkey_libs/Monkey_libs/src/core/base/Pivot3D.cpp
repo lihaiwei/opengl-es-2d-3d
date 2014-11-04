@@ -507,13 +507,13 @@ Matrix3D& Pivot3D::getInvWorld() {
     return _invWorld;
 }
 
-void Pivot3D::updateTransforms(bool includeChilren) {
+void Pivot3D::updateTransforms(bool includeChildren) {
     _updateTransformEvent.reset();
     dispatchEvent(_updateTransformEvent);
     
-    if (includeChilren) {
+    if (includeChildren) {
         for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-            (*iter)->updateTransforms(includeChilren);
+            (*iter)->updateTransforms(includeChildren);
         }
         _dirtyInv = true;
         _dirty    = true;

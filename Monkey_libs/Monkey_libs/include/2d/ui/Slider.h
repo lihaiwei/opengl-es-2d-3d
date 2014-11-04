@@ -38,6 +38,21 @@ public:
     void initWithTextures(const std::string &bar, const std::string &ballUp, const std::string &ballDown, const std::string &progress, Type type = Type::TEXTURE);
     
     /**
+     *  设置进度
+     *
+     *  @param value
+     */
+    void setPercent(float value);
+    
+    /**
+     *  获取进度
+     *  @return
+     */
+    float getPercent() const;
+    
+protected:
+    
+    /**
      *  加载bar图片
      *  @param fileName bar资源名称
      *  @param type     类型
@@ -60,35 +75,6 @@ public:
      *  @param type
      */
     void loadProgressBarTexture(const std::string &progress, Type type = Type::TEXTURE);
-    
-    /**
-     *  设置进度
-     *
-     *  @param value
-     */
-    void setPercent(float value);
-    
-    /**
-     *  获取进度
-     *  @return
-     */
-    float getPercent() const;
-    
-    /**
-     *  设置slider长度
-     *
-     *  @param value 长度
-     */
-    void setLength(float value);
-    
-    /**
-     *  获取slider长度
-     *
-     *  @return
-     */
-    float getLength() const;
-    
-protected:
     
     Image*          _bar;           // bar
     ButtonImage*    _sliderBall;    // ball
