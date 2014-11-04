@@ -1,14 +1,14 @@
 //
-//  Application.cpp
+//  HelloWorld.cpp
 //  HelloMonkey
 //
-//  Created by Neil on 7/10/14.
+//  Created by Neil on 4/11/14.
 //  Copyright (c) 2014 neil. All rights reserved.
 //
 
-#include "MainDelegate.h"
+#include "HelloWorld.h"
+#include "App.h"
 
-#include <App.h>
 #include <2d/scene/Scene2D.h>
 #include <2d/entities/Image.h>
 #include <2d/ui/font/Font.h>
@@ -27,36 +27,27 @@
 #include <2d/ui/ProgressBar.h>
 #include <2d/ui/Slider.h>
 
-USING_NS_MONKEY
+NS_MONKEY_BEGIN
 
-MainDelegate::MainDelegate() {
+HellWorld::HellWorld() : Scene2D() {
+    init();
+}
+
+HellWorld::~HellWorld() {
     
 }
 
-MainDelegate::~MainDelegate() {
-    
-}
-
-void MainDelegate::onClick(monkey::Event &event) {
-    LOGE("TOUCH_IN -> xiaofeiji.jpg");
-}
-
-void MainDelegate::didFinishLaunching() {
-    
+void HellWorld::init() {
     float screenWidth  = App::getInstance()->getWidth();
     float screenHeight = App::getInstance()->getHeight();
     
-    Scene2D *scene = new Scene2D();
-    scene->setViewport(0, 0, App::getInstance()->getWidth(), App::getInstance()->getHeight());
-    
     Image *img = Image::create("xiaofeiji.jpg");
     img->setPosition(0.0f, -0.0f, 0.0f);
-    scene->addChild(img);
-    img->addEventListener(TouchEvent::TOUCH_HIT, this, EVENT_CALLBACK(MainDelegate::onClick));
+    addChild(img);
     
     Label *sysFont = Label::create("Hello , This is 系统字体。", "", 24);
     sysFont->setPosition(100.0f, -300.0f, 0.0f);
-    scene->addChild(sysFont);
+    addChild(sysFont);
     
     LabelFNT *fnt = LabelFNT::create("bitmapFontChinese.fnt", "亲自成立于HelloWORD!123");
     fnt->setPosition(0.0f, -300.0f, 0.0f);
@@ -71,48 +62,23 @@ void MainDelegate::didFinishLaunching() {
     CheckBox *checkbox = new CheckBox();
     checkbox->initwithImage("check_box_normal.png", "check_box_normal_press.png", "check_box_active.png", "check_box_active_press.png");
     checkbox->setPosition(screenWidth / 2, -screenHeight / 2, 0);
-    checkbox->addEventListener(Event::ACTIVE, this, EVENT_CALLBACK(MainDelegate::onCheckBoxEnable));
-    checkbox->addEventListener(Event::DISABLE, this, EVENT_CALLBACK(MainDelegate::onCheckBoxDisable));
     
-    scene->addChild(checkbox);
-    scene->addEventListener(Scene::UPDATE_EVENT, this, EVENT_CALLBACK(MainDelegate::onEnterFrame));
+    addChild(checkbox);
     
-    progressBar = new ProgressBar();
+    ProgressBar* progressBar = new ProgressBar();
     progressBar->initWithTexture("sliderProgress.png");
     progressBar->setPosition(0, -100, 0);
     progressBar->setPercent(0.5f);
     progressBar->setTotalLength(screenWidth);
     
-    scene->addChild(progressBar);
+    addChild(progressBar);
     
     Slider *slider = new Slider();
     slider->initWithTextures("sliderTrack.png", "sliderThumb.png", "sliderThumb.png", "sliderProgress2.png");
     slider->setPosition(50.0f, -200, 0);
     
-    scene->addChild(slider);
-    
-    App::getInstance()->addScene2D(scene);
-}
-
-void MainDelegate::onCheckBoxEnable(monkey::Event &event) {
-    LOGE("onCheckBoxEnable");
-}
-
-void MainDelegate::onCheckBoxDisable(monkey::Event &event) {
-    LOGE("onCheckBoxDisable");
-}
-
-void MainDelegate::onEnterFrame(monkey::Event &event) {
-    progressBar->setPercent(progressBar->getPercent() + 0.01f);
-    if (progressBar->getPercent() >= 1.0f) {
-        progressBar->setPercent(0.0f);
-    }
-}
-
-void MainDelegate::didEnterBackground() {
+    addChild(slider);
     
 }
 
-void MainDelegate::didEnterForeground() {
-    
-}
+NS_MONKEY_END
