@@ -10,6 +10,7 @@
 #define __HelloMonkey__HelloWorld__
 
 #include "2d/scene/Scene2D.h"
+#include "2d/entities/MovieClip.h"
 #include "core/geom/Vector3D.h"
 
 NS_MONKEY_BEGIN
@@ -38,6 +39,21 @@ private:
      *  @param advanceTime
      */
     void moveBackground(float advanceTime);
+    /**
+     *  更新鸟
+     *  @param advanceTime
+     */
+    void updateBird(float advanceTime);
+    /**
+     *  clamp
+     *
+     *  @param min   min
+     *  @param max   max
+     *  @param value value
+     *
+     *  @return value
+     */
+    float clamp(float min, float max, float value);
     
     std::vector<DisplayObject*> _lands; // 地板
     std::vector<DisplayObject*> _skys;  // 天空
@@ -47,7 +63,9 @@ private:
     Vector3D _temp;
     float    _speed;
     float    _lastTime;
+    float    _velocity;  // 重力
     
+    MovieClip* _bird;
 };
 
 NS_MONKEY_END

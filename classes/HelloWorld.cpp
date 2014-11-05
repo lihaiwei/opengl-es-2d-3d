@@ -19,7 +19,13 @@
 
 NS_MONKEY_BEGIN
 
-HellWorld::HellWorld() : Scene2D(), _speed(30.0f), _lastTime(0.0f) {
+HellWorld::HellWorld() :
+Scene2D(),
+_speed(30.0f),
+_lastTime(0.0f),
+_bird(nullptr),
+_velocity(1.0f)
+{
     init();
 }
 
@@ -54,19 +60,18 @@ void HellWorld::init() {
         _skys.push_back(sky);
     }
     // 初始化水管
-    MovieClip *bird = new MovieClip();
     // 初始化鸟
+    _bird = new MovieClip();
     for (int i = 1; i < 5; i++) {
         char str[50];
         sprintf(str, "bird-0%d.png", i);
         std::string frame(str);
-        bird->addFrame(frame, MovieClip::Type::TEXTURE_FRAME);
+        _bird->addFrame(frame, MovieClip::Type::TEXTURE_FRAME);
     }
-    bird->setPosition(screenWidth/2, -screenHeight/2, 0);
-    bird->setFps(15);
-    bird->play();
-    
-    addChild(bird);
+    _bird->setPosition(screenWidth/2, -screenHeight/2, 0);
+    _bird->setFps(15);
+    _bird->play();
+    addChild(_bird);
     
     
     _lastTime = App::getInstance()->getRunningTime();
@@ -77,6 +82,7 @@ void HellWorld::onEnterFrame(monkey::Event *e) {
     float currentTime = App::getInstance()->getRunningTime();
     
     moveBackground(currentTime - _lastTime);
+    updateBird(currentTime - _lastTime);
     
     _lastTime = currentTime;
 }
@@ -99,6 +105,27 @@ void HellWorld::moveBackground(float advanceTime) {
             (*iter)->setPosition(App::getInstance()->getWidth(), _temp.y, _temp.z);
         }
     }
+}
+
+float HellWorld::clamp(float min, float max, float value) {
+    if (value > max) {
+        return max;
+    } else if (value < min) {
+        return min;
+    } else {
+        return value;
+    }
+}
+
+void HellWorld::updateBird(float advanceTime) {
+    // 让鸟一直往下掉
+    
+    _velocity += 1.0f;
+    float rotation = clamp(-90, 90, _velocity * (_velocity < 0 ? 5 : 3));
+    printf("Rotation=%f\n", rotation);
+    // 更新鸟得方向
+    _bird->setRotation(0, 0, _velocity);
+    
 }
 
 NS_MONKEY_END
