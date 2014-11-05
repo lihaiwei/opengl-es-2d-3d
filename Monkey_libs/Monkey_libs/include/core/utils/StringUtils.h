@@ -9,8 +9,7 @@
 #ifndef _StringUtils_h_H
 #define _StringUtils_h_H
 
-#include "ConvertUTF.h"
-
+#include <ConvertUTF.h>
 #include <string>
 #include <stdlib.h>
 

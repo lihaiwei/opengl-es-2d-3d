@@ -9,6 +9,7 @@
 #include "2d/entities/DisplayObject.h"
 #include "core/event/TouchEvent.h"
 #include "core/material/Geometry3D.h"
+#include "2d/scene/Scene2D.h"
 #include "App.h"
 
 NS_MONKEY_BEGIN
@@ -33,6 +34,13 @@ DisplayObject::~DisplayObject() {
     if (_geometry) {
         delete _geometry;
     }
+}
+
+void DisplayObject::parent(DisplayObject *parent) {
+    if (_parent) {
+        setParent(nullptr);
+    }
+    _parent = parent;
 }
 
 void DisplayObject::setAlpha(float value) {
@@ -187,16 +195,16 @@ bool DisplayObject::inView() {
     float screenWidth  = App::getInstance()->getWidth();
     float screenHeight = App::getInstance()->getHeight();
     // 取矩形区域来进行inView判定、不实时计算宽高。
-    float w = _height > _width ? _height : _width;
+    float w = getHeight() > getWidth() ? getHeight() : getWidth();
     
     float dw = w  * _anchorPoint.x;
     float dh = w  * _anchorPoint.y;
     // 获取坐标
     _transform.copyColumnTo(3, _tempVec30);
-    float x = _tempVec30.x;
-    float y = -_tempVec30.y;
+    float x = _tempVec30.x  - dw;
+    float y = -_tempVec30.y - dh;
     
-    if (x - dw > screenWidth || x + w - dw < 0 || y - dh > screenHeight || y + w - dh < 0) {
+    if (x > screenWidth || x + w < 0 || y > screenHeight || y + w < 0) {
         return false;
     }
     
@@ -205,18 +213,6 @@ bool DisplayObject::inView() {
 
 Geometry3D* DisplayObject::getGeometry3d() {
     return _geometry;
-}
-
-void DisplayObject::addedToScene(monkey::Scene *scene) {
-    _scene = scene;
-    _addedToSceneEvent.reset();
-    dispatchEvent(_addedToSceneEvent);
-}
-
-void DisplayObject::removedFromScene() {
-    _scene = nullptr;
-    _removedFromSceneEvent.reset();
-    dispatchEvent(_removedFromSceneEvent);
 }
 
 void DisplayObject::setLayer(int layer, bool includeChildren) {

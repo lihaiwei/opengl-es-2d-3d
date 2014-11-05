@@ -35,6 +35,12 @@ public:
     virtual ~DisplayObject();
     
     /**
+     *  设置parent。只是引用parent，并不做其他任何操作。如需要维护子父级关系请参照:setparent
+     *  @param parent 父级
+     */
+    virtual void parent(DisplayObject *parent);
+    
+    /**
      *  设置锚点
      *  @param x 宽度百分比
      *  @param y 高度百分比
@@ -112,16 +118,6 @@ public:
      *  @return
      */
     virtual bool inView() override;
-    /**
-     *  2d显示对象忽略layer属性
-     *  @param scene
-     */
-    virtual void addedToScene(Scene *scene) override;
-    /**
-     *  2d显示对象忽略layer属性
-     *  从场景中移除
-     */
-    virtual void removedFromScene() override;
     /**
      *  2d显示对象忽略layer属性
      *  @param value

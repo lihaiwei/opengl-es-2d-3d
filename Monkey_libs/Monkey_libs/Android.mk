@@ -18,11 +18,15 @@ src/App.cpp \
 src/2d/entities/BatchDisplayObject.cpp \
 src/2d/entities/DisplayObject.cpp \
 src/2d/entities/Image.cpp \
+src/2d/entities/MovieClip.cpp \
 src/2d/entities/Quad.cpp \
 src/2d/material/ColorMaterial2D.cpp \
 src/2d/material/Shaders2D.cpp \
 src/2d/material/TextureMaterial2D.cpp \
 src/2d/scene/Scene2D.cpp \
+src/2d/ui/ProgressBar.cpp \
+src/2d/ui/Slider.cpp \
+src/2d/ui/Widget.cpp \
 src/2d/ui/button/Button.cpp \
 src/2d/ui/button/ButtonImage.cpp \
 src/2d/ui/button/CheckBox.cpp \

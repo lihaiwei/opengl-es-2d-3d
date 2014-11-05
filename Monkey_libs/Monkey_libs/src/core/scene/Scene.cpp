@@ -54,9 +54,6 @@ _updateLength(0)
  *  TODO:dispose scene
  */
 Scene::~Scene() {
-    
-    
-    
     _renderList.clear();
     _updateList.clear();
 }

@@ -316,7 +316,7 @@ void App::update() {
                 sprintf(buf, "FPS:%.2f\nTRI:%d\nDRA:%d\n", _fps, triangles, drawcalls);
                 std::string statusText(buf);
                 _status->setText(statusText);
-                _status->setPosition(0, _height - _status->getHeight());
+                _status->setPosition(0, 0, 0);
             }
         }
         
@@ -324,7 +324,7 @@ void App::update() {
             if (_status == nullptr) {
                 _status = LabelFNT::create("FPS.fnt", "0");
             }
-            _status->setPosition(0, -(_height-_status->getHeight()), 0.0f);
+            _status->setPosition(0, 0, 0);
             _status->draw();
         }
         

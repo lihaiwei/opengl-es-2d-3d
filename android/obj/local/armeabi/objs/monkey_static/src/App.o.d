@@ -64,6 +64,7 @@ obj/local/armeabi/objs/monkey_static/src/App.o: \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/font/Font.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/font/FontFNTConfig.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/label/Label.h \
+ jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/entities/BatchDisplayObject.h \
  /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/algorithm
 
@@ -194,6 +195,8 @@ jni/../../Monkey_libs/Monkey_libs/include/2d/ui/font/Font.h:
 jni/../../Monkey_libs/Monkey_libs/include/2d/ui/font/FontFNTConfig.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/ui/label/Label.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/entities/BatchDisplayObject.h:
 

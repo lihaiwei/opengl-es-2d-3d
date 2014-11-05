@@ -15,7 +15,8 @@ JNI_SOURCES := GLJNI.cpp \
 JNIFileUtils.cpp \
 JNIHelper.cpp \
 TextureUtilsAndroid.cpp \
-$(CLASSES_SRC)/MainDelegate.cpp
+$(CLASSES_SRC)/MainDelegate.cpp \
+$(CLASSES_SRC)/HelloWorld.cpp
 
 
 # 源文件

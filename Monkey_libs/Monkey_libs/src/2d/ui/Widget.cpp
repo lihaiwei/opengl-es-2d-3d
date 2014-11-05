@@ -7,6 +7,8 @@
 //
 
 #include "2d/ui/Widget.h"
+#include "core/event/TouchEvent.h"
+#include <algorithm>
 
 NS_MONKEY_BEGIN
 
@@ -15,38 +17,47 @@ Widget::Widget() {
 }
 
 Widget::~Widget() {
-    for (auto iter = _widgets.begin(); iter != _widgets.end(); iter++) {
-        delete iter->first;
+    for (auto iter = _widgetList.begin(); iter != _widgetList.end(); iter++) {
+        delete (*iter);
     }
-    _widgets.clear();
+    _widgetList.clear();
+}
+
+void Widget::updateTransforms(bool includeChildren) {
+    DisplayObject::updateTransforms(includeChildren);
+    if (includeChildren) {
+        for (auto iter = _widgetList.begin(); iter != _widgetList.end(); iter++) {
+            (*iter)->updateTransforms(true);
+        }
+    }
 }
 
 void Widget::addWidget(monkey::DisplayObject *widget) {
-    _widgets.insert(std::make_pair(widget, true));
     _widgetList.push_back(widget);
-    addChild(widget);
+    widget->parent(this);
 }
 
 void Widget::addWidgetAt(monkey::DisplayObject *widget, int index) {
-    _widgets.insert(std::make_pair(widget, true));
     _widgetList.insert(_widgetList.begin() + index, widget);
-    addChild(widget);
+    widget->parent(this);
 }
 
 void Widget::removeWidget(monkey::DisplayObject *widget) {
-    removeChild(widget);
-    _widgets.erase(widget);
     auto iter = std::find(_widgetList.begin(), _widgetList.end(), widget);
     if (iter != _widgetList.end()) {
         _widgetList.erase(iter);
+        widget->parent(nullptr);
     }
 }
 
 void Widget::removeWidgetAt(int index) {
     auto iter = _widgetList.begin() + index;
-    _widgets.erase((*iter));
-    removeChild((*iter));
+    (*(_widgetList.begin() + index))->parent(nullptr);
     _widgetList.erase(iter);
+}
+
+std::vector<DisplayObject*>& Widget::getWidgets() {
+    return _widgetList;
 }
 
 void Widget::draw(bool includeChildren, Material3D* shader) {
@@ -54,10 +65,6 @@ void Widget::draw(bool includeChildren, Material3D* shader) {
     dispatchEvent(_enterDrawEvent);
     
     for (auto iter = _children.begin(); iter != _children.end(); iter++) {
-        auto widget = dynamic_cast<DisplayObject*>(*iter);
-        if (widget && _widgets.find(widget) != _widgets.end()) {
-            continue;
-        }
         (*iter)->draw(includeChildren, shader);
     }
     

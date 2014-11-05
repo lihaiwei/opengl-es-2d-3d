@@ -5,7 +5,6 @@ obj/local/armeabi/objs/monkeyandroid/GLJNI.o: jni/GLJNI.cpp jni/GLJNI.h \
  jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h \
  jni/../../classes/MainDelegate.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/base/Object.h \
- jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h \
  jni/../../Monkey_libs/Monkey_libs/include/App.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/base/GLBase.h \
  jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h \
@@ -35,6 +34,7 @@ obj/local/armeabi/objs/monkeyandroid/GLJNI.o: jni/GLJNI.cpp jni/GLJNI.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/material/GLSLProgram.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/geom/Vector2D.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/event/TouchEvent.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/utils/Input3D.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/event/KeyboardEvent.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/scene/Scene2D.h \
@@ -68,8 +68,6 @@ jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h:
 jni/../../classes/MainDelegate.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/base/Object.h:
-
-jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/App.h:
 
@@ -128,6 +126,8 @@ jni/../../Monkey_libs/Monkey_libs/include/core/material/GLSLProgram.h:
 jni/../../Monkey_libs/Monkey_libs/include/core/geom/Vector2D.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/event/TouchEvent.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/event/Event.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/utils/Input3D.h:
 

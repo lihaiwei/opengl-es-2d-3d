@@ -1,6 +1,7 @@
 obj/local/armeabi/objs/monkey_static/src/2d/ui/button/Button.o: \
  jni/../../Monkey_libs/Monkey_libs/src/2d/ui/button/Button.cpp \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/Button.h \
+ jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h \
  /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/string \
  jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h \
@@ -35,6 +36,8 @@ obj/local/armeabi/objs/monkey_static/src/2d/ui/button/Button.o: \
  jni/../../Monkey_libs/Monkey_libs/include/core/event/TouchEvent.h
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/ui/button/Button.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h:
 

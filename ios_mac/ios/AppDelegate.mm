@@ -61,7 +61,7 @@ MainDelegate* mainDelegate = nullptr;
     App::getInstance()->setBackcolor(0x333333);
     
     CGSize size = [[UIScreen mainScreen] bounds].size;
-    App::getInstance()->setViewport(0, 0, size.width * App::getInstance()->getScaleFactor(), size.width * App::getInstance()->getScaleFactor());
+    App::getInstance()->setViewport(0, 0, size.width * App::getInstance()->getScaleFactor(), size.height * App::getInstance()->getScaleFactor());
     
     mainDelegate = new MainDelegate();
     mainDelegate->didFinishLaunching();

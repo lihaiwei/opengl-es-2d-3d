@@ -9,27 +9,17 @@
 #include "HelloWorld.h"
 #include "App.h"
 
-#include <2d/scene/Scene2D.h>
-#include <2d/entities/Image.h>
-#include <2d/ui/font/Font.h>
-#include <2d/ui/font/FontCache.h>
-#include <2d/ui/font/FontFNT.h>
-#include <2d/ui/font/FontFNTConfig.h>
-#include <2d/ui/font/TextFormatter.h>
-#include <2d/ui/label/Label.h>
-#include <2d/ui/label/LabelFNT.h>
-#include <core/utils/Log.h>
-#include <platform/TextureUtils.h>
-#include "2d/ui/button/Button.h"
+#include "2d/scene/Scene2D.h"
+#include "2d/entities/Image.h"
+#include "core/texture/TextureAtlas.h"
+#include "core/utils/Log.h"
 #include "2d/ui/button/ButtonImage.h"
-#include <2d/entities/Quad.h>
-#include <2d/ui/button/CheckBox.h>
-#include <2d/ui/ProgressBar.h>
-#include <2d/ui/Slider.h>
+#include "2d/ui/Slider.h"
+#include "2d/entities/MovieClip.h"
 
 NS_MONKEY_BEGIN
 
-HellWorld::HellWorld() : Scene2D() {
+HellWorld::HellWorld() : Scene2D(), _speed(30.0f), _lastTime(0.0f) {
     init();
 }
 
@@ -38,47 +28,77 @@ HellWorld::~HellWorld() {
 }
 
 void HellWorld::init() {
+    
+    _speed = 240; // 速度240像素每秒
+    
+    App::getInstance()->setBackcolor(0xFF00FF);
+    
     float screenWidth  = App::getInstance()->getWidth();
     float screenHeight = App::getInstance()->getHeight();
+    // 载入资源
+    TextureAtlas::getInstance()->addTextureAtlasWithJson("flappbird.json");
+    // 添加背景
+    Image *background = Image::create("background.png");
+    background->setScale(2, 2, 2);
+    addChild(background);
+    // 初始化地板以及天空
+    for (int i = 0; i < 10; i++) {
+        Image *land = Image::createFrameTexture("land.png");
+        land->setPosition(i * land->getWidth(), -screenHeight + land->getHeight(), -1.0f);
+        addChild(land);
+        _lands.push_back(land);
+        
+        Image *sky = Image::createFrameTexture("sky.png");
+        sky->setPosition(i * sky->getWidth(), land->getY() + sky->getHeight() - 10, 0);
+        addChild(sky);
+        _skys.push_back(sky);
+    }
+    // 初始化水管
+    MovieClip *bird = new MovieClip();
+    // 初始化鸟
+    for (int i = 1; i < 5; i++) {
+        char str[50];
+        sprintf(str, "bird-0%d.png", i);
+        std::string frame(str);
+        bird->addFrame(frame, MovieClip::Type::TEXTURE_FRAME);
+    }
+    bird->setPosition(screenWidth/2, -screenHeight/2, 0);
+    bird->setFps(15);
+    bird->play();
     
-    Image *img = Image::create("xiaofeiji.jpg");
-    img->setPosition(0.0f, -0.0f, 0.0f);
-    addChild(img);
+    addChild(bird);
     
-    Label *sysFont = Label::create("Hello , This is 系统字体。", "", 24);
-    sysFont->setPosition(100.0f, -300.0f, 0.0f);
-    addChild(sysFont);
     
-    LabelFNT *fnt = LabelFNT::create("bitmapFontChinese.fnt", "亲自成立于HelloWORD!123");
-    fnt->setPosition(0.0f, -300.0f, 0.0f);
+    _lastTime = App::getInstance()->getRunningTime();
+    addEventListener(Scene2D::RENDER_EVENT, this, EVENT_CALLBACK(HellWorld::onEnterFrame));
+}
+
+void HellWorld::onEnterFrame(monkey::Event *e) {
+    float currentTime = App::getInstance()->getRunningTime();
     
-    ButtonImage *btn = new ButtonImage();
-    btn->initWithImage("animationbuttonnormal.png", "animationbuttonpressed.png");
-    btn->setPosition(0, 0, 0.0f);
+    moveBackground(currentTime - _lastTime);
     
-    btn->addChild(fnt);
-    img->addChild(btn);
-    
-    CheckBox *checkbox = new CheckBox();
-    checkbox->initwithImage("check_box_normal.png", "check_box_normal_press.png", "check_box_active.png", "check_box_active_press.png");
-    checkbox->setPosition(screenWidth / 2, -screenHeight / 2, 0);
-    
-    addChild(checkbox);
-    
-    ProgressBar* progressBar = new ProgressBar();
-    progressBar->initWithTexture("sliderProgress.png");
-    progressBar->setPosition(0, -100, 0);
-    progressBar->setPercent(0.5f);
-    progressBar->setTotalLength(screenWidth);
-    
-    addChild(progressBar);
-    
-    Slider *slider = new Slider();
-    slider->initWithTextures("sliderTrack.png", "sliderThumb.png", "sliderThumb.png", "sliderProgress2.png");
-    slider->setPosition(50.0f, -200, 0);
-    
-    addChild(slider);
-    
+    _lastTime = currentTime;
+}
+
+void HellWorld::moveBackground(float advanceTime) {
+    float speed = advanceTime * _speed;
+    // 滚动背景
+    for (auto iter = _skys.begin(); iter != _skys.end(); iter++) {
+        (*iter)->getPosition(_temp);
+        (*iter)->setPosition(_temp.x - (int)speed, _temp.y, _temp.z);
+        if ((*iter)->getX() + (*iter)->getWidth() < 0) {
+            (*iter)->setPosition(App::getInstance()->getWidth(), _temp.y, _temp.z);
+        }
+    }
+    // 滚动陆地
+    for (auto iter = _lands.begin(); iter != _lands.end(); iter++) {
+        (*iter)->getPosition(_temp);
+        (*iter)->setPosition(_temp.x - (int)speed, _temp.y, _temp.z);
+        if ((*iter)->getX() + (*iter)->getWidth() < 0) {
+            (*iter)->setPosition(App::getInstance()->getWidth(), _temp.y, _temp.z);
+        }
+    }
 }
 
 NS_MONKEY_END

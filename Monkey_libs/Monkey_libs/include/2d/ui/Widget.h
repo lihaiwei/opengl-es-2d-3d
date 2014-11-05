@@ -27,8 +27,19 @@ public:
     
     virtual ~Widget();
     
+    /**
+     *  获取控件列表
+     *  @return
+     */
+    virtual std::vector<DisplayObject*> &getWidgets();
+    
 protected:
     
+    /**
+     *  更新transform
+     *  @param includeChildren
+     */
+    virtual void updateTransforms(bool includeChildren = true) override;
     /**
      *  添加一个控件
      *  @param widget   控件
@@ -56,9 +67,7 @@ protected:
      *  @param includeChildren
      */
     virtual void draw(bool includeChildren = false, Material3D* shader = nullptr) override;
-    
     // 组件
-    std::map<DisplayObject*, bool> _widgets;
     std::vector<DisplayObject*>    _widgetList;
 };
 

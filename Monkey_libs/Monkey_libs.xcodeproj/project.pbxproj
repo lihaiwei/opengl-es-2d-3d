@@ -349,6 +349,10 @@
 		288FF85A19DA91C40095DF6A /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 288FF84F19DA8DC60095DF6A /* Object.h */; };
 		288FF8BE19DA9A6D0095DF6A /* PlatformConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 288FF8BD19DA9A6D0095DF6A /* PlatformConfig.h */; };
 		288FF8BF19DA9A6D0095DF6A /* PlatformConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 288FF8BD19DA9A6D0095DF6A /* PlatformConfig.h */; };
+		289B5E601A09C305005D6C66 /* MovieClip.h in Headers */ = {isa = PBXBuildFile; fileRef = 289B5E5F1A09C305005D6C66 /* MovieClip.h */; };
+		289B5E611A09C305005D6C66 /* MovieClip.h in Headers */ = {isa = PBXBuildFile; fileRef = 289B5E5F1A09C305005D6C66 /* MovieClip.h */; };
+		289B5E641A09C31A005D6C66 /* MovieClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 289B5E621A09C31A005D6C66 /* MovieClip.cpp */; };
+		289B5E651A09C31A005D6C66 /* MovieClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 289B5E621A09C31A005D6C66 /* MovieClip.cpp */; };
 		28A4DA1919E3806800A093DC /* Shaders2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A4DA1819E3806800A093DC /* Shaders2D.h */; };
 		28A4DA1A19E3806800A093DC /* Shaders2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A4DA1819E3806800A093DC /* Shaders2D.h */; };
 		28A4DA1D19E3812100A093DC /* Shaders2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28A4DA1B19E3812100A093DC /* Shaders2D.cpp */; };
@@ -1313,6 +1317,8 @@
 		288FF84F19DA8DC60095DF6A /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		288FF85119DA8DCF0095DF6A /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		288FF8BD19DA9A6D0095DF6A /* PlatformConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformConfig.h; sourceTree = "<group>"; };
+		289B5E5F1A09C305005D6C66 /* MovieClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieClip.h; sourceTree = "<group>"; };
+		289B5E621A09C31A005D6C66 /* MovieClip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieClip.cpp; sourceTree = "<group>"; };
 		28A4DA1819E3806800A093DC /* Shaders2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shaders2D.h; sourceTree = "<group>"; };
 		28A4DA1B19E3812100A093DC /* Shaders2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shaders2D.cpp; sourceTree = "<group>"; };
 		28A4DA2819E3937000A093DC /* Scene2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene2D.h; sourceTree = "<group>"; };
@@ -1442,6 +1448,7 @@
 				28A4DA4719E3E59200A093DC /* BatchDisplayObject.h */,
 				2804032519E15D7D0092E82E /* Quad.h */,
 				28A4DA3E19E3D59B00A093DC /* Image.h */,
+				289B5E5F1A09C305005D6C66 /* MovieClip.h */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -1465,6 +1472,7 @@
 				28A4DA4A19E3E59800A093DC /* BatchDisplayObject.cpp */,
 				2804033319E182630092E82E /* Quad.cpp */,
 				28A4DA4119E3D63D00A093DC /* Image.cpp */,
+				289B5E621A09C31A005D6C66 /* MovieClip.cpp */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -3679,6 +3687,7 @@
 				2839E9CC19DBD1F800647183 /* GLBase.h in Headers */,
 				2839E9A919DBCF3000647183 /* TextureUtils.h in Headers */,
 				2839E9D819DBD4AC00647183 /* Matrix3D.h in Headers */,
+				289B5E611A09C305005D6C66 /* MovieClip.h in Headers */,
 				28AC574319DEF60700A1B8C0 /* OrthographicLens.h in Headers */,
 				2839E9E019DBD4AC00647183 /* Vector2D.h in Headers */,
 			);
@@ -3705,6 +3714,7 @@
 				2839E9C419DBD1D100647183 /* FrameTexture.h in Headers */,
 				2839EA0119DBDCD600647183 /* TextureUtilsIOS.h in Headers */,
 				2839E9E419DBD7D300647183 /* StringUtils.h in Headers */,
+				289B5E601A09C305005D6C66 /* MovieClip.h in Headers */,
 				2804033F19E183F80092E82E /* TextureMaterial2D.h in Headers */,
 				287E237C19DD367C009DF95D /* EventDispatcher.h in Headers */,
 				2839EA6D19DBF97C00647183 /* EAGLView.h in Headers */,
@@ -4120,6 +4130,7 @@
 				287E23C519DD3EA6009DF95D /* Pivot3D.cpp in Sources */,
 				28A4DA4B19E3E59800A093DC /* BatchDisplayObject.cpp in Sources */,
 				2804032E19E179D00092E82E /* DisplayObject.cpp in Sources */,
+				289B5E641A09C31A005D6C66 /* MovieClip.cpp in Sources */,
 				28A4DA3A19E3CCE100A093DC /* OrthographicLens2D.cpp in Sources */,
 				287E23C019DD3EA1009DF95D /* Rectangle.cpp in Sources */,
 				285F0BF619E56C1600D4C2B2 /* ButtonImage.cpp in Sources */,
@@ -4214,6 +4225,7 @@
 				287E23BC19DD3EA1009DF95D /* Vector2D.cpp in Sources */,
 				28AC574A19DF849400A1B8C0 /* Camera3D.cpp in Sources */,
 				28A4DA4C19E3E59800A093DC /* BatchDisplayObject.cpp in Sources */,
+				289B5E651A09C31A005D6C66 /* MovieClip.cpp in Sources */,
 				2804035319E189490092E82E /* Geometry3D.cpp in Sources */,
 				285F0BCC19E50BB800D4C2B2 /* LabelFNT.cpp in Sources */,
 				2804035519E189490092E82E /* GLSLProgram.cpp in Sources */,

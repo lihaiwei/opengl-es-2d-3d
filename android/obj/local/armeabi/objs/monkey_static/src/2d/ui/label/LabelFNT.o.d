@@ -18,6 +18,7 @@ obj/local/armeabi/objs/monkey_static/src/2d/ui/label/LabelFNT.o: \
  /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2ext.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/utils/TextFormatter.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/ui/label/Label.h \
+ jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/material/BlendMode.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/geom/Rectangle.h \
@@ -86,6 +87,8 @@ jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h:
 jni/../../Monkey_libs/Monkey_libs/include/core/utils/TextFormatter.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/ui/label/Label.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h:
 

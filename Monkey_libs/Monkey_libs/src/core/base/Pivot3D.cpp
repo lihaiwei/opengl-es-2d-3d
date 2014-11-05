@@ -50,6 +50,7 @@ Vector2D Pivot3D::_tempVec21 = Vector2D(0.0f, 0.0f);
 Pivot3D::Pivot3D() : EventDispatcher(),
 _fps(60.0f),
 _fpsSpeed(1.0f / 60.0f),
+_frameSpeed(1.0f),
 _layer(0),
 _dirty(true),
 _dirtyInv(true),
@@ -645,11 +646,19 @@ Pivot3D* Pivot3D::getChildByName(const std::string &name, int startIndex, bool i
 
 // TODO
 void Pivot3D::gotoAndStop(float frame) {
-    
+    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        (*iter)->gotoAndStop(frame);
+    }
+    _isPlaying = false;
+    setCurrentFrame(frame);
 }
 
 void Pivot3D::gotoAndPlay(float frame, AnimationType type) {
-    
+    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        (*iter)->gotoAndPlay(frame);
+    }
+    _isPlaying = true;
+    setCurrentFrame(frame);
 }
 
 float Pivot3D::getCurrentFrame() {
@@ -657,26 +666,91 @@ float Pivot3D::getCurrentFrame() {
 }
 
 void Pivot3D::setCurrentFrame(float value) {
-    
+    _currentFrame = value;
 }
 
 void Pivot3D::play(AnimationType type) {
-    
+    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        (*iter)->play(type);
+    }
+    _animationType = type;
+    _isPlaying = true;
 }
 
 void Pivot3D::stop() {
-    
+    for (auto iter = _children.begin(); iter != _children.end(); iter++) {
+        (*iter)->stop();
+    }
+    _isPlaying = false;
 }
 
 void Pivot3D::prevFrame(float advancedTime) {
-    
+    if (_frameSpeed > 0) {
+        nextFrame(advancedTime);
+        return;
+    }
+    _currentFrame += _frameSpeed * (advancedTime / _frameSpeed);
+    bool animComplete = false;
+    if (_currentFrame < _from) {
+        switch (_animationType) {
+            case AnimationType::LOOP:
+                animComplete = true;
+                _currentFrame = _to;
+                break;
+            case AnimationType::STOP:
+                animComplete = false;
+                _currentFrame = _from;
+                stop();
+                break;
+            case AnimationType::PING_PONG:
+                animComplete = true;
+                _currentFrame = _from;
+                _frameSpeed *= -1;
+                break;
+            default:
+                break;
+        }
+    }
+    setCurrentFrame(_currentFrame);
+    if (animComplete) {
+        _animationCompleteEvent.reset();
+        dispatchEvent(_animationCompleteEvent);
+    }
 }
 
 void Pivot3D::nextFrame(float advancedTime) {
-    
+    if (_frameSpeed < 0) {
+        prevFrame(advancedTime);
+        return;
+    }
+    _currentFrame += _frameSpeed * (advancedTime / _fpsSpeed);
+    bool animComplete = false;
+    if (_currentFrame > _to - 1) {
+        switch (_animationType) {
+            case AnimationType::LOOP:
+                animComplete = true;
+                _currentFrame = 0;
+                break;
+            case AnimationType::STOP:
+                animComplete = true;
+                _currentFrame = _to - 1;
+                stop();
+                break;
+            case AnimationType::PING_PONG:
+                animComplete = true;
+                _currentFrame = _to - 1;
+                _frameSpeed *= -1;
+                break;
+            default:
+                break;
+        }
+    }
+    setCurrentFrame(_currentFrame);
+    if (_currentFrame) {
+        _animationCompleteEvent.reset();
+        dispatchEvent(_animationCompleteEvent);
+    }
 }
-
-// TODO-end
 
 void Pivot3D::update(float advancedTime, bool includeChildren) {
     if (includeChildren) {

@@ -8,10 +8,10 @@
 
 #include "2d/scene/Scene2D.h"
 #include "2d/entities/DisplayObject.h"
-
+#include "2d/ui/Widget.h"
 #include "core/camera/Camera3D.h"
 #include "core/camera/lens/OrthographicLens2D.h"
-
+#include "App.h"
 
 NS_MONKEY_BEGIN
 
@@ -32,7 +32,20 @@ bool Scene2D::eventVisitor(Pivot3D *disp, monkey::TouchEvent &event) {
     if (!event.points || event.size == 0) {
         return false;
     }
-    if (disp->getChildren().size() > 0) {
+    
+    Widget *widget = dynamic_cast<Widget*>(disp);
+    
+    if (disp->getChildren().size() > 0 || widget) {
+        // 控件的事件
+        if (widget) {
+            for (auto iter = widget->getWidgets().rbegin(); iter != widget->getWidgets().rend(); iter++) {
+                bool ret = eventVisitor((*iter), event);
+                if (ret) {
+                    return true;
+                }
+            }
+        }
+        // 子集的事件
         for (auto iter = disp->getChildren().rbegin(); iter != disp->getChildren().rend(); iter++) {
             bool ret = eventVisitor((*iter), event);
             if (ret) {
