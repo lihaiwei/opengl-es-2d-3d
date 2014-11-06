@@ -54,6 +54,11 @@ private:
      *  @return value
      */
     float clamp(float min, float max, float value);
+    /**
+     *  触摸屏幕
+     *  @param e
+     */
+    void onTouchScreen(TouchEvent &e);
     
     std::vector<DisplayObject*> _lands; // 地板
     std::vector<DisplayObject*> _skys;  // 天空

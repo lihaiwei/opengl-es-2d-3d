@@ -54,7 +54,6 @@ void TextureMaterial2D::draw(Geometry3D *geometry, Texture2D *texture, Matrix3D 
     App::getInstance()->triangles += 2;
     
     program->enable();
-
     // enabe 顶点和uv
     geometry->enableVertexBuffer(Geometry3D::VertexType::POSITION,  _posVaInstance);
     geometry->enableVertexBuffer(Geometry3D::VertexType::UV0,       _uvVaInstance);

@@ -27,6 +27,11 @@ public:
     virtual ~MovieClip();
     
     /**
+     *  更新transform
+     *  @param includeChildren
+     */
+    virtual void updateTransforms(bool includeChildren = true) override;
+    /**
      *  添加一帧
      *  @param frame
      *  @param type

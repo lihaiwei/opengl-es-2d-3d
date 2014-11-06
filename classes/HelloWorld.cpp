@@ -8,7 +8,7 @@
 
 #include "HelloWorld.h"
 #include "App.h"
-
+#include "2d/entities/Quad.h"
 #include "2d/scene/Scene2D.h"
 #include "2d/entities/Image.h"
 #include "core/texture/TextureAtlas.h"
@@ -24,7 +24,7 @@ Scene2D(),
 _speed(30.0f),
 _lastTime(0.0f),
 _bird(nullptr),
-_velocity(1.0f)
+_velocity(0.0f)
 {
     init();
 }
@@ -37,6 +37,7 @@ void HellWorld::init() {
     
     _speed = 240; // 速度240像素每秒
     
+    App::getInstance()->setVisiableStats(false);
     App::getInstance()->setBackcolor(0xFF00FF);
     
     float screenWidth  = App::getInstance()->getWidth();
@@ -50,6 +51,7 @@ void HellWorld::init() {
     // 初始化地板以及天空
     for (int i = 0; i < 10; i++) {
         Image *land = Image::createFrameTexture("land.png");
+        land->setScale(1, 1, 1);
         land->setPosition(i * land->getWidth(), -screenHeight + land->getHeight(), -1.0f);
         addChild(land);
         _lands.push_back(land);
@@ -73,8 +75,9 @@ void HellWorld::init() {
     _bird->play();
     addChild(_bird);
     
-    
     _lastTime = App::getInstance()->getRunningTime();
+    
+    addEventListener(TouchEvent::TOUCH_BEGAN, this, EVENT_CALLBACK(HellWorld::onTouchScreen));
     addEventListener(Scene2D::RENDER_EVENT, this, EVENT_CALLBACK(HellWorld::onEnterFrame));
 }
 
@@ -92,17 +95,17 @@ void HellWorld::moveBackground(float advanceTime) {
     // 滚动背景
     for (auto iter = _skys.begin(); iter != _skys.end(); iter++) {
         (*iter)->getPosition(_temp);
-        (*iter)->setPosition(_temp.x - (int)speed, _temp.y, _temp.z);
+        (*iter)->setX((*iter)->getX() - (int)speed);
         if ((*iter)->getX() + (*iter)->getWidth() < 0) {
-            (*iter)->setPosition(App::getInstance()->getWidth(), _temp.y, _temp.z);
+            (*iter)->setX((*iter)->getWidth() * (_skys.size() - 1));
         }
     }
     // 滚动陆地
     for (auto iter = _lands.begin(); iter != _lands.end(); iter++) {
         (*iter)->getPosition(_temp);
-        (*iter)->setPosition(_temp.x - (int)speed, _temp.y, _temp.z);
+        (*iter)->setX((*iter)->getX() - (int)speed);
         if ((*iter)->getX() + (*iter)->getWidth() < 0) {
-            (*iter)->setPosition(App::getInstance()->getWidth(), _temp.y, _temp.z);
+            (*iter)->setX((*iter)->getWidth() * (_lands.size() - 1));
         }
     }
 }
@@ -119,13 +122,18 @@ float HellWorld::clamp(float min, float max, float value) {
 
 void HellWorld::updateBird(float advanceTime) {
     // 让鸟一直往下掉
-    
-    _velocity += 1.0f;
+    _velocity -= 0.7f;
     float rotation = clamp(-90, 90, _velocity * (_velocity < 0 ? 5 : 3));
-    printf("Rotation=%f\n", rotation);
     // 更新鸟得方向
-    _bird->setRotation(0, 0, _velocity);
-    
+    _bird->setRotation(0, 0, rotation);
+    _bird->setY(_bird->getY() + _velocity);
+    if (_velocity < -7.0f) {
+        _velocity = -7.0f;
+    }
+}
+
+void HellWorld::onTouchScreen(monkey::TouchEvent &e) {
+    _velocity = 10.0f;
 }
 
 NS_MONKEY_END

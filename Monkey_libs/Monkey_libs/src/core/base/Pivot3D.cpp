@@ -263,9 +263,13 @@ float Pivot3D::getRotationY(bool local) {
     return atan2f(_tempVec30.x, _tempVec30.z) * 180.0f / PI;
 }
 
+/**
+ *  TODO:实现rotationZ。目前还未做z的逻辑
+ *  @param local local
+ *  @return
+ */
 float Pivot3D::getRotationZ(bool local) {
-    getFront(_tempVec30);
-    return atan2f(_tempVec30.x, _tempVec30.y) * 180.0f / PI;
+    return 0.0f;
 }
 
 void Pivot3D::setRoatation(const Vector3D &rotation) {

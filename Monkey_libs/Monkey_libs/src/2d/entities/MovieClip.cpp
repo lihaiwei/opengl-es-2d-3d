@@ -57,7 +57,9 @@ void MovieClip::draw(bool includeChildren, Material3D *shader) {
         }
     }
     
-    _currentFrameDisp->draw(includeChildren, shader);
+    if (_currentFrameDisp) {
+        _currentFrameDisp->draw(includeChildren, shader);
+    }
     
     _exitDrawEvent.reset();
     dispatchEvent(_exitDrawEvent);
@@ -72,6 +74,13 @@ void MovieClip::setCurrentFrame(float value) {
     }
     _currentFrame = value;
     _currentFrameDisp = _frames[(int)_currentFrame];
+}
+
+void MovieClip::updateTransforms(bool includeChildren) {
+    DisplayObject::updateTransforms(includeChildren);
+    if (includeChildren && _currentFrameDisp) {
+        _currentFrameDisp->updateTransforms(includeChildren);
+    }
 }
 
 NS_MONKEY_END
