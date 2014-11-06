@@ -60,6 +60,13 @@ void HellWorld::init() {
         sky->setPosition(i * sky->getWidth(), land->getY() + sky->getHeight() - 10, 0);
         addChild(sky);
         _skys.push_back(sky);
+        
+        Image *pip = Image::createFrameTexture("PipeUp.png");
+        pip->setScaleY(2.0f);
+        pip->setX(1134 * randomf());
+        pip->setY(-screenHeight + pip->getHeight());
+        pip->setZ(-2.0f);
+        addChild(pip);
     }
     // 初始化水管
     // 初始化鸟
