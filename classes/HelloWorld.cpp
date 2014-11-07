@@ -19,11 +19,14 @@
 
 NS_MONKEY_BEGIN
 
+static float INTERVAL = 1.0f;
+
 HellWorld::HellWorld() :
 Scene2D(),
 _speed(30.0f),
 _lastTime(0.0f),
 _bird(nullptr),
+_pipTick(1.0f),
 _velocity(0.0f)
 {
     init();
@@ -37,7 +40,6 @@ void HellWorld::init() {
     
     _speed = 240; // 速度240像素每秒
     
-    App::getInstance()->setVisiableStats(false);
     App::getInstance()->setBackcolor(0xFF00FF);
     
     float screenWidth  = App::getInstance()->getWidth();
@@ -60,13 +62,6 @@ void HellWorld::init() {
         sky->setPosition(i * sky->getWidth(), land->getY() + sky->getHeight() - 10, 0);
         addChild(sky);
         _skys.push_back(sky);
-        
-        Image *pip = Image::createFrameTexture("PipeUp.png");
-        pip->setScaleY(2.0f);
-        pip->setX(1134 * randomf());
-        pip->setY(-screenHeight + pip->getHeight());
-        pip->setZ(-2.0f);
-        addChild(pip);
     }
     // 初始化水管
     // 初始化鸟
@@ -93,8 +88,44 @@ void HellWorld::onEnterFrame(monkey::Event *e) {
     
     moveBackground(currentTime - _lastTime);
     updateBird(currentTime - _lastTime);
+    updatePipes(currentTime - _lastTime);
     
     _lastTime = currentTime;
+}
+
+void HellWorld::updatePipes(float advanceTime) {
+    _pipTick += advanceTime;
+    
+    // 产生一对水管
+    if (_pipTick >= INTERVAL) {
+        float w = App::getInstance()->getWidth();
+        float h = App::getInstance()->getHeight();
+        // 上
+        Image *up = Image::createFrameTexture("PipeUp.png");
+        up->setScaleY(2.0f);
+        up->setPosition(w + w/10 * randomf(), -h / 2 - randomf() * h / 6, 0.0f);
+        addChild(up);
+        _pipes.push_back(up);
+        // 下
+        Image *down = Image::createFrameTexture("PipeDown.png");
+        down->setScaleY(2.0f);
+        down->setPosition(w + w/10 * randomf(), randomf() * h / 4, 0.0);
+        addChild(down);
+        _pipes.push_back(down);
+        
+        _pipTick = 0.0f;
+    }
+    
+    float speed = advanceTime * _speed;
+    for (auto iter = _pipes.begin(); iter != _pipes.end(); iter++) {
+        (*iter)->setX((*iter)->getX() - (int)speed);
+        
+        if ((*iter)->getX() + (*iter)->getWidth() < 0) {
+            removeChild((*iter));
+            delete (*iter);
+            _pipes.erase(iter);
+        }
+    }
 }
 
 void HellWorld::moveBackground(float advanceTime) {

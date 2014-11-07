@@ -9,10 +9,11 @@
 #ifndef _mmath_h
 #define _mmath_h
 
+#include "platform/PlatformMacros.h"
+
 #include <stdlib.h>
 #include <math.h>
-
-#include "platform/PlatformMacros.h"
+#include <time.h>
 
 NS_MONKEY_BEGIN
 
@@ -29,7 +30,7 @@ const inline static int NextPOT(int x) {
 }
 
 const inline static float randomf() {
-    return ((float)random() / RAND_MAX);
+    return arc4random() % RAND_MAX * 1.0f / RAND_MAX;
 }
 
 const inline static float absf(float f) {

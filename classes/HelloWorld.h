@@ -45,6 +45,11 @@ private:
      */
     void updateBird(float advanceTime);
     /**
+     *  更新水管
+     *  @param advanceTime
+     */
+    void updatePipes(float advanceTime);
+    /**
      *  clamp
      *
      *  @param min   min
@@ -62,13 +67,13 @@ private:
     
     std::vector<DisplayObject*> _lands; // 地板
     std::vector<DisplayObject*> _skys;  // 天空
-    std::vector<DisplayObject*> _pipeUps; // 上水管
-    std::vector<DisplayObject*> _pipeDowns; // 下水管
+    std::vector<DisplayObject*> _pipes; // 水管
     
     Vector3D _temp;
     float    _speed;
     float    _lastTime;
     float    _velocity;  // 重力
+    float    _pipTick;
     
     MovieClip* _bird;
 };
