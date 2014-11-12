@@ -33,6 +33,9 @@ obj/local/armeabi/objs/monkey_static/src/2d/entities/DisplayObject.o: \
  /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2ext.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/event/TouchEvent.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/material/Geometry3D.h \
+ jni/../../Monkey_libs/Monkey_libs/include/2d/scene/Scene2D.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/scene/Scene.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/event/KeyboardEvent.h \
  jni/../../Monkey_libs/Monkey_libs/include/App.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/base/GLBase.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/utils/Value.h \
@@ -108,6 +111,12 @@ jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h:
 jni/../../Monkey_libs/Monkey_libs/include/core/event/TouchEvent.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/material/Geometry3D.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/2d/scene/Scene2D.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/scene/Scene.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/event/KeyboardEvent.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/App.h:
 

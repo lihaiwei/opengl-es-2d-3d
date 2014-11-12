@@ -36,10 +36,20 @@ obj/local/armeabi/objs/monkey_static/src/2d/scene/Scene2D.o: \
  jni/../../Monkey_libs/Monkey_libs/include/core/material/Geometry3D.h \
  jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/material/BlendMode.h \
+ jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/camera/Camera3D.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/LensBase.h \
  jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/OrthographicLens2D.h \
- jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/OrthographicLens.h
+ jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/OrthographicLens.h \
+ jni/../../Monkey_libs/Monkey_libs/include/App.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/base/GLBase.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/utils/Value.h \
+ /Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/unordered_map \
+ jni/../../Monkey_libs/Monkey_libs/include/core/geom/Matrix3D.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/geom/Vector2D.h \
+ jni/../../Monkey_libs/Monkey_libs/include/core/event/EventDispatcher.h \
+ jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h \
+ jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h
 
 jni/../../Monkey_libs/Monkey_libs/include/2d/scene/Scene2D.h:
 
@@ -113,6 +123,8 @@ jni/../../Monkey_libs/Monkey_libs/include/2d/entities/DisplayObject.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/material/BlendMode.h:
 
+jni/../../Monkey_libs/Monkey_libs/include/2d/ui/Widget.h:
+
 jni/../../Monkey_libs/Monkey_libs/include/core/camera/Camera3D.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/LensBase.h:
@@ -120,3 +132,21 @@ jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/LensBase.h:
 jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/OrthographicLens2D.h:
 
 jni/../../Monkey_libs/Monkey_libs/include/core/camera/lens/OrthographicLens.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/App.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/base/GLBase.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/utils/Value.h:
+
+/Users/Neil/sdk/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include/unordered_map:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/geom/Matrix3D.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/geom/Vector2D.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/core/event/EventDispatcher.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformMacros.h:
+
+jni/../../Monkey_libs/Monkey_libs/include/platform/PlatformConfig.h:

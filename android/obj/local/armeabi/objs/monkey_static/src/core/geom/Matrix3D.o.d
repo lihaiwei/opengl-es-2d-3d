@@ -32,7 +32,12 @@ obj/local/armeabi/objs/monkey_static/src/core/geom/Matrix3D.o: \
  /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/internal_types.h \
  /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/limits.h \
  /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/syslimits.h \
- /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm/page.h
+ /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm/page.h \
+ /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/time.h \
+ /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/time.h \
+ /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/linux/time.h \
+ /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm/siginfo.h \
+ /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm-generic/siginfo.h
 
 jni/../../Monkey_libs/Monkey_libs/include/core/geom/Matrix3D.h:
 
@@ -99,3 +104,13 @@ jni/../../Monkey_libs/Monkey_libs/include/core/geom/mmath.h:
 /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/syslimits.h:
 
 /Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm/page.h:
+
+/Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/time.h:
+
+/Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/time.h:
+
+/Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/linux/time.h:
+
+/Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm/siginfo.h:
+
+/Users/Neil/sdk/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm-generic/siginfo.h:
